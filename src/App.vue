@@ -1,30 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/GoGym-icon.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="app">
+    <AppHeader/>
+    <v-main>
+      <router-view/>
+    </v-main>
+<!--    <img alt="Vue logo" src="./assets/GoGym-icon.png">-->
+<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+  </v-app>
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from "@/components/Header";
+// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AppHeader
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
-  font-family: 'Rambla', cursive;
+  /*font-family: 'Rambla', cursive;*/
+  font-family: 'Rambla', sans-serif;
   background-color: #FFFFFF;
-  /*-webkit-font-smoothing: antialiased;*/
-  /*-moz-osx-font-smoothing: grayscale;*/
-  /*text-align: center;*/
-  /*color: #2c3e50;*/
-  /*margin-top: 60px;*/
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
+  //text-align: center;
+  color: #2c3e50;
+  //margin-top: 60px;
 }
+
 </style>
