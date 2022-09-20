@@ -1,20 +1,18 @@
 <template>
   <div>
-    <v-container fluid class="hero">
-      <v-row class="text-center" style="margin-top: 100px"  >
+    <v-container>
+      <v-row class="text-center" style="margin-top: 40px"  >
         <v-col>
-          <h1>Welcome to GoGym! </h1>
+          <h1 class="text--black"> Welcome to GoGym! </h1>
         </v-col>
       </v-row>
-<!--      <v-container >-->
-<!--        <v-row class="text-center" style="margin-top: 100px"  >-->
-
-<!--          <v-col>-->
-<!--            <h2> Find Workout ...</h2>-->
-<!--          </v-col>-->
-
-<!--        </v-row>-->
-<!--      </v-container>-->
+    </v-container>
+    <v-container fluid class="hero">
+        <v-row class="text-center" >
+          <v-col>
+            <h2 class="text--white"> Find workout routines made by others, edit them or make your own!</h2>
+          </v-col>
+        </v-row>
     </v-container>
   </div>
 </template>
@@ -29,6 +27,15 @@ export default {
 .hero {
   background-size: cover;
   background: url('../assets/HomeImage.png') center center;
-  height: 447px;
+  height: 650px;
+}
+
+h1{
+  font: normal normal bold 50px Rambla;
+  /*font-size: 50px;*/
+}
+h2 {
+  color: #FFFFFF;
+  font: normal normal normal 20px/30px Rambla;
 }
 </style>
