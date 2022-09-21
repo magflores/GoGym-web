@@ -14,6 +14,22 @@
           </v-col>
         </v-row>
     </v-container>
+    <v-container>
+      <v-row class="align-center">
+        <v-col>
+          <v-btn
+              class="mx-3 white--text "
+              dark
+              icon
+          >
+            <v-icon light size="24px" >
+              mdi-tick
+            </v-icon>
+          </v-btn>
+        </v-col>
+      </v-row>
+
+    </v-container>
   </div>
 </template>
 

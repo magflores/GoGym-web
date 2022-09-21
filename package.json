@@ -9,10 +9,11 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "material-design-icons-iconfont": "^6.7.0",
     "vue": "^2.6.14",
+    "vue-low-code": "^1.0.35",
     "vue-resource": "^1.5.3",
     "vue-router": "^3.6.5",
-    "vue-low-code": "^1.0.35",
     "vuetify": "^2.6.9"
   },
   "devDependencies": {

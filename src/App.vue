@@ -4,19 +4,20 @@
     <v-main>
       <router-view/>
     </v-main>
-<!--    <img alt="Vue logo" src="./assets/GoGym-icon.png">-->
-<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+    <Footer/>
   </v-app>
 </template>
 
 
 <script>
 import AppHeader from "@/components/Header";
+import Footer from "@/components/Footer";
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
+    Footer,
     AppHeader
   }
 }
@@ -28,13 +29,12 @@ export default {
   /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
   /*font-family: 'Rambla', cursive;*/
 
-  font-family: 'Rambla';
+  font-family: 'Rambla',serif;
   background-color: #FFFFFF;
   //-webkit-font-smoothing: antialiased;
   //-moz-osx-font-smoothing: grayscale;
   //text-align: center;
   //color: #2c3e50;
-  //margin-top: 10px;
 }
 ;
 
