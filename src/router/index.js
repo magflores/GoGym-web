@@ -2,12 +2,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Footer from "@/components/Footer";
+import RoutinesView from "@/views/RoutinesView";
 
 
 Vue.use(VueRouter)
 const routes = [
     {
-        path: '/',
+        path: '/home',
         name: 'home',
         component: HomeView
     },
@@ -15,6 +16,11 @@ const routes = [
         path:   '/footer',
         name: 'footer',
         component: Footer
+    },
+    {
+        path: '/routines',
+        name: 'routines',
+        component: RoutinesView
     }
     // ,
     // {
