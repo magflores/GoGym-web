@@ -1,12 +1,14 @@
 <template>
   <v-app-bar app
+             style="padding-top: 5px"
              color="white"
-             elevation="0"
-  ><div class="d-flex align-center">
+             elevation="2"
+             >
+    <div class="d-flex align-center">
     <a href="/home">
       <v-img :src="require('../assets/GoGym-icon.png')"
-             max-height="160"
-             max-width="160"
+             max-height="120"
+             max-width="120"
       />
     </a>
   </div>
@@ -18,21 +20,17 @@
     >
       Join Us
     </v-btn>
-
     <h2
         style="margin-right: 10px; margin-left: 10px"
-
     >
       |
     </h2>
-
     <v-btn
         text
         padless color="black"
     >
       Log In
     </v-btn>
-
   </v-app-bar>
 </template>
 

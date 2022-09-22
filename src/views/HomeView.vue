@@ -1,13 +1,13 @@
 <template>
   <div>
     <v-container>
-      <v-row class="text-center" style="margin-top: 40px"  >
+      <v-row class="text-center" style="margin-top: 40px">
         <v-col>
           <h1 class="text--black"> Welcome to GoGym! </h1>
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid class="hero">
+    <v-container class="hero">
       <v-row class="text-center" >
         <v-col>
           <h2 class="text--white"> Find workout routines made by others, edit them or make your own!</h2>
