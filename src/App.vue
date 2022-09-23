@@ -55,25 +55,25 @@
 <!--</script>-->
 <template>
   <v-app id="app">
-    <AppHeader/>
+<!--    <AppHeader/>-->
     <v-main>
-      <router-view/>
+      <router-view :key="$router.path"/>
     </v-main>
-    <Footer/>
+<!--    <Footer/>-->
   </v-app>
 </template>
 
 
 <script>
-import AppHeader from "@/components/Header";
-import Footer from "@/components/Footer";
+// import AppHeader from "@/components/Header";
+// import Footer from "@/components/Footer";
 // import HelloWorld from './components/HelloWorld.vue'
 export default {
   name: 'App',
-  components: {
-    Footer,
-    AppHeader
-  }
+  // components: {
+  //   Footer,
+  //   AppHeader
+  // }
 }
 </script>
 

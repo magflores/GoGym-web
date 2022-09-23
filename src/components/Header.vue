@@ -2,10 +2,10 @@
   <v-app-bar app
              style="padding-top: 5px"
              color="white"
-             elevation="2"
+             elevation="0"
              >
     <div class="d-flex align-center">
-    <a href="/home">
+    <a href="/">
       <v-img :src="require('../assets/GoGym-icon.png')"
              max-height="120"
              max-width="120"

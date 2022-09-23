@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AppHeader/>
     <v-container>
       <v-row class="text-center" style="margin-top: 40px">
         <v-col>
@@ -30,12 +31,22 @@
       </v-row>
 
     </v-container>
+    <BottomFooter/>
   </div>
 </template>
 
 <script>
+import BottomFooter from "@/components/BottomFooter";
+import AppHeader from "@/components/Header";
+
 export default {
-  name: "HomeView"
+  name: "HomeView",
+  // components: {}
+  components: {
+    BottomFooter,
+    AppHeader
+  }
+
 }
 </script>
 
