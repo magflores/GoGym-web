@@ -46,15 +46,6 @@
               dense
               required
           />
-          <v-btn
-              class="mx-3 white--text "
-              dark
-              icon
-          >
-            <v-icon light size="24px" >
-              mdi-tick
-            </v-icon>
-          </v-btn>
           <div class="text-center">
             <v-btn
                 width="20%"
