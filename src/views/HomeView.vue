@@ -13,19 +13,47 @@
             <h2 class="text--white"> Find workout routines made by others, edit them or make your own!</h2>
           </v-col>
         </v-row>
+      <v-row>
+        <v-btn
+            class="mx-3 white--text "
+            light
+            icon
+        >
+          <v-icon light size="24px" >
+            mdi-tick
+          </v-icon>
+        </v-btn>
+      </v-row>
     </v-container>
     <v-container>
       <v-row class="align-center">
+        <v-spacer></v-spacer>
         <v-col>
-          <v-btn
-              class="mx-3 white--text "
-              dark
-              icon
+          <v-btn icon
+          x-large
           >
-            <v-icon light size="24px" >
-              mdi-tick
-            </v-icon>
+              <img src="@/assets/check_box_.png">
+
           </v-btn>
+        </v-col>
+
+        <v-col>
+          <v-btn icon
+                 x-large
+          >
+            <img src="@/assets/check_box_.png">
+
+          </v-btn>
+
+        </v-col>
+        <v-btn icon
+               x-large
+        >
+          <img src="@/assets/check_box_.png">
+
+        </v-btn>
+        <v-col>
+
         </v-col>
       </v-row>
 
@@ -54,4 +82,6 @@ h2 {
   color: #FFFFFF;
   font: normal normal normal 20px/30px Rambla;
 }
+
+
 </style>
