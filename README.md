@@ -1,5 +1,5 @@
 # GoGym! (web)
-Explore and create workouts routines with GoGym!
+Explore and create workout routines with GoGym!
 
 ## Project setup
 ```bash
