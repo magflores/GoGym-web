@@ -2,13 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Footer from "@/components/Footer";
-import LogInView from '../views/LogInView.vue'
-import JoinUsView from "@/views/JoinUsView";
+import RoutinesView from "@/views/RoutinesView";
 
 Vue.use(VueRouter)
 const routes = [
     {
-        path: '/',
+        path: '/home',
         name: 'home',
         component: HomeView
     },
@@ -18,14 +17,9 @@ const routes = [
         component: Footer
     },
     {
-        path: '/login',
-        name: 'login',
-        component: LogInView
-    },
-    {
-        path: '/register',
-        name: 'register',
-        component: JoinUsView
+        path: '/routines',
+        name: 'routines',
+        component: RoutinesView
     }
     // ,
     // {

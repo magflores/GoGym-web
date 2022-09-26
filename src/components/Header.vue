@@ -1,12 +1,13 @@
 <template>
   <v-app-bar app
+             style="padding-top: 4px"
              color="white"
              elevation="0"
   ><div class="d-flex align-center">
     <a href="/home">
       <v-img :src="require('../assets/GoGym-icon.png')"
-             max-height="160"
-             max-width="160"
+             max-height="120"
+             max-width="120"
       />
     </a>
   </div>
