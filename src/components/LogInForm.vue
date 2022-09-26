@@ -9,6 +9,7 @@
               placeholder="Enter your email"
               outlined
               dense
+              :rules="emailRules"
               required
           />
           <v-text-field
@@ -16,6 +17,7 @@
               placeholder="Enter your password"
               outlined
               dense
+              :rules="passwordRules"
               required
           />
         </v-form>
@@ -36,7 +38,14 @@
 
 <script>
 export default {
-  name: 'LogInForm'
+  name: 'LogInForm',
+  data: () => ({
+    emailRules: [
+      v => !!v || "Enter your email",
+      v => /.+@.+/.test(v) || "Invalid email"
+    ],
+    passwordRules: [v => !!v || "Enter your password", v => v.length >= 6 || 'Must contain at least 6 characters'],
+  }),
 }
 </script>
 

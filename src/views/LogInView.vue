@@ -22,6 +22,7 @@ export default {
     CLogInForm: LogInForm
   }
 }
+
 </script>
 
 <style>
