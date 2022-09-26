@@ -3,11 +3,13 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Footer from "@/components/Footer";
 import RoutinesView from "@/views/RoutinesView";
+import JoinUsView from "@/views/JoinUsView";
+import LogInView from "@/views/LogInView";
 
 Vue.use(VueRouter)
 const routes = [
     {
-        path: '/home',
+        path: '/',
         name: 'home',
         component: HomeView
     },
@@ -20,7 +22,18 @@ const routes = [
         path: '/routines',
         name: 'routines',
         component: RoutinesView
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: JoinUsView
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: LogInView
     }
+
     // ,
     // {
     //     path: "/notfound",

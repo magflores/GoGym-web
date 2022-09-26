@@ -4,7 +4,7 @@
              color="white"
              elevation="0"
   ><div class="d-flex align-center">
-    <a href="/home">
+    <a href="/">
       <v-img :src="require('../assets/GoGym-icon.png')"
              max-height="120"
              max-width="120"
@@ -16,6 +16,7 @@
     <v-btn
         text
         padless color="black"
+        href="/register"
     >
       Join Us
     </v-btn>
@@ -30,6 +31,7 @@
     <v-btn
         text
         padless color="black"
+        href="/login"
     >
       Log In
     </v-btn>
