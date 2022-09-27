@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="3"></v-col>
       <v-col  class="align-center" cols="6" >
-        <v-form>
+        <v-form class="form-font">
           <v-text-field
               label="Email"
               placeholder="Enter your email"
@@ -22,7 +22,7 @@
           />
         </v-form>
         <div class="text-center">
-          <v-btn
+          <v-btn class="enter-button-font"
               width="20%"
               rounded
               color="#F8C256"
@@ -50,10 +50,12 @@ export default {
 </script>
 
 <style>
-.v-btn {
+.form-font {
+  font-family: 'Roboto', sans-serif;
+}
+.enter-button-font {
   color: #FFFFFF;
   font-weight: bold;
   font-family: Rambla, sans-serif;
 }
-
 </style>

@@ -33,7 +33,7 @@ export default {
   font-style: italic;
   font-family: Rambla, sans-serif;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 

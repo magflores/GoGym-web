@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="3"></v-col>
       <v-col class="align-center" cols="6">
-        <v-form>
+        <v-form class="form-font">
           <v-text-field
               label="Name"
               placeholder="Enter your name"
@@ -30,7 +30,7 @@
           />
           <v-text-field
               label="Birthday"
-              placeholder="Enter your birthday"
+              placeholder="Enter your birthday with format dd/mm/yyyy"
               outlined
               dense
               :rules="birthdayRules"
@@ -53,7 +53,7 @@
               required
           />
           <div class="text-center">
-            <v-btn
+            <v-btn class="register-button-font"
                 width="20%"
                 rounded
                 color="#F8C256"
@@ -95,13 +95,13 @@ export default {
 </script>
 
 <style>
-.register-font {
-  font-size: 300%;
-  color: #F8C256;
+.form-font {
+  font-family: 'Roboto', sans-serif;
+}
+.register-button-font {
+  color: #FFFFFF;
   font-weight: bold;
-  font-style: italic;
   font-family: Rambla, sans-serif;
-  text-align: center;
-  margin-top: 60px;
+  margin-bottom: 40px;
 }
 </style>

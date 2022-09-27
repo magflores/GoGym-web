@@ -24,3 +24,15 @@ export default {
   }
 }
 </script>
+
+<style>
+.register-font {
+  font-size: 300%;
+  color: #F8C256;
+  font-weight: bold;
+  font-style: italic;
+  font-family: Rambla, sans-serif;
+  text-align: center;
+  margin-top: 40px;
+}
+</style>

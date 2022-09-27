@@ -6,6 +6,7 @@ import RoutinesView from "@/views/RoutinesView";
 import JoinUsView from "@/views/JoinUsView";
 import LogInView from "@/views/LogInView";
 import RoutineDetailedView from "@/views/RoutineDetailedView";
+import ProfileView from "@/views/ProfileView";
 
 Vue.use(VueRouter)
 const routes = [
@@ -33,6 +34,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: LogInView
+    },
+    {
+        path: '/profile',
+        component: ProfileView,
+        name: 'profile',
     },
     {
         path: '/routinedetailed',
