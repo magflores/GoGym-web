@@ -1,15 +1,14 @@
 <template>
   <div>
-    <!--  <v-app>-->
-    <!--    <v-main>-->
-    <!--      <v-app-bar flat app clipped-left>
-            <v-row justify="center">Rutina</v-row>
-          </v-app-bar>-->
-    <v-navigation-drawer app clipped>
+    <v-navigation-drawer  clipped app permanent>
+      <v-col/>
+      <v-col/>
+
       <div class="d-flex flex-column align-center mb-6">
         <h3>Abs routine</h3>
         <p>@juancito</p>
         <p>Easy</p>
+
         <v-btn text>
           <v-icon>mdi-heart</v-icon>
           <div>Favourite</div>
@@ -24,6 +23,8 @@
         </v-btn>
       </div>
     </v-navigation-drawer>
+    <v-col></v-col>
+    <v-col cols="30">
     <v-container fluid class="px-10">
       <div class="d-flex flex-column">
         <v-card elevation="1" class="justify-center rounded-xl my-5" @click="warmup = ! warmup">
@@ -49,8 +50,8 @@
         </v-card>
       </div>
     </v-container>
-    <!--    </v-main>-->
-    <!--  </v-app>-->
+    </v-col>
+
   </div>
 </template>
 
