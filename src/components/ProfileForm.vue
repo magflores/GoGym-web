@@ -1,41 +1,95 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="1">
-        <v-col cols="2" class="col-1-font">
+      <v-col>
+      <v-card outlined class="container-font" max-width="700%" max-height="700%">
+        <v-card-actions>
           <v-form class="form-font">
           <!--Name, Surname, Email, Birthday-->
-            <v-text-field
-                label="Name"
-                placeholder="Enter your name"
-                outlined
-                dense
-                required
-            />
-            <v-text-field
-                label="Surname"
-                placeholder="Enter your surname"
-                outlined
-                dense
-                required
-            />
-            <v-text-field
-                label="Email"
-                placeholder="Enter your email"
-                outlined
-                dense
-                required
-            />
-            <v-text-field
-                label="Birthday"
-                placeholder="Enter your birthday"
-                outlined
-                dense
-                required
-            />
+            <v-row>
+              <v-text-field
+                  label="Name"
+                  placeholder="Enter your name"
+                  outlined
+                  dense
+                  required
+              />
+            </v-row>
+            <v-row>
+              <v-text-field
+                  label="Surname"
+                  placeholder="Enter your surname"
+                  outlined
+                  dense
+                  required
+              />
+            </v-row>
+            <v-row>
+              <v-text-field
+                  label="Email"
+                  placeholder="Enter your email"
+                  outlined
+                  dense
+                  required
+              />
+            </v-row>
+            <v-row>
+              <v-text-field
+                  label="Birthday"
+                  placeholder="Enter your birthday"
+                  outlined
+                  dense
+                  required
+              />
+            </v-row>
           </v-form>
-        </v-col>
-
+        </v-card-actions>
+        <v-card-actions>
+          <v-row>
+            <v-btn class="button-font"
+              width="20%"
+              rounded
+              color="#C8C8C8"
+              dark
+            >
+              Cancel
+            </v-btn>
+          </v-row>
+            <v-row>
+            <v-btn class="button-font"
+              width="20%"
+              rounded
+              color="#F8C256"
+              dark
+            >
+              Save
+            </v-btn>
+          </v-row>
+        </v-card-actions>
+      </v-card>
+      </v-col>
+      <v-col cols="6">
+        <v-card outlined class="container-font">
+          <v-card-actions>
+            <v-form class="form-font">
+            <!--Password, Confirm password-->
+              <v-text-field
+                  label="Password"
+                  placeholder="Enter your password"
+                  outlined
+                  dense
+                  required
+              />
+              <v-text-field
+                  label="Confirm password"
+                  placeholder="Enter your password again"
+                  outlined
+                  dense
+                  required
+              />
+            </v-form>
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -44,7 +98,15 @@
 <script> </script>
 
 <style>
-.col-1-font {
+.container-font {
   font-family: 'Roboto', sans-serif;
+  outline-style: solid;
+  outline-color: #F8C256;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.form-font {
+  width: 100%;
 }
 </style>
