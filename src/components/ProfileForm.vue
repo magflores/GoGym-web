@@ -4,10 +4,10 @@
       <v-col cols="6">
       <v-card outlined class="container-font">
         <v-card-actions>
-          <v-form class="form-font">
+          <v-form class="form-profile-font">
           <!--Name, Surname, Email, Birthday-->
             <v-row>
-              <v-col>
+              <v-col cols="20">
               <v-text-field
                   label="Name"
                   placeholder="Enter your name"
@@ -55,7 +55,6 @@
             <v-row>
               <v-col>
                 <v-btn class="button-font"
-                       width="20%"
                        rounded
                        color="#C8C8C8"
                        dark
@@ -66,7 +65,6 @@
               </v-col>
               <v-col>
                 <v-btn class="button-font"
-                       width="20%"
                        rounded
                        color="#F8C256"
                        dark
@@ -77,14 +75,13 @@
               </v-col>
             </v-row>
           </v-form>
-
         </v-card-actions>
       </v-card>
       </v-col>
       <v-col cols="6">
         <v-card outlined class="container-font">
           <v-card-actions>
-            <v-form class="form-font">
+            <v-form class="form-profile-font">
             <!--Password, Confirm password-->
               <v-text-field
                   label="Password"
@@ -100,6 +97,18 @@
                   dense
                   required
               />
+              <v-row>
+                <v-col>
+                  <v-btn class="button-font"
+                         rounded
+                         color="#F8C256"
+                         dark
+                         large
+                  >
+                    Change
+                  </v-btn>
+                </v-col>
+              </v-row>
             </v-form>
           </v-card-actions>
         </v-card>
@@ -115,11 +124,18 @@
   font-family: 'Roboto', sans-serif;
   outline-style: solid;
   outline-color: #F8C256;
-  width: 50%;
-  display: flex;
+  width: 100%;
   justify-content: center;
 }
-.form-font {
+.form-profile-font {
+  width: 200%;
+  font-weight: bold;
+  align-content: center;
+}
+.button-font {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
   width: 100%;
 }
 </style>

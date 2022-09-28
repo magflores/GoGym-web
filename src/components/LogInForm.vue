@@ -52,6 +52,8 @@ export default {
 <style>
 .form-font {
   font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  align-content: center;
 }
 .enter-button-font {
   color: #FFFFFF;
