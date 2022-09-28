@@ -2,25 +2,31 @@
   <div>
 
     <v-navigation-drawer  clipped absolute permanent>
-      <v-row  style="margin-left: 50px;margin-top: 100px">
+      <v-row  style="margin-left: 20px;margin-top: 100px">
 
       <div class="d-flex flex-column align-center mb-6">
-        <h3>Abs routine</h3>
+        <h2>Abs routine</h2>
         <p>@juancito</p>
         <p>Easy</p>
 
-        <v-btn text>
-          <v-icon>mdi-heart</v-icon>
+        <v-row  style="margin-left: 60px;margin-top: 300px">
+        <v-btn
+            class="form-font"
+            text
+            @click="show = !show"
+        >
+          <v-icon>{{!show ? 'mdi-heart-outline' : 'mdi-heart' }}</v-icon>
           <div>Favourite</div>
         </v-btn>
-        <v-btn text>
+        <v-btn class="form-font" text>
           <v-icon>mdi-pencil</v-icon>
           <div>Edit</div>
         </v-btn>
-        <v-btn text>
+        <v-btn class="form-font" text>
           <v-icon>mdi-delete</v-icon>
           <div>Delete</div>
         </v-btn>
+        </v-row>
       </div>
       </v-row>
     </v-navigation-drawer>
@@ -69,7 +75,8 @@ export default {
     return {
       warmup: false,
       firstround: true,
-      cooldown: false
+      cooldown: false,
+      show: false,
     }
   }
 }
