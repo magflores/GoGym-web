@@ -1,8 +1,7 @@
 <template>
   <v-container>
-    <v-row>
-      <v-col cols="3"></v-col>
-      <v-col class="align-center" cols="6">
+    <v-row justify="center">
+      <v-sheet width="40%">
         <v-form class="form-font">
           <v-text-field
               label="Name"
@@ -11,6 +10,7 @@
               dense
               :rules="nameRules"
               required
+              color="black"
           />
           <v-text-field
               label="Surname"
@@ -19,6 +19,7 @@
               dense
               :rules="surnameRules"
               required
+              color="black"
           />
           <v-text-field
               label="Email"
@@ -27,6 +28,7 @@
               dense
               :rules="emailRules"
               required
+              color="black"
           />
           <v-text-field
               label="Birthday"
@@ -35,6 +37,7 @@
               dense
               :rules="birthdayRules"
               required
+              color="black"
           />
           <v-text-field
               label="Password"
@@ -43,6 +46,7 @@
               dense
               :rules="passwordRules"
               required
+              color="black"
           />
           <v-text-field
               label="Confirm password"
@@ -51,19 +55,20 @@
               dense
               :rules="confirmPasswordRules"
               required
+              color="black"
           />
           <div class="text-center">
             <v-btn class="register-button-font"
-                width="20%"
-                rounded
-                color="#F8C256"
-                dark
+                   width="20%"
+                   rounded
+                   color="#F8C256"
+                   dark
             >
               REGISTER
             </v-btn>
           </div>
         </v-form>
-      </v-col>
+      </v-sheet>
     </v-row>
   </v-container>
 </template>
@@ -94,10 +99,19 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.v-text-field--outlined >>> fieldset {
+  border-color: black;
+  border-width: 3px;
+  border-radius: 10px;
+  height: 50px;
+}
+
 .form-font {
   font-family: 'Roboto', sans-serif;
 }
+
 .register-button-font {
   color: #FFFFFF;
   font-weight: bold;
