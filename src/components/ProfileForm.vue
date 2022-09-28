@@ -1,12 +1,13 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>
-      <v-card outlined class="container-font" max-width="700%" max-height="700%">
+      <v-col cols="6">
+      <v-card outlined class="container-font">
         <v-card-actions>
           <v-form class="form-font">
           <!--Name, Surname, Email, Birthday-->
             <v-row>
+              <v-col>
               <v-text-field
                   label="Name"
                   placeholder="Enter your name"
@@ -14,8 +15,10 @@
                   dense
                   required
               />
+              </v-col>
             </v-row>
-            <v-row>
+            <v-row >
+              <v-col>
               <v-text-field
                   label="Surname"
                   placeholder="Enter your surname"
@@ -23,8 +26,11 @@
                   dense
                   required
               />
+              </v-col>
             </v-row>
+
             <v-row>
+              <v-col>
               <v-text-field
                   label="Email"
                   placeholder="Enter your email"
@@ -32,8 +38,11 @@
                   dense
                   required
               />
+              </v-col>
             </v-row>
+
             <v-row>
+              <v-col>
               <v-text-field
                   label="Birthday"
                   placeholder="Enter your birthday"
@@ -41,30 +50,34 @@
                   dense
                   required
               />
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <v-btn class="button-font"
+                       width="20%"
+                       rounded
+                       color="#C8C8C8"
+                       dark
+                       large
+                >
+                  Cancel
+                </v-btn>
+              </v-col>
+              <v-col>
+                <v-btn class="button-font"
+                       width="20%"
+                       rounded
+                       color="#F8C256"
+                       dark
+                       large
+                >
+                  Save
+                </v-btn>
+              </v-col>
             </v-row>
           </v-form>
-        </v-card-actions>
-        <v-card-actions>
-          <v-row>
-            <v-btn class="button-font"
-              width="20%"
-              rounded
-              color="#C8C8C8"
-              dark
-            >
-              Cancel
-            </v-btn>
-          </v-row>
-            <v-row>
-            <v-btn class="button-font"
-              width="20%"
-              rounded
-              color="#F8C256"
-              dark
-            >
-              Save
-            </v-btn>
-          </v-row>
+
         </v-card-actions>
       </v-card>
       </v-col>
