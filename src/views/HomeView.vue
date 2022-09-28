@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-      <v-row class="text-center" style="margin-top: 40px"  >
+      <v-row class="text-center" style="margin-top: 10px"  >
         <v-col>
           <h1> Welcome to GoGym! </h1>
         </v-col>
@@ -13,17 +13,6 @@
             <h2> Find workout routines made by others, edit them or make your own!</h2>
           </v-col>
         </v-row>
-      <v-row>
-        <v-btn
-            class="mx-3 white--text "
-            light
-            icon
-        >
-          <v-icon light size="24px" >
-            mdi-tick
-          </v-icon>
-        </v-btn>
-      </v-row>
     </v-container>
 
     <v-container>
@@ -34,11 +23,13 @@
                  height="150px"
                  width="150"
           >
-            <v-icon size="1000%" color="black"> mdi-checkbox-outline </v-icon>
+            <v-icon size="1000%" color="#606367"> mdi-checkbox-outline </v-icon>
 
           </v-btn>
+          <v-col cols="6">
           <div> choose from 700 routines for your training</div>
 
+          </v-col>
         </v-col>
 
         <v-col cols="4">
@@ -47,9 +38,11 @@
                  width="150"
           >
 
-            <v-icon size="1000%" color="black">mdi-plus-box-outline</v-icon>
+            <v-icon size="1000%" color="#606367">mdi-plus-box-outline</v-icon>
           </v-btn>
+          <v-col cols="6">
           <div> create your own training routines</div>
+          </v-col>
         </v-col>
 
         <v-col cols="3">
@@ -58,9 +51,11 @@
                  width="150"
           >
 
-            <v-icon size="1000%" color="black">mdi-square-edit-outline</v-icon>
+            <v-icon size="1000%" color="#606367">mdi-square-edit-outline</v-icon>
           </v-btn>
+          <v-col cols="6">
           <div>personalize your training!</div>
+          </v-col>
         </v-col>
 
       </v-row>
@@ -79,7 +74,7 @@ export default {
 .hero {
   background-size: cover;
   background: url('../assets/HomeImage.png') center ;
-  height: 750px;
+  height: 770px;
 
 }
 
