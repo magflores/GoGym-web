@@ -46,13 +46,13 @@ const routes = [
         component: RoutineDetailedView
     }
 
-    // ,
-    // {
-    //     path: "/notfound",
-    //     alias: "*",
-    //     name: "NotFound",
-    //     component: () => import(/* webpackChunkName: "NotFound" */ "../views/NotFound.vue")
-    // }
+    ,
+    {
+        path: "/notfound",
+        alias: "*",
+        name: "NotFound",
+        component: () => import("../views/NotFound.vue")
+    }
 ]
 
 const router = new VueRouter ({

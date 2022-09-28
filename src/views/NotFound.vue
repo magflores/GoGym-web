@@ -1,7 +1,12 @@
 <template>
   <div>
-    <h1>404 Not found</h1>
-    <h2>Oops... Salí de aca amigo</h2>
+    <v-container>
+    <v-row class="align-center" style="margin-left: 250px; margin-right: 250px; margin-top: 10px">
+      <v-col>
+        <v-img :src="require('../assets/notFound.png')" max-width="600px"/>
+      </v-col>
+    </v-row>
+    </v-container>
   </div>
 </template>
 
