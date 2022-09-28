@@ -31,11 +31,11 @@
         <v-spacer></v-spacer>
         <v-col cols="4">
           <v-btn icon
-                 x-large
                  height="150px"
                  width="150"
           >
-            <v-img :src="require('../assets/check_box_.png')" max-width="150px"/>
+            <v-icon size="1000%" color="black"> mdi-checkbox-outline </v-icon>
+
           </v-btn>
           <div> choose from 700 routines for your training</div>
 
@@ -43,23 +43,22 @@
 
         <v-col cols="4">
           <v-btn icon
-                 x-large
                  height="150px"
                  width="150"
           >
-            <v-img :src="require('../assets/check_box_.png')" max-width="150px"/>
 
+            <v-icon size="1000%" color="black">mdi-plus-box-outline</v-icon>
           </v-btn>
           <div> create your own training routines</div>
         </v-col>
 
         <v-col cols="3">
           <v-btn icon
-                 x-large
                  height="150px"
                  width="150"
           >
-            <v-img :src="require('../assets/check_box_.png')" max-width="150px"/>
+
+            <v-icon size="1000%" color="black">mdi-square-edit-outline</v-icon>
           </v-btn>
           <div>personalize your training!</div>
         </v-col>
@@ -79,8 +78,9 @@ export default {
 <style scoped>
 .hero {
   background-size: cover;
-  background: url('../assets/HomeImage.png') center center;
-  height: 650px;
+  background: url('../assets/HomeImage.png') center ;
+  height: 750px;
+
 }
 
 h1{
@@ -93,6 +93,11 @@ h2 {
   color: #FFFFFF;
   font: normal normal normal 20px/30px Rambla;
 }
+
+/*.icon-font {*/
+/*  size: 1000%;*/
+/*  color: black;*/
+/*}*/
 
 
 </style>
