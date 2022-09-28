@@ -20,6 +20,7 @@ export default {
 <style>
 .font {
   font-family: Rambla, sans-serif;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: bold;
 }
 </style>

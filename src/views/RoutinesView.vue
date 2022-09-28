@@ -12,6 +12,7 @@
               depressed
               left
               x-large
+              class="rambla-font"
               onclick="all = true"
           >
             All Routines
@@ -24,6 +25,7 @@
               left
               x-large
               onclick="all = false"
+              class="rambla-font"
           >
             My Routines
           </v-btn>
@@ -34,6 +36,7 @@
               depressed
               left
               x-large
+              class="rambla-font"
           >
             Favourites
           </v-btn>
@@ -54,9 +57,9 @@
               hide-slider
 
           >
-            <v-tab>Routines</v-tab>
+            <v-tab class="rambla-font" >Routines</v-tab>
 
-            <v-tab>Exercises</v-tab>
+            <v-tab class="rambla-font" >Exercises</v-tab>
           </v-tabs>
           </v-row>
         </v-card>

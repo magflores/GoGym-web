@@ -12,12 +12,13 @@
       />
     </a>
   </div>
-    <h2>GoGym!</h2>
+    <h1>GoGym!</h1>
     <v-spacer/>
     <v-btn
         text
         padless color="black"
         href="/register"
+        class="rambla-font"
     >
       Join Us
     </v-btn>
@@ -33,6 +34,7 @@
         text
         padless color="black"
         href="/login"
+        class="rambla-font"
     >
       Log In
     </v-btn>
@@ -50,11 +52,9 @@ export default {
 </script>
 
 <style>
-/*v-btn{*/
-/*  font: normal normal normal 40px/50px Rambla;*/
-/*}*/
-h2 {
-  color: black;
-  font: normal normal bold 30px Rambla;
-}
+  .rambla-font {
+    font-family: 'Rambla', sans-serif;
+    font-weight: bold;
+
+  }
 </style>
