@@ -25,36 +25,45 @@
         </v-btn>
       </v-row>
     </v-container>
+
     <v-container>
       <v-row class="align-center">
         <v-spacer></v-spacer>
-        <v-col>
-          <v-btn icon
-          x-large
-          >
-              <img src="@/assets/check_box_.png">
-
-          </v-btn>
-        </v-col>
-
-        <v-col>
+        <v-col cols="4">
           <v-btn icon
                  x-large
+                 height="150px"
+                 width="150"
           >
-            <img src="@/assets/check_box_.png">
+            <v-img :src="require('../assets/check_box_.png')" max-width="150px"/>
+          </v-btn>
+          <div> choose from 700 routines for your training</div>
+
+        </v-col>
+
+        <v-col cols="4">
+          <v-btn icon
+                 x-large
+                 height="150px"
+                 width="150"
+          >
+            <v-img :src="require('../assets/check_box_.png')" max-width="150px"/>
 
           </v-btn>
-
+          <div> create your own training routines</div>
         </v-col>
-        <v-btn icon
-               x-large
-        >
-          <img src="@/assets/check_box_.png">
 
-        </v-btn>
-        <v-col>
-
+        <v-col cols="3">
+          <v-btn icon
+                 x-large
+                 height="150px"
+                 width="150"
+          >
+            <v-img :src="require('../assets/check_box_.png')" max-width="150px"/>
+          </v-btn>
+          <div>personalize your training!</div>
         </v-col>
+
       </v-row>
 
     </v-container>

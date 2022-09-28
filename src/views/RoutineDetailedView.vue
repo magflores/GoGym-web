@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-navigation-drawer  clipped app permanent>
-      <v-col/>
-      <v-col/>
+
+    <v-navigation-drawer  clipped absolute permanent>
+      <v-row  style="margin-left: 50px;margin-top: 100px">
 
       <div class="d-flex flex-column align-center mb-6">
         <h3>Abs routine</h3>
@@ -22,10 +22,13 @@
           <div>Delete</div>
         </v-btn>
       </div>
+      </v-row>
     </v-navigation-drawer>
-    <v-col></v-col>
-    <v-col cols="30">
-    <v-container fluid class="px-10">
+
+
+
+      <v-row  style="margin-top: 20px;margin-left: 250px">
+        <v-container fluid class="px-10">
       <div class="d-flex flex-column">
         <v-card elevation="1" class="justify-center rounded-xl my-5" @click="warmup = ! warmup">
           <v-card-title class="justify-center routine-title" :class="(warmup) ? 'rounded-t-xl' : 'rounded-xl'">Warm Up</v-card-title>
@@ -49,8 +52,10 @@
           <v-card-text class="routine-content" v-show="cooldown">hello</v-card-text>
         </v-card>
       </div>
-    </v-container>
-    </v-col>
+        </v-container>
+      </v-row>
+
+
 
   </div>
 </template>

@@ -1,15 +1,52 @@
 <template>
-  <div
-    :style="{backgroundColor: variant.color}"
-    class="color-box"
-  >
-    <v-spacer/>
-    <v-container>
-      <v-row class="align-center text-center justify-center">
-        <v-col>
+  <div>
+
+    <v-navigation-drawer
+        clipped absolute permanent :style="{backgroundColor: variant.color}"
+
+    >
+      <v-col/>
+      <v-col/>
+
+      <div class="d-flex flex-column align-center mb-6">
+        <v-row>
+          <v-btn
+              text
+              depressed
+              left
+              x-large
+          >
+            All Routines
+          </v-btn>
+        </v-row>
+        <v-row>
+          <v-btn
+              text
+              depressed
+              left
+              x-large
+          >
+            My Routines
+          </v-btn>
+        </v-row>
+        <v-row>
+          <v-btn
+              text
+              depressed
+              left
+              x-large
+          >
+            Favourites
+          </v-btn>
+        </v-row>
+      </div>
+    </v-navigation-drawer>
+
+
         <v-card
           color="#D1FD7A"
         >
+          <v-row  style="margin-top: 1px;margin-left: 200px">
           <v-tabs
               background-color="#D1FD7A"
               centered
@@ -17,46 +54,74 @@
               color="black"
               grow
               hide-slider
+              align-with-title
           >
-            <v-tab>Routines</v-tab>
+            <v-tab>
+              Routines
+            </v-tab>
+
             <v-tab>Exercises</v-tab>
 
           </v-tabs>
+          </v-row>
         </v-card>
-        </v-col>
-      </v-row>
+    <v-row>
+      <v-col>
+<!--        COMENTARIO: ESTO ESTA HARDCODEADO, LO CAMBIAMOS CUANDO ESTE LA API-->
 
+        <v-row  style="margin-top: 20px; margin-bottom: 20px; margin-left: 270px">
+          <v-col>
+            <a href="/routinedetailed">
+              <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
+            </a>
+          </v-col>
 
-      <v-row>
-        <v-btn
-          text
-          depressed
-          left
+          <v-col>
+            <a href="/routinedetailed">
+              <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
+            </a>
+          </v-col>
 
-        >
-          All Routines
-        </v-btn>
-      </v-row>
-      <v-row>
-        <v-btn
-            text
-            depressed
-            left
-        >
-          My Routines
-        </v-btn>
-      </v-row>
-      <v-row>
-        <v-btn
-            text
-            depressed
-            left
-        >
-          Favourites
-        </v-btn>
-      </v-row>
+          <v-col>
+            <a href="/routinedetailed">
+              <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>
+            </a>
+          </v-col>
 
-    </v-container>
+          <v-col>
+            <a href="/routinedetailed">
+              <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>
+            </a>
+          </v-col>
+
+          <v-col>
+            <a href="/routinedetailed">
+              <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>
+            </a>
+          </v-col>
+
+          <v-col>
+            <a href="/routinedetailed">
+              <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>
+            </a>
+          </v-col>
+
+          <v-col>
+            <a href="/routinedetailed">
+              <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
+            </a>
+          </v-col>
+
+          <v-col>
+            <a href="/routinedetailed">
+              <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
+            </a>
+          </v-col>
+
+        </v-row>
+      </v-col>
+    </v-row>
+
   </div>
 </template>
 
@@ -66,8 +131,9 @@ export default {
   data: () => ({
     user: {},
     variant: {
-      color: '#D1FD7A',
+    color: '#D1FD7A',
     },
+    expand: false,
   }),
 }
 </script>
