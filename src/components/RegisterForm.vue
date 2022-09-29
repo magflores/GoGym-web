@@ -165,6 +165,8 @@ export default {
 
 .form-font {
   font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  align-content: center;
 }
 
 .register-button-font {

@@ -2,53 +2,55 @@
   <v-container>
     <v-row>
       <v-col cols="6">
-      <v-card outlined class="container-font">
+      <v-card round outlined class="rounded-xl container-font">
         <v-card-actions>
           <v-form class="form-profile-font" ref="form" v-model="valid" lazy-validation>
           <!--Name, Surname, Email, Birthday-->
             <v-row>
-              <v-col cols="20">
-              <v-text-field
-                  label="Name"
-                  v-model="name"
-                  placeholder="Enter your name"
-                  outlined
-                  dense
-                  :rules="nameRules"
-                  required
-              />
+              <v-col cols="20" style="padding-top: 20px" class="box-style">
+                <v-text-field
+                    label="Name"
+                    v-model="name"
+                    placeholder="Enter your name"
+                    outlined
+                    dense
+                    :rules="nameRules"
+                    color="black"
+                    required
+                />
               </v-col>
             </v-row>
             <v-row >
-              <v-col>
-              <v-text-field
-                  label="Surname"
-                  v-model="surname"
-                  placeholder="Enter your surname"
-                  outlined
-                  dense
-                  :rules="surnameRules"
-                  required
-              />
+              <v-col class="box-style">
+                <v-text-field
+                    label="Surname"
+                    v-model="surname"
+                    placeholder="Enter your surname"
+                    outlined
+                    dense
+                    :rules="surnameRules"
+                    color="black"
+                    required
+                />
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col class="box-style">
+                <v-text-field
+                    label="Email"
+                    v-model="email"
+                    placeholder="Enter your email"
+                    outlined
+                    dense
+                    :rules="emailRules"
+                    color="black"
+                    required
+                />
               </v-col>
             </v-row>
 
             <v-row>
-              <v-col>
-              <v-text-field
-                  label="Email"
-                  v-model="email"
-                  placeholder="Enter your email"
-                  outlined
-                  dense
-                  :rules="emailRules"
-                  required
-              />
-              </v-col>
-            </v-row>
-
-            <v-row>
-              <v-col>
+              <v-col class="box-style">
                 <v-menu
                     ref="menu"
                     v-model="menu"
@@ -70,6 +72,7 @@
                         @blur="date = parseDate(dateFormatted)"
                         v-on="on"
                         :rules="birthdayRules"
+                        color="black"
                         required
                     ></v-text-field>
                   </template>
@@ -83,7 +86,7 @@
               </v-col>
             </v-row>
             <v-row>
-              <v-col>
+              <v-col style="padding-bottom: 20px">
                 <v-btn class="button-font"
                        rounded
                        color="#C8C8C8"
@@ -94,7 +97,7 @@
                   Cancel
                 </v-btn>
               </v-col>
-              <v-col>
+              <v-col style="padding-bottom: 20px">
                 <v-btn class="button-font"
                        rounded
                        color="#F8C256"
@@ -110,7 +113,7 @@
       </v-card>
       </v-col>
       <v-col cols="6">
-        <v-card outlined class="container-font">
+        <v-card round outlined class="rounded-xl container-font">
           <v-card-actions>
             <v-form class="form-profile-font" ref="form" v-model="valid" lazy-validation>
             <!--Password, Confirm password-->
@@ -124,6 +127,7 @@
                   required
                   :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                   @click:append="show = !show"
+                  color="black"
 
               />
               <v-text-field
@@ -136,9 +140,10 @@
                   required
                   :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
                   @click:append="show1 = !show1"
+                  color="black"
               />
               <v-row>
-                <v-col>
+                <v-col >
                   <v-btn class="button-font"
                          rounded
                          color="#F8C256"
@@ -229,13 +234,25 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.v-text-field--outlined >>> fieldset {
+  border-color: black;
+  border-width: 3px;
+  border-radius: 10px;
+  height: 50px;
+}
 .container-font {
   font-family: 'Roboto', sans-serif;
-  outline-style: solid;
-  outline-color: #F8C256;
+  /*outline-style: solid;*/
+  /*outline-color: #F8C256;*/
+  border-width: 5px;
+  border-color: #F8C256;
   width: 100%;
   justify-content: center;
+  padding: 15px;
+}
+.box-style {
+  padding-bottom: 2px;
 }
 .form-profile-font {
   width: 200%;
