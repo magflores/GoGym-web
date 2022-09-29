@@ -26,7 +26,7 @@
             <v-icon size="1000%" color="#606367"> mdi-checkbox-outline </v-icon>
 
           </v-btn>
-          <v-col cols="6">
+          <v-col>
           <div class="text-container">choose from 700 routines for your training</div>
 
           </v-col>
@@ -40,7 +40,7 @@
 
             <v-icon size="1000%" color="#606367">mdi-plus-box-outline</v-icon>
           </v-btn>
-          <v-col cols="6">
+          <v-col>
           <div class="text-container"> create your own training routines</div>
           </v-col>
         </v-col>
@@ -53,7 +53,7 @@
 
             <v-icon size="1000%" color="#606367">mdi-square-edit-outline</v-icon>
           </v-btn>
-          <v-col cols="6">
+          <v-col>
           <div class="text-container">personalize your training!</div>
           </v-col>
         </v-col>
