@@ -7,7 +7,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid class="hero">
+    <v-container fluid class="hero" style="padding-top: 2%">
         <v-row class="text-center" >
           <v-col>
             <h2> Find workout routines made by others, edit them or make your own!</h2>
