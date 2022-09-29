@@ -1,9 +1,9 @@
 <template>
   <v-app-bar app
-             style="padding-top: 4px"
              color="white"
              elevation="0"
              clipped-left
+             height="80px"
   ><div class="d-flex align-center">
     <a href="/">
       <v-img :src="require('../assets/GoGym-icon.png')"

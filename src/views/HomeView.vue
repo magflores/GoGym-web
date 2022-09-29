@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-container>
-      <v-row class="text-center" style="margin-top: 10px"  >
+    <v-container style="padding-top: 3px">
+      <v-row class="text-center">
         <v-col>
           <h1> Welcome to GoGym! </h1>
         </v-col>
@@ -16,7 +16,7 @@
     </v-container>
 
     <v-container>
-      <v-row class="align-center">
+      <v-row class="align-center" style="margin-bottom: 3px">
         <v-spacer></v-spacer>
         <v-col style="text-align: center" cols="4">
           <v-btn icon
@@ -90,10 +90,11 @@ h2 {
 
 .text-container {
   justify-content: center;
-  font-size: 100%;
+  font-size: 110%;
   /*font-weight: bold;*/
-  font-family: Rambla, serif;
+  font-family: Rambla, sans-serif;
 }
+
 
 /*.icon-font {*/
 /*  size: 1000%;*/
