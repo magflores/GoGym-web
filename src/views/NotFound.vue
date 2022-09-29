@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container>
-    <v-row class="align-center" style="margin-left: 250px; margin-right: 250px; margin-top: 10px">
+    <v-row class="align-center" style="margin-left: 250px; margin-right: 250px">
       <v-col>
         <v-img :src="require('../assets/notFound.png')" max-width="600px"/>
       </v-col>

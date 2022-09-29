@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--Title My Account-->
-    <v-item>
+    <v-item style="padding-top: 3px">
       <v-col>
         <h1 class="profile-font"> My Account </h1>
       </v-col>
