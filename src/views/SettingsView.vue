@@ -25,18 +25,24 @@
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
           <v-btn
-            v-bind="attrs"
-            v-on="on"
-            >
-          <v-card
-              class="rounded-xl"
+              v-bind="attrs"
+              v-on="on"
               color="#F8C256"
-              max-height="50"
-              max-width="50"
-          >
+              rounded
+              width="50"
+              height="50"
+            >
+<!--          <v-card-->
+<!--              class="rounded-xl"-->
+<!--              color="#F8C256"-->
+<!--              max-height="50"-->
+<!--              max-width="50"-->
+<!--          >-->
             <v-img :src="require('../assets/user-icon.png')"
+                   max-width="35"
+                   min-width="35"
             />
-          </v-card>
+<!--          </v-card>-->
           </v-btn>
         </template>
         <v-list>
