@@ -13,6 +13,7 @@
       </c-register-form>
       <v-item>
         <v-col>
+<!--          <a class="align-center to-log-in-font" href="/login">Already have an account? Log in</a>-->
           <h1 class="align-center to-log-in-font"> Already have an account? Log in </h1>
         </v-col>
       </v-item>

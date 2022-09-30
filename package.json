@@ -15,7 +15,8 @@
     "vue-low-code": "^1.0.35",
     "vue-resource": "^1.5.3",
     "vue-router": "^3.6.5",
-    "vuetify": "^2.6.9"
+    "vuetify": "^2.6.9",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

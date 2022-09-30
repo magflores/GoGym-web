@@ -14,6 +14,7 @@
   </div>
     <h1 style="font-size: 220%">GoGym!</h1>
     <v-spacer/>
+
     <v-btn
         text
         padless color="black"
@@ -39,15 +40,62 @@
       Log In
     </v-btn>
 
+<!--    <div-->
+<!--        v-if="this.$store.getters.isLoggedIn"-->
+<!--    >-->
+<!--      <h2-->
+<!--          v-if="this.$store.getters.isLoggedIn"-->
+<!--      >-->
+<!--        Bienvenido {{this.$getName }}-->
+<!--      </h2>-->
+<!--    </div>-->
+<!--    <h2-->
+<!--        v-if="this.$store.getters.isLoggedIn"-->
+<!--        style="margin-right: 10px; margin-left: 10px"-->
+
+<!--    >-->
+<!--      |-->
+<!--    </h2>-->
+<!--    <div>-->
+<!--      <v-btn-->
+<!--          v-if="this.$store.getters.isLoggedIn"-->
+<!--          text-->
+<!--          padless color="black"-->
+<!--          class="rambla-font"-->
+<!--          @click="logOut"-->
+<!--      >Cerrar Sesión</v-btn>-->
+<!--    </div>-->
+
   </v-app-bar>
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex";
+
 export default {
   name: 'AppHeader',
   data: () => ({
     user: {},
   }),
+  computed: {
+    ...mapGetters("user", {
+      $getName: "getName",
+      $isUserLoggedIn: "isUserLoggedIn",
+    }),
+  },
+  methods: {
+    ...mapActions("user", {
+      $updateUser: "update",
+      $setUserIsLoggedIn: "setIsLoggedIn",
+    }),
+    logOut() {
+      this.$store.commit("setIsLoggedIn", false);
+      if (this.$isUserLoggedIn) {
+        this.$setUserIsLoggedIn(false);
+      }
+      setTimeout(() => this.$router.push('/'), 500);
+    },
+  }
 }
 </script>
 
