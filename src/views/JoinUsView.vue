@@ -1,17 +1,23 @@
 <template>
-  <div>
-    <!--Title Join Us-->
-    <v-item>
-      <v-col>
-        <h1 class="register-font"> Join Us </h1>
-      </v-col>
-    </v-item>
-    <!--Form-->
-    <c-register-form>
+  <v-container>
+    <div>
+      <!--Title Join Us-->
+      <v-item>
+        <v-col>
+          <h1 class="register-font"> Join Us </h1>
+        </v-col>
+      </v-item>
+      <!--Form-->
+      <c-register-form>
 
-    </c-register-form>
-  </div>
-
+      </c-register-form>
+      <v-item>
+        <v-col>
+          <h1 class="align-center to-log-in-font"> Already have an account? Log in </h1>
+        </v-col>
+      </v-item>
+    </div>
+  </v-container>
 </template>
 
 <script>
@@ -33,6 +39,13 @@ export default {
   font-style: italic;
   font-family: Rambla, sans-serif;
   text-align: center;
-  margin-top: 40px;
+}
+.to-log-in-font {
+  font-size: 100%;
+  color: #7A7A7A;
+  font-weight: bold;
+  font-family: Rambla, sans-serif;
+  margin-top: 4px;
+  text-align: center;
 }
 </style>

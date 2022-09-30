@@ -20,7 +20,7 @@
             color="white"
             dark
             icon
-            height="50px"
+            height="30px"
         >
           <v-icon size="24px">
             {{ icon }}

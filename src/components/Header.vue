@@ -5,7 +5,7 @@
              clipped-left
              height="80px"
   ><div class="d-flex align-center">
-    <a href="/" style="margin-right: 20px; margin-left: 10px">
+    <a href="/" style="margin-right: 10px; margin-left: 10px">
       <v-img :src="require('../assets/GoGym-icon.png')"
              max-height="70"
              max-width="70"
