@@ -52,7 +52,7 @@
                   v-on="on"
                   :rules="birthdayRules"
                   required
-              ></v-text-field>
+              />
             </template>
             <v-date-picker
                 v-model="date"
@@ -103,11 +103,11 @@ export default {
   data: () => ({
     nameRules: [
       v => !!v || "This field is required",
-      v => (v && v.length <= 20) || "Superó el límite de 20 caracteres"
+      v => (v && v.length <= 20) || "Limit of 20 caracters"
     ],
     surnameRules: [
       v => !!v || "This field is required",
-      v => (v && v.length <= 20) || "Superó el límite de 20 caracteres"
+      v => (v && v.length <= 20) || "Limit of 20 caracters"
     ],
     emailRules: [
       v => !!v || "Enter your email",
@@ -115,10 +115,14 @@ export default {
     ],
     birthdayRules: [
       v => !!v || "Enter your birthday date",
-      v => (v && v.length <= 10) || "Superó el límite de 10 caracteres"
+      v => (v && v.length <= 10) || "Limit of 10 caracters"
     ],
-    passwordRules: [v => !!v || "Enter your password", v => v.length >= 6 || 'Must contain at least 6 characters'],
-    confirmPasswordRules: [v => !!v || "Passwords don't match", v => v.length >= 6 || 'Passwords don\'t match'],
+    passwordRules: [v => !!v || "Enter your password",
+      v => v.length >= 6 ||
+          'Must contain at least 6 characters'],
+    confirmPasswordRules: [v => !!v ||
+        "Passwords don't match",
+      v => v.length >= 6 || 'Passwords don\'t match'],
     date: '',
     // dateFormatted: vm.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
     menu: false,

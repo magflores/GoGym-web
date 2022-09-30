@@ -4,14 +4,15 @@
              elevation="0"
              clipped-left
              height="80px"
-  ><div class="d-flex align-center">
-    <a href="/" style="margin-right: 20px; margin-left: 10px">
-      <v-img :src="require('../assets/GoGym-icon.png')"
-             max-height="70"
-             max-width="70"
-      />
-    </a>
-  </div>
+  >
+    <div class="d-flex align-center">
+      <a href="/" style="margin-right: 20px; margin-left: 10px">
+        <v-img :src="require('../assets/GoGym-icon.png')"
+               max-height="70"
+               max-width="70"
+        />
+      </a>
+    </div>
     <h1 style="font-size: 220%">GoGym!</h1>
     <v-spacer/>
     <v-btn
