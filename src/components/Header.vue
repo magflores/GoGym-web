@@ -1,22 +1,24 @@
 <template>
   <v-app-bar app
-             style="padding-top: 5px"
              color="white"
              elevation="0"
-             >
-    <div class="d-flex align-center">
-    <a href="/">
+             clipped-left
+             height="80px"
+  ><div class="d-flex align-center">
+    <a href="/" style="margin-right: 20px; margin-left: 10px">
       <v-img :src="require('../assets/GoGym-icon.png')"
-             max-height="120"
-             max-width="120"
+             max-height="70"
+             max-width="70"
       />
     </a>
   </div>
-    <h2>GoGym!</h2>
+    <h1 style="font-size: 220%">GoGym!</h1>
     <v-spacer/>
     <v-btn
         text
         padless color="black"
+        href="/register"
+        class="rambla-font"
     >
       Join Us
     </v-btn>
@@ -28,9 +30,12 @@
     <v-btn
         text
         padless color="black"
+        href="/login"
+        class="rambla-font"
     >
       Log In
     </v-btn>
+
   </v-app-bar>
 </template>
 
@@ -44,11 +49,9 @@ export default {
 </script>
 
 <style>
-/*v-btn{*/
-/*  font: normal normal normal 40px/50px Rambla;*/
-/*}*/
-h2 {
-  color: black;
-  font: normal normal bold 30px Rambla;
-}
+  .rambla-font {
+    font-family: 'Rambla', sans-serif;
+    font-weight: bold;
+
+  }
 </style>
