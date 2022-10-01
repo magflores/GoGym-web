@@ -1,9 +1,11 @@
 <template class="font">
   <div>
-
+    <AppHeader/>
     <v-navigation-drawer
-        clipped absolute permanent :style="{backgroundColor: variant.color}"
-
+        clipped
+        absolute
+        permanent
+        :style="{backgroundColor: variant.color}"
     >
       <div class="d-flex flex-column align-center mb-6" >
         <v-row style="margin-top: 100px">
@@ -12,7 +14,7 @@
               depressed
               left
               x-large
-              class="rambla-font"
+              class="font"
               onclick="all = true"
           >
             All Routines
@@ -25,7 +27,7 @@
               left
               x-large
               onclick="all = false"
-              class="rambla-font"
+              class="font"
           >
             My Routines
           </v-btn>
@@ -36,30 +38,28 @@
               depressed
               left
               x-large
-              class="rambla-font"
+              class="font"
           >
             Favourites
           </v-btn>
         </v-row>
       </div>
     </v-navigation-drawer>
-
-
         <v-card
           color="#D1FD7A"
         >
-          <v-row  style="margin-top: 1px;margin-left: 200px">
-          <v-tabs
+          <v-row
+              style="margin-top: 1px;margin-left: 200px">
+            <v-tabs
               background-color="#D1FD7A"
               light
               color="black"
               grow
               hide-slider
-
           >
-            <v-tab class="rambla-font" >Routines</v-tab>
+            <v-tab class="font" >Routines</v-tab>
 
-            <v-tab class="rambla-font" >Exercises</v-tab>
+            <v-tab class="font" >Exercises</v-tab>
           </v-tabs>
           </v-row>
         </v-card>
@@ -67,7 +67,11 @@
       <div disabled="!all">
       <v-col>
 <!--        COMENTARIO: ESTO ESTA HARDCODEADO, LO CAMBIAMOS CUANDO ESTE LA API-->
-        <v-row style="margin-top: 20px; margin-bottom: 20px; margin-left: 350px">
+        <v-row
+            style="margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 350px"
+        >
           <v-col cols="8" style="margin-left: 100px">
           <SearchBar/>
           </v-col>
@@ -132,9 +136,10 @@
 
 <script>
 import SearchBar from "@/components/SearchBar";
+import AppHeader from "@/components/Header";
 export default {
   name: 'RoutinesView',
-  components: {SearchBar},
+  components: {SearchBar, AppHeader},
   data: () => ({
     user: {},
     variant: {
