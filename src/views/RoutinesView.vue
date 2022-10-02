@@ -2,56 +2,56 @@
   <div>
     <AppHeader/>
 
-    <v-navigation-drawer
-        clipped
-        absolute
-        permanent
-        :style="{backgroundColor: variant.color}"
-    >
-      <div class="d-flex flex-column align-center mb-6" >
-        <v-row style="margin-top: 100px">
-          <v-btn
-              text
-              depressed
-              left
-              x-large
-              class="font"
-              onclick="all = true"
-          >
-            All Routines
-          </v-btn>
-        </v-row>
-        <v-row style="margin-top: 50px">
-          <v-btn
-              text
-              depressed
-              left
-              x-large
-              onclick="all = false"
-              class="font"
-          >
-            My Routines
-          </v-btn>
-        </v-row>
-        <v-row style="margin-top: 50px">
-          <v-btn
-              text
-              depressed
-              left
-              x-large
-              class="font"
-          >
-            Favourites
-          </v-btn>
-        </v-row>
-      </div>
-    </v-navigation-drawer>
+<!--    <v-navigation-drawer-->
+<!--        clipped-->
+<!--        absolute-->
+<!--        permanent-->
+<!--        :style="{backgroundColor: variant.color}"-->
+<!--    >-->
+<!--      <div class="d-flex flex-column align-center mb-6" >-->
+<!--        <v-row style="margin-top: 100px">-->
+<!--          <v-btn-->
+<!--              text-->
+<!--              depressed-->
+<!--              left-->
+<!--              x-large-->
+<!--              class="font"-->
+<!--              onclick="all = true"-->
+<!--          >-->
+<!--            All Routines-->
+<!--          </v-btn>-->
+<!--        </v-row>-->
+<!--        <v-row style="margin-top: 50px">-->
+<!--          <v-btn-->
+<!--              text-->
+<!--              depressed-->
+<!--              left-->
+<!--              x-large-->
+<!--              onclick="all = false"-->
+<!--              class="font"-->
+<!--          >-->
+<!--            My Routines-->
+<!--          </v-btn>-->
+<!--        </v-row>-->
+<!--        <v-row style="margin-top: 50px">-->
+<!--          <v-btn-->
+<!--              text-->
+<!--              depressed-->
+<!--              left-->
+<!--              x-large-->
+<!--              class="font"-->
+<!--          >-->
+<!--            Favourites-->
+<!--          </v-btn>-->
+<!--        </v-row>-->
+<!--      </div>-->
+<!--    </v-navigation-drawer>-->
 
     <v-card
       color="#D1FD7A"
     >
       <v-row
-          style="margin-top: 1px;margin-left: 257px">
+          style="margin-top: 1px;">
 
         <v-tabs
                 v-model="tab"
@@ -74,8 +74,53 @@
                   <v-row
                       style="margin: 20px;"
                   >
-                    <v-col
-                    >
+                    <v-col>
+                      <v-navigation-drawer
+                          clipped
+
+                          permanent
+                          :style="{backgroundColor: variant.color}"
+                      >
+                        <div class="d-flex flex-column align-center mb-6" >
+                          <v-row style="margin-top: 100px">
+                            <v-btn
+                                text
+                                depressed
+                                left
+                                x-large
+                                class="font"
+                                onclick="all = true"
+                            >
+                              All Routines
+                            </v-btn>
+                          </v-row>
+                          <v-row style="margin-top: 50px">
+                            <v-btn
+                                text
+                                depressed
+                                left
+                                x-large
+                                onclick="all = false"
+                                class="font"
+                            >
+                              My Routines
+                            </v-btn>
+                          </v-row>
+                          <v-row style="margin-top: 50px">
+                            <v-btn
+                                text
+                                depressed
+                                left
+                                x-large
+                                class="font"
+                            >
+                              Favourites
+                            </v-btn>
+                          </v-row>
+                        </div>
+                      </v-navigation-drawer>
+                    </v-col>
+                    <v-col>
                       <SearchBar/>
                     </v-col>
                   </v-row>
