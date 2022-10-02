@@ -6,21 +6,21 @@
     <template v-slot:sidebar>
       <v-list class="d-flex flex-column align-center" height="100%">
         <v-list-item>
-          <h2>Jump High</h2>
+          <h2>{{ exercise.name }}</h2>
         </v-list-item>
         <v-list-item>
-          <p>@juancito</p>
+          <p>{{ exercise.creator }}</p>
         </v-list-item>
         <v-list-item>
-          <p>Easy</p>
+          <p>{{ exercise.difficulty }}</p>
         </v-list-item>
         <v-list-item class="mt-auto">
           <v-btn
               class="form-font"
               text
-              @click="show = !show"
+              @click="exercise.favourite = !exercise.favourite"
           >
-            <v-icon>{{ !show ? 'mdi-heart-outline' : 'mdi-heart' }}</v-icon>
+            <v-icon>{{ !exercise.favourite ? 'mdi-heart-outline' : 'mdi-heart' }}</v-icon>
             <div>Favourite</div>
           </v-btn>
         </v-list-item>
@@ -44,10 +44,7 @@
           Description
         </v-card-title>
         <v-card-text class="card-content">
-          <p>Element: 1 stool</p>
-          <p>Description: Keeping your back straight, get on the stool with one leg and elevate your free knee as you
-            raise your opposite arm. Repeat with the other leg.</p>
-          <p>Link: https://www.youtube.com/watch?v=apT21x9DEIs</p>
+          <p v-for="line in exercise.description" :key="line.number">{{ line.line }}</p>
         </v-card-text>
       </v-card>
     </template>
@@ -56,6 +53,7 @@
 
 <script>
 import detailedLayout from "@/components/detailedLayout";
+import exerciseStore from "@/store/exercises";
 
 export default {
   name: "ExerciseDetailedView",
@@ -65,7 +63,12 @@ export default {
   data() {
     return {
       show: false,
-
+      exerciseId: this.$route.params.id
+    }
+  },
+  computed: {
+    exercise() {
+      return exerciseStore.exercises.find(exercise => exercise.id == this.exerciseId);
     }
   }
 }

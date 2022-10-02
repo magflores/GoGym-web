@@ -2,7 +2,7 @@
   <v-app id="app">
     <AppHeader/>
     <v-main>
-      <router-view/>
+      <router-view :key="$route.path"/>
     </v-main>
     <Footer/>
   </v-app>

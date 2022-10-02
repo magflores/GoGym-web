@@ -51,7 +51,7 @@ const routes = [
         component: () => import("../views/NotFound.vue")
     },
     {
-        path: '/exercisedetailed',
+        path: '/exercisedetailed/:id',
         name: 'exercisedetailed',
         component: () => import(/* webpackChunckName: "exerciseDetailed" */ '@/views/ExerciseDetailedView')
 
