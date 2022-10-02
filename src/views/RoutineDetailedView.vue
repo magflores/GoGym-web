@@ -41,16 +41,16 @@
     <template v-slot:content>
       <div class="d-flex flex-column">
         <v-card elevation="1" class="justify-center rounded-xl my-5" @click="warmup = ! warmup">
-          <v-card-title class="justify-center routine-title" :class="(warmup) ? 'rounded-t-xl' : 'rounded-xl'">
+          <v-card-title class="justify-center card-title" :class="(warmup) ? '' : 'rounded-xl'">
             Warm Up
           </v-card-title>
-          <v-card-text class="routine-content" v-show="warmup">hello</v-card-text>
+          <v-card-text class="card-content" v-show="warmup">hello</v-card-text>
         </v-card>
         <v-card elevation="1" class="justify-center rounded-xl my-5" @click="firstround = ! firstround">
-          <v-card-title class="justify-center routine-title" :class="(firstround) ? 'rounded-t-xl' : 'rounded-xl'">
+          <v-card-title class="justify-center card-title" :class="(firstround) ? '' : 'rounded-xl'">
             First Round
           </v-card-title>
-          <v-card-text class="routine-content" v-show="firstround">
+          <v-card-text class="card-content" v-show="firstround">
             <div class="d-flex justify-space-between">
               <p class="align-self-center">Jump High</p>
               <div class="d-flex flex-column">
@@ -59,14 +59,12 @@
               </div>
             </div>
           </v-card-text>
-
         </v-card>
         <v-card elevation="1" class="justify-center rounded-xl my-5" @click="cooldown = ! cooldown">
-          <v-card-title class="justify-center routine-title" :class="(cooldown) ? 'rounded-t-xl' : 'rounded-xl'">
-            Cool
-            Down
+          <v-card-title class="justify-center card-title" :class="(cooldown) ? '' : 'rounded-xl'">
+            Cool Down
           </v-card-title>
-          <v-card-text class="routine-content" v-show="cooldown">hello</v-card-text>
+          <v-card-text class="card-content" v-show="cooldown">hello</v-card-text>
         </v-card>
       </div>
     </template>
@@ -98,11 +96,11 @@ export default {
   flex: 0
 }
 
-.routine-title {
+.card-title {
   background-color: #D1FD7A;
 }
 
-.routine-content {
+.card-content {
   background-color: #F1FFD2;
 }
 

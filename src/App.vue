@@ -29,7 +29,7 @@ export default {
   /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
   /*font-family: 'Rambla', cursive;*/
 
-  font-family: 'Rambla',serif;
+  //font-family: 'Rambla',serif;
   background-color: #FFFFFF;
   //-webkit-font-smoothing: antialiased;
   //-moz-osx-font-smoothing: grayscale;

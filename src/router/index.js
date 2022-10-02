@@ -7,6 +7,7 @@ import JoinUsView from "@/views/JoinUsView";
 import LogInView from "@/views/LogInView";
 import RoutineDetailedView from "@/views/RoutineDetailedView";
 import ProfileView from "@/views/ProfileView";
+import ExerciseDetailedView from "@/views/ExerciseDetailedView";
 
 Vue.use(VueRouter)
 const routes = [
@@ -16,7 +17,7 @@ const routes = [
         component: HomeView
     },
     {
-        path:   '/footer',
+        path: '/footer',
         name: 'footer',
         component: Footer
     },
@@ -44,18 +45,21 @@ const routes = [
         path: '/routinedetailed',
         name: 'routinedetailed',
         component: RoutineDetailedView
-    }
-
-    ,
+    },
     {
         path: "/notfound",
         alias: "*",
         name: "NotFound",
         component: () => import("../views/NotFound.vue")
+    },
+    {
+        path: '/exercisedetailed',
+        name: 'exercisedetailed',
+        component: ExerciseDetailedView
     }
 ]
 
-const router = new VueRouter ({
+const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes
