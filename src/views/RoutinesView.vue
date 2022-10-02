@@ -1,58 +1,11 @@
 <template class="font">
   <div>
     <AppHeader/>
-
-<!--    <v-navigation-drawer-->
-<!--        clipped-->
-<!--        absolute-->
-<!--        permanent-->
-<!--        :style="{backgroundColor: variant.color}"-->
-<!--    >-->
-<!--      <div class="d-flex flex-column align-center mb-6" >-->
-<!--        <v-row style="margin-top: 100px">-->
-<!--          <v-btn-->
-<!--              text-->
-<!--              depressed-->
-<!--              left-->
-<!--              x-large-->
-<!--              class="font"-->
-<!--              onclick="all = true"-->
-<!--          >-->
-<!--            All Routines-->
-<!--          </v-btn>-->
-<!--        </v-row>-->
-<!--        <v-row style="margin-top: 50px">-->
-<!--          <v-btn-->
-<!--              text-->
-<!--              depressed-->
-<!--              left-->
-<!--              x-large-->
-<!--              onclick="all = false"-->
-<!--              class="font"-->
-<!--          >-->
-<!--            My Routines-->
-<!--          </v-btn>-->
-<!--        </v-row>-->
-<!--        <v-row style="margin-top: 50px">-->
-<!--          <v-btn-->
-<!--              text-->
-<!--              depressed-->
-<!--              left-->
-<!--              x-large-->
-<!--              class="font"-->
-<!--          >-->
-<!--            Favourites-->
-<!--          </v-btn>-->
-<!--        </v-row>-->
-<!--      </div>-->
-<!--    </v-navigation-drawer>-->
-
     <v-card
       color="#D1FD7A"
     >
       <v-row
           style="margin-top: 1px;">
-
         <v-tabs
                 v-model="tab"
                 background-color="#D1FD7A"
@@ -71,16 +24,12 @@
                 <v-tab-item
                             v-for="option in tabOptions"
                             :key="option.tab">
-                  <detailed-layout>
+                  <v-row>
+                    <v-col
 
-                  </detailed-layout>
-                  <v-row
-                      style="margin: 20px;"
-                  >
-                    <v-col>
+                    >
                       <v-navigation-drawer
                           clipped
-
                           permanent
                           :style="{backgroundColor: variant.color}"
                       >
@@ -94,7 +43,7 @@
                                 class="font"
                                 onclick="all = true"
                             >
-                              All Routines
+                              All {{ option.tab }}
                             </v-btn>
                           </v-row>
                           <v-row style="margin-top: 50px">
@@ -106,7 +55,7 @@
                                 onclick="all = false"
                                 class="font"
                             >
-                              My Routines
+                              My {{ option.tab }}
                             </v-btn>
                           </v-row>
                           <v-row style="margin-top: 50px">
@@ -117,7 +66,7 @@
                                 x-large
                                 class="font"
                             >
-                              Favourites
+                                Favourites
                             </v-btn>
                           </v-row>
                         </div>
@@ -127,12 +76,6 @@
                       <SearchBar/>
                     </v-col>
                   </v-row>
-                  <v-card
-                      flat>
-                    <v-card-text class="font">
-                      {{option.content}}
-                    </v-card-text>
-                  </v-card>
                 </v-tab-item>
               </v-tabs-items>
             </v-tabs>
@@ -215,11 +158,15 @@
 <script>
 import SearchBar from "@/components/SearchBar";
 import AppHeader from "@/components/Header";
-import detailedLayout from "@/components/detailedLayout";
+// import detailedLayout from "@/components/detailedLayout";
 
 export default {
   name: 'RoutinesView',
-  components: {SearchBar, detailedLayout, AppHeader},
+  components: {
+    SearchBar,
+    // detailedLayout,
+    AppHeader
+  },
   data: () => ({
     user: {},
     tab: null,
