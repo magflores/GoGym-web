@@ -1,50 +1,48 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Footer from "@/components/Footer";
-import RoutinesView from "@/views/RoutinesView";
-import JoinUsView from "@/views/JoinUsView";
-import LogInView from "@/views/LogInView";
-import RoutineDetailedView from "@/views/RoutineDetailedView";
-import ProfileView from "@/views/ProfileView";
-import ExerciseDetailedView from "@/views/ExerciseDetailedView";
 
 Vue.use(VueRouter)
 const routes = [
     {
         path: '/',
         name: 'home',
-        component: HomeView
+        component: () => import(/* webpackChunckName: "home" */ '@/views/HomeView')
     },
     {
         path: '/footer',
         name: 'footer',
-        component: Footer
+        component: () => import(/* webpackChunckName: "footer" */ '@/components/Footer')
+
     },
     {
         path: '/routines',
         name: 'routines',
-        component: RoutinesView
+        component: () => import(/* webpackChunckName: "routines" */ '@/views/RoutinesView')
+
     },
     {
         path: '/register',
         name: 'register',
-        component: JoinUsView
+        component: () => import(/* webpackChunckName: "register" */ '@/views/JoinUsView')
+
     },
     {
         path: '/login',
         name: 'login',
-        component: LogInView
+        component: () => import(/* webpackChunckName: "login" */ '@/views/LogInView')
+
     },
     {
         path: '/profile',
-        component: ProfileView,
         name: 'profile',
+        component: () => import(/* webpackChunckName: "profile" */ '@/views/ProfileView')
+
     },
     {
         path: '/routinedetailed',
         name: 'routinedetailed',
-        component: RoutineDetailedView
+        component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/RoutineDetailedView')
+
     },
     {
         path: "/notfound",
@@ -55,7 +53,8 @@ const routes = [
     {
         path: '/exercisedetailed',
         name: 'exercisedetailed',
-        component: ExerciseDetailedView
+        component: () => import(/* webpackChunckName: "exerciseDetailed" */ '@/views/ExerciseDetailedView')
+
     }
 ]
 

@@ -4,40 +4,44 @@
              elevation="0"
              clipped-left
              height="80px"
-  ><div class="d-flex align-center">
-    <a href="/" style="margin-right: 10px; margin-left: 10px">
-      <v-img :src="require('../assets/GoGym-icon.png')"
-             max-height="70"
-             max-width="70"
-      />
-    </a>
-  </div>
+  >
+    <div class="d-flex align-center">
+      <router-link to="/" style="margin-right: 10px; margin-left: 10px">
+        <v-img :src="require('../assets/GoGym-icon.png')"
+               max-height="70"
+               max-width="70"
+        />
+      </router-link>
+    </div>
     <h1 style="font-size: 220%">GoGym!</h1>
     <v-spacer/>
-    <v-btn
-        text
-        padless color="black"
-        href="/register"
-        class="rambla-font"
-    >
-      Join Us
-    </v-btn>
+    <router-link to="/register">
+      <v-btn
+          text
+          padless color="black"
+          class="rambla-font"
+      >
+        Join Us
+      </v-btn>
+
+    </router-link>
 
     <h2
         style="margin-right: 10px; margin-left: 10px"
-
     >
       |
     </h2>
 
-    <v-btn
-        text
-        padless color="black"
-        href="/login"
-        class="rambla-font"
-    >
-      Log In
-    </v-btn>
+    <router-link to="/login">
+      <v-btn
+          text
+          padless color="black"
+          class="rambla-font"
+      >
+        Log In
+      </v-btn>
+    </router-link>
+
 
   </v-app-bar>
 </template>
@@ -52,9 +56,9 @@ export default {
 </script>
 
 <style>
-  .rambla-font {
-    font-family: 'Rambla', sans-serif;
-    font-weight: bold;
+.rambla-font {
+  font-family: 'Rambla', sans-serif;
+  font-weight: bold;
 
-  }
+}
 </style>
