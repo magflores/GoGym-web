@@ -12,7 +12,7 @@
           <p>@juancito</p>
         </v-list-item>
         <v-list-item>
-          <p>Easy</p>
+          <diff-sign diff="0"></diff-sign>
         </v-list-item>
         <v-list-item class="mt-auto">
           <v-btn
@@ -73,11 +73,13 @@
 
 <script>
 import detailedLayout from "@/components/detailedLayout";
+import difficultySign from "@/components/difficultySign";
 
 export default {
   name: "RoutineDetailedView",
   components: {
-    DLayout: detailedLayout
+    DLayout: detailedLayout,
+    diffSign: difficultySign
   },
   data() {
     return {

@@ -12,7 +12,7 @@
           <p>{{ exercise.creator }}</p>
         </v-list-item>
         <v-list-item>
-          <p>{{ exercise.difficulty }}</p>
+          <diff-sign :diff="exercise.difficulty"></diff-sign>
         </v-list-item>
         <v-list-item class="mt-auto">
           <v-btn
@@ -54,11 +54,13 @@
 <script>
 import detailedLayout from "@/components/detailedLayout";
 import exerciseStore from "@/store/exercises";
+import difficultySign from "@/components/difficultySign";
 
 export default {
   name: "ExerciseDetailedView",
   components: {
-    DLayout: detailedLayout
+    DLayout: detailedLayout,
+    diffSign: difficultySign
   },
   data() {
     return {
