@@ -71,6 +71,9 @@
                 <v-tab-item
                             v-for="option in tabOptions"
                             :key="option.tab">
+                  <detailed-layout>
+
+                  </detailed-layout>
                   <v-row
                       style="margin: 20px;"
                   >
@@ -124,7 +127,6 @@
                       <SearchBar/>
                     </v-col>
                   </v-row>
-
                   <v-card
                       flat>
                     <v-card-text class="font">
@@ -213,9 +215,11 @@
 <script>
 import SearchBar from "@/components/SearchBar";
 import AppHeader from "@/components/Header";
+import detailedLayout from "@/components/detailedLayout";
+
 export default {
   name: 'RoutinesView',
-  components: {SearchBar, AppHeader},
+  components: {SearchBar, detailedLayout, AppHeader},
   data: () => ({
     user: {},
     tab: null,
