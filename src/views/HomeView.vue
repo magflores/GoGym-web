@@ -1,6 +1,5 @@
 <template>
   <div>
-    <AppHeader/>
     <v-container style="padding-top: 3px">
         <v-row class="text-center">
           <v-col>
@@ -80,20 +79,19 @@
       </v-row>
 
     </v-container>
-    <BottomFooter/>
   </div>
 </template>
 
 <script>
-import BottomFooter from "@/components/BottomFooter";
-import AppHeader from "@/components/Header";
+// import BottomFooter from "@/components/BottomFooter";
+// import AppHeader from "@/components/Header";
 
 export default {
   name: "HomeView",
   // components: {}
   components: {
-    BottomFooter,
-    AppHeader
+    // BottomFooter,
+    // AppHeader
   }
 
 }
