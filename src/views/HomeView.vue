@@ -8,7 +8,10 @@
           </v-col>
         </v-row>
       </v-container>
-    <v-container fluid class="hero" style="padding-top: 2%">
+    <v-container
+        fluid
+        class="hero"
+        style="padding-top: 2%">
       <v-row class="text-center" >
         <v-col>
           <h2> Find workout routines made by others, edit them or make your own!</h2>
@@ -16,18 +19,28 @@
       </v-row>
     </v-container>
     <v-container>
-      <v-row class="align-center" style="margin-bottom: 3px">
-        <v-spacer></v-spacer>
-        <v-col style="text-align: center" cols="4">
+      <v-row
+          class="align-center"
+          style="margin-bottom: 3px">
+        <v-spacer/>
+        <v-col
+            style="text-align: center"
+            cols="4">
           <v-btn icon
                  height="150px"
                  width="150"
           >
-            <v-icon size="1000%" color="#606367"> mdi-checkbox-outline </v-icon>
+            <v-icon
+                size="1000%"
+                color="#606367">
+              mdi-checkbox-outline
+            </v-icon>
 
           </v-btn>
           <v-col>
-            <div class="text-container">choose from 700 routines for your training</div>
+            <div class="text-container">
+              choose from 700 routines for your training
+            </div>
 
           </v-col>
         </v-col>
@@ -37,11 +50,14 @@
                  height="150px"
                  width="150"
           >
-
-            <v-icon size="1000%" color="#606367">mdi-plus-box-outline</v-icon>
+            <v-icon size="1000%" color="#606367">
+              mdi-plus-box-outline
+            </v-icon>
           </v-btn>
           <v-col>
-            <div class="text-container"> create your own training routines</div>
+            <div class="text-container">
+              create your own training routines
+            </div>
           </v-col>
         </v-col>
 
@@ -50,11 +66,14 @@
                  height="150px"
                  width="150"
           >
-
-            <v-icon size="1000%" color="#606367">mdi-square-edit-outline</v-icon>
+            <v-icon size="1000%" color="#606367">
+              mdi-square-edit-outline
+            </v-icon>
           </v-btn>
           <v-col>
-            <div class="text-container">personalize your training!</div>
+            <div class="text-container">
+              personalize your training!
+            </div>
           </v-col>
         </v-col>
 

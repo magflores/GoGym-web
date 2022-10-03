@@ -10,8 +10,8 @@
 
 
 <script>
-// import AppHeader from "@/components/Header";
-// import Footer from "@/components/Footer";
+import AppHeader from "@/components/Header";
+import Footer from "@/components/Footer";
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {

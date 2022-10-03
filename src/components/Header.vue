@@ -6,7 +6,8 @@
              height="80px"
   >
     <div class="d-flex align-center">
-      <router-link to="/" style="margin-right: 10px; margin-left: 10px">
+      <router-link to="/" style="
+      margin-right: 10px; margin-left: 10px">
         <v-img :src="require('../assets/GoGym-icon.png')"
                max-height="70"
                max-width="70"

@@ -1,6 +1,5 @@
 <template class="font">
   <div>
-    <AppHeader/>
     <v-card
       color="#D1FD7A"
     >
@@ -150,25 +149,24 @@
 <!--      </div>-->
 <!--    </v-row>-->
 
-    <Footer/>
   </div>
 </template>
 
 <script>
 import SearchBar from "@/components/SearchBar";
-import AppHeader from "@/components/Header";
+// import AppHeader from "@/components/Header";
 import RoutineLayout from "@/components/RoutineLayout";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 // import detailedLayout from "@/components/detailedLayout";
 
 export default {
   name: 'RoutinesView',
   components: {
-    Footer,
+    // Footer,
     SearchBar,
     // detailedLayout,
     RoutineLayout,
-    AppHeader
+    // AppHeader
   },
   data: () => ({
     user: {},
