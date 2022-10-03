@@ -177,6 +177,6 @@ export default {
   color: #FFFFFF;
   font-weight: bold;
   font-family: Rambla, sans-serif;
-  margin-bottom: 40px;
+  margin-bottom: 5px;
 }
 </style>

@@ -10,6 +10,7 @@
               dense
               :rules="emailRules"
               color="black"
+              padding="10px"
               required
           />
           <v-text-field
@@ -22,6 +23,11 @@
               required
           />
         </v-form>
+        <v-item>
+          <v-col style="padding: 0px">
+            <h1 style="text-align: left" class="forgot-font"> Forgot my password </h1>
+          </v-col>
+        </v-item>
         <div class="text-center">
           <v-btn class="enter-button-font"
               width="40%"
@@ -32,6 +38,11 @@
             ENTER
           </v-btn>
         </div>
+        <v-item>
+          <v-col style="padding: 0px">
+            <h1 style="text-align: center; margin-top: 12px" class="forgot-font"> You don't have an account yet? Join us now! </h1>
+          </v-col>
+        </v-item>
       </v-sheet>
     </v-row>
   </v-container>
@@ -64,9 +75,17 @@ export default {
   font-weight: bold;
   align-content: center;
 }
+.forgot-font {
+  font-size: 100%;
+  color: #7A7A7A;
+  font-family: Rambla, sans-serif;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
 .enter-button-font {
   color: #FFFFFF;
   font-weight: bold;
   font-family: Rambla, sans-serif;
+  margin-bottom: 5px;
 }
 </style>

@@ -1,15 +1,17 @@
 <template>
   <div>
-    <!--Title Log In-->
-    <v-item>
-      <v-col>
-        <h1 class="login-font"> Log In </h1>
-      </v-col>
-    </v-item>
-    <!--Form-->
-    <c-log-in-form>
+    <v-container>
+      <!--Title Log In-->
+      <v-item>
+        <v-col>
+          <h1 class="login-font"> Log In </h1>
+        </v-col>
+      </v-item>
+      <!--Form-->
+      <c-log-in-form>
 
-    </c-log-in-form>
+      </c-log-in-form>
+    </v-container>
   </div>
 </template>
 
@@ -33,7 +35,6 @@ export default {
   font-style: italic;
   font-family: Rambla, sans-serif;
   text-align: center;
-  margin-top: 40px;
 }
 
 

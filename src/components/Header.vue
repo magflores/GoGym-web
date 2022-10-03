@@ -6,41 +6,46 @@
              height="80px"
   >
     <div class="d-flex align-center">
-      <a href="/" style="margin-right: 20px; margin-left: 10px">
-        <v-img :src="require('@/assets/GoGym-icon.png')"
+      <router-link to="/" style="margin-right: 10px; margin-left: 10px">
+        <v-img :src="require('../assets/GoGym-icon.png')"
                max-height="70"
                max-width="70"
         />
-      </a>
+      </router-link>
     </div>
     <h1 class="rambla-font"
         style="font-size: 220%">GoGym!</h1>
     <v-spacer/>
     <div
         class="d-flex align-center"
-         v-if="displayLog === true"
+        v-if="displayLog === true"
     >
+    <router-link to="/register">
       <v-btn
           text
           padless color="black"
-          href="/register"
           class="rambla-font"
       >
         Join Us
       </v-btn>
-      <h2
-          style="margin-right: 10px; margin-left: 10px"
-      >
-        |
-      </h2>
+
+    </router-link>
+
+    <h2
+        style="margin-right: 10px; margin-left: 10px"
+    >
+      |
+    </h2>
+
+    <router-link to="/login">
       <v-btn
           text
           padless color="black"
-          href="/login"
           class="rambla-font"
       >
         Log In
       </v-btn>
+    </router-link>
     </div>
     <div
         class="d-flex align-center"
@@ -82,6 +87,7 @@
       </v-menu>
     </div>
 
+
   </v-app-bar>
 </template>
 
@@ -97,19 +103,14 @@ export default {
     ],
     user: {},
   }),
-  methods: {
-    // clickAction(){
-    //   this.displayLog = !this.displayLog;
-    // },
-  }
 }
 </script>
 
 <style>
-  .rambla-font {
-    font-family: 'Rambla', sans-serif;
-    font-weight: bold;
-    font-style: italic;
+.rambla-font {
+  font-family: 'Rambla', sans-serif;
+  font-weight: bold;
+  font-style: italic;
 
-  }
+}
 </style>

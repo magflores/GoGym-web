@@ -1,68 +1,61 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import Footer from "@/components/Footer";
-import RoutinesView from "@/views/RoutinesView";
-import JoinUsView from "@/views/JoinUsView";
-import LogInView from "@/views/LogInView";
-import RoutineDetailedView from "@/views/RoutineDetailedView";
-import ProfileView from "@/views/ProfileView";
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    alias: 'home',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: "/notfound",
-    alias: "*",
-    name: "NotFound",
-    component: () => import(/* webpackChunkName: "NotFound" */ '../views/NotFound.vue')
-  },
-  {
-    path: '/Settings',
-    name: 'SettingsView',
-    alias: 'SettingsView',
-    component: () => import(/* webpackChunkName: "JoinUsView" */ '../views/SettingsView.vue')
-  },
     {
         path: '/',
         name: 'home',
-        component: HomeView
+        component: () => import(/* webpackChunckName: "home" */ '@/views/HomeView')
     },
     {
-        path:   '/footer',
+        path: '/footer',
         name: 'footer',
-        component: Footer
+        component: () => import(/* webpackChunckName: "footer" */ '@/components/Footer')
+
     },
     {
         path: '/routines',
         name: 'routines',
-        component: RoutinesView
+        component: () => import(/* webpackChunckName: "routines" */ '@/views/RoutinesView')
+
     },
     {
         path: '/register',
         name: 'register',
-        component: JoinUsView
+        component: () => import(/* webpackChunckName: "register" */ '@/views/JoinUsView')
+
     },
     {
         path: '/login',
         name: 'login',
-        component: LogInView
+        component: () => import(/* webpackChunckName: "login" */ '@/views/LogInView')
+
     },
     {
         path: '/profile',
-        component: ProfileView,
         name: 'profile',
+        component: () => import(/* webpackChunckName: "profile" */ '@/views/ProfileView')
+
     },
     {
         path: '/routinedetailed',
         name: 'routinedetailed',
-        component: RoutineDetailedView
+        component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/RoutineDetailedView')
+
+    },
+    {
+        path: "/notfound",
+        alias: "*",
+        name: "NotFound",
+        component: () => import("../views/NotFound.vue")
+    },
+    {
+        path: '/exercisedetailed/:id',
+        name: 'exercisedetailed',
+        component: () => import(/* webpackChunckName: "exerciseDetailed" */ '@/views/ExerciseDetailedView')
+
     }
 ]
 

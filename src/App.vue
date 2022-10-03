@@ -1,18 +1,11 @@
 <template>
   <v-app id="app">
-<!--    <AppHeader/>-->
+    <AppHeader/>
     <v-main>
-      <router-view :key="$router.path"/>
+      <router-view :key="$route.path"/>
     </v-main>
-<!--    <Footer/>-->
+    <Footer/>
   </v-app>
-<!--  <v-app id="app">-->
-<!--    <AppHeader/>-->
-<!--    <v-main>-->
-<!--      <router-view/>-->
-<!--    </v-main>-->
-<!--    <Footer/>-->
-<!--  </v-app>-->
 </template>
 
 
@@ -20,12 +13,13 @@
 // import AppHeader from "@/components/Header";
 // import Footer from "@/components/Footer";
 // import HelloWorld from './components/HelloWorld.vue'
+
 export default {
   name: 'App',
-  // components: {
-  //   Footer,
-  //   AppHeader
-  // }
+  components: {
+    Footer,
+    AppHeader
+  }
 }
 </script>
 
@@ -35,7 +29,7 @@ export default {
   /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
   /*font-family: 'Rambla', cursive;*/
 
-  font-family: 'Rambla',serif;
+  //font-family: 'Rambla',serif;
   background-color: #FFFFFF;
   //-webkit-font-smoothing: antialiased;
   //-moz-osx-font-smoothing: grayscale;
@@ -43,4 +37,6 @@ export default {
   //color: #2c3e50;
 }
 ;
+
 </style>
+
