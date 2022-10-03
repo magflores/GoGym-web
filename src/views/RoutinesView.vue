@@ -72,63 +72,8 @@
 
                     <template v-slot:content>
                       <SearchBar/>
-
                     </template>
                   </RoutineLayout>
-
-
-<!--                  <v-row>-->
-<!--                    <v-col>-->
-<!--                      <v-navigation-drawer-->
-<!--                          clipped-->
-<!--                          permanent-->
-<!--                          :style="{backgroundColor: variant.color}"-->
-<!--                      >-->
-<!--                        <div class="d-flex flex-column align-center mb-6" >-->
-<!--                          <v-row style="margin-top: 100px">-->
-<!--                            <v-btn-->
-<!--                                text-->
-<!--                                depressed-->
-<!--                                left-->
-<!--                                x-large-->
-<!--                                class="font"-->
-<!--                                onclick="all = true"-->
-<!--                            >-->
-<!--                              All {{ option.tab }}-->
-<!--                            </v-btn>-->
-<!--                          </v-row>-->
-<!--                          <v-row style="margin-top: 50px">-->
-<!--                            <v-btn-->
-<!--                                text-->
-<!--                                depressed-->
-<!--                                left-->
-<!--                                x-large-->
-<!--                                onclick="all = false"-->
-<!--                                class="font"-->
-<!--                            >-->
-<!--                              My {{ option.tab }}-->
-<!--                            </v-btn>-->
-<!--                          </v-row>-->
-<!--                          <v-row style="margin-top: 50px">-->
-<!--                            <v-btn-->
-<!--                                text-->
-<!--                                depressed-->
-<!--                                left-->
-<!--                                x-large-->
-<!--                                class="font"-->
-<!--                            >-->
-<!--                                Favourites-->
-<!--                            </v-btn>-->
-<!--                          </v-row>-->
-<!--                        </div>-->
-<!--                      </v-navigation-drawer>-->
-<!--                    </v-col>-->
-<!--                    <v-col>-->
-<!--                      <SearchBar/>-->
-<!--                    </v-col>-->
-<!--                  </v-row>-->
-
-
                 </v-tab-item>
               </v-tabs-items>
             </v-tabs>
