@@ -16,6 +16,7 @@
                   v-for="option in tabOptions"
                   :key="option.tab"
                   class="font"
+                  @click="resetTitleInTab()"
               >
                 {{option.tab}}
               </v-tab>
@@ -33,6 +34,7 @@
                       >
                         <v-row style="margin-top: 100px">
                           <v-btn
+                              @click="clickAll(option.tab)"
                               text
                               depressed
                               left
@@ -45,6 +47,7 @@
                         </v-row>
                         <v-row style="margin-top: 50px">
                           <v-btn
+                              @click="clickMy(option.tab)"
                               text
                               depressed
                               left
@@ -57,6 +60,7 @@
                         </v-row>
                         <v-row style="margin-top: 50px">
                           <v-btn
+                              @click="clickFavorites()"
                               text
                               depressed
                               left
@@ -70,7 +74,29 @@
                     </template>
 
                     <template v-slot:content>
+                      <h2 v-if="titleInTab === null">
+                        All {{ option.tab }}
+                      </h2>
+                      <h2 v-else>
+                        {{ titleInTab }}
+                      </h2>
                       <SearchBar/>
+                      <v-btn
+                          style="margin-right: 5px; margin-bottom: 35px"
+                          fab
+                          color="#F8C256"
+                          absolute
+                          right
+                          bottom
+                          v-if="addIcon === true"
+                      >
+                        <v-icon
+                            color="black"
+                        >
+                          mdi-plus
+                        </v-icon>
+                      </v-btn>
+
                     </template>
                   </RoutineLayout>
                 </v-tab-item>
@@ -171,6 +197,8 @@ export default {
   data: () => ({
     user: {},
     tab: null,
+    titleInTab: null,
+    addIcon: null,
     items: [
       { tab: 'One', content: 'Tab 1 Content' },
       { tab: 'Two', content: 'Tab 2 Content' },
@@ -183,7 +211,6 @@ export default {
       { tab: 'Nine', content: 'Tab 9 Content' },
       { tab: 'Ten', content: 'Tab 10 Content' },
     ],
-    // tab: null,
     tabOptions: [
       {tab: 'Routines', content: 'estamos en rou'},
       {tab: 'Exercises', content: 'estamos en exc'}
@@ -194,14 +221,32 @@ export default {
     expand: false,
     all:false,
   }),
+  methods: {
+    clickAll(tab){
+      this.titleInTab = "All " + tab;
+      this.addIcon = false;
+    },
+    clickMy(tab){
+      this.titleInTab = "My " + tab;
+      this.addIcon = true;
+    },
+    clickFavorites(){
+      this.titleInTab = "Favorites";
+      this.addIcon = false;
+    },
+    resetTitleInTab(){
+      this.titleInTab = null;
+      this.addIcon = false;
+    }
+  }
 }
 </script>
 
 <style>
 
 .font {
-font-family: Rambla, sans-serif;
-font-size: 30px;
+  font-family: Rambla, sans-serif;
+  font-size: 30px;
 }
 
 </style>

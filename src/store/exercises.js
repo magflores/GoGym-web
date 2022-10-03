@@ -6,7 +6,7 @@ export default {
             id: 0,
             creator: "@juancito",
             difficulty: 0,
-            favourite: false,
+            favourite: true,
             description: [
                 {number:0, line: "Element: 1 stool"},
                 {number:1, line: "Description: Keeping your back straight, get on the stool with one leg and elevate your free knee as you raise your opposite arm. Repeat with the other leg."},

@@ -64,9 +64,7 @@
               v-bind="attrs"
               v-on="on"
               color="#F8C256"
-              rounded
-              width="50"
-              height="50"
+              fab
           >
             <v-img :src="require('../assets/user-icon.png')"
                    max-width="35"
@@ -96,7 +94,7 @@
 export default {
   name: 'AppHeader',
   data: () => ({
-    displayLog: true,
+    displayLog: false,
     items: [
       { title: 'My account' },
       { title: 'Home' },

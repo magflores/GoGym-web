@@ -4,7 +4,8 @@
       Exercise
     </template>
     <template v-slot:sidebar>
-      <v-list class="d-flex flex-column align-center" height="100%">
+      <v-list class="d-flex flex-column align-center"
+              height="100%">
         <v-list-item>
           <h2>{{ exercise.name }}</h2>
         </v-list-item>
@@ -18,9 +19,11 @@
           <v-btn
               class="form-font"
               text
-              @click="exercise.favourite = !exercise.favourite"
+              @click="favButton(exercise.favourite)"
           >
-            <v-icon>{{ !exercise.favourite ? 'mdi-heart-outline' : 'mdi-heart' }}</v-icon>
+            <v-icon>
+              {{ !exercise.favourite ? 'mdi-heart-outline' : 'mdi-heart' }}
+            </v-icon>
             <div>Favourite</div>
           </v-btn>
         </v-list-item>
@@ -39,12 +42,16 @@
       </v-list>
     </template>
     <template v-slot:content>
-      <v-card elevation="1" class="justify-center rounded-xl my-5">
+      <v-card elevation="1"
+              class="justify-center rounded-xl my-5">
         <v-card-title class="justify-center card-title">
           Description
         </v-card-title>
         <v-card-text class="card-content">
-          <p v-for="line in exercise.description" :key="line.number">{{ line.line }}</p>
+          <p v-for="line in exercise.description"
+             :key="line.number">
+            {{ line.line }}
+          </p>
         </v-card-text>
       </v-card>
     </template>
@@ -65,13 +72,20 @@ export default {
   data() {
     return {
       show: false,
-      exerciseId: this.$route.params.id
+      exerciseId: this.$route.params.id,
+      favButtonState: null,
+    }
+  },
+  methods: {
+    favButton(state){
+      this.favButtonState = !state;
     }
   },
   computed: {
     exercise() {
       return exerciseStore.exercises.find(exercise => exercise.id == this.exerciseId);
-    }
+    },
+
   }
 }
 </script>
