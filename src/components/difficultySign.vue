@@ -1,6 +1,11 @@
 <template>
-  <v-chip color="transparent" ripple="false">
-    <v-icon :color="color[diff]">mdi-circle</v-icon> {{ message[diff] }}
+  <v-chip
+      class="difficulty-sign"
+      color="transparent"
+      elevation="0"
+      :class="difficultyClass">
+    <v-icon :color="color[diff]">mdi-circle</v-icon>
+    {{ message[diff] }}
   </v-chip>
 
 </template>
@@ -24,5 +29,10 @@ export default {
 </script>
 
 <style scoped>
+
+/*dissable hover and click effects*/
+.difficulty-sign {
+  pointer-events: none;
+}
 
 </style>
