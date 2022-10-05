@@ -82,7 +82,8 @@
         </v-card-text>
       </v-card>
       <v-layout justify-center>
-        <v-btn
+        <router-link to="/routines">
+          <v-btn
             rounded
             style="margin-right: 30px"
             width="300"
@@ -90,6 +91,7 @@
         >
           CANCEL
         </v-btn>
+        </router-link>
         <v-btn
             width="300"
             rounded
