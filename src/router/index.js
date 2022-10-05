@@ -52,6 +52,18 @@ const routes = [
         component: () => import("../views/NotFound.vue")
     },
     {
+        path: '/newroutine',
+        name: 'newroutine',
+        component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/NewRoutineView')
+
+    },
+    {
+        path: '/newexercise',
+        name: 'newexercise',
+        component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/NewExerciseView')
+
+    },
+    {
         path: '/exercisedetailed/:id',
         name: 'exercisedetailed',
         component: () => import(/* webpackChunckName: "exerciseDetailed" */ '@/views/ExerciseDetailedView')

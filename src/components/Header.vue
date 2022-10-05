@@ -94,7 +94,7 @@
 export default {
   name: 'AppHeader',
   data: () => ({
-    displayLog: false,
+    displayLog: true,
     items: [
       { title: 'My account' },
       { title: 'Home' },

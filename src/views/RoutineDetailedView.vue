@@ -14,6 +14,15 @@
         <v-list-item>
           <diff-sign diff="0"></diff-sign>
         </v-list-item>
+<!--        <v-list-item>-->
+<!--          <v-btn-->
+<!--              class="form-font"-->
+<!--              text-->
+<!--          >-->
+<!--            <v-icon>mdi-arrow-left-top</v-icon>-->
+<!--            <div>Back</div>-->
+<!--          </v-btn>-->
+<!--        </v-list-item>-->
         <v-list-item class="mt-auto">
           <v-btn
               class="form-font"
@@ -93,10 +102,6 @@ export default {
 </script>
 
 <style scoped>
-
-.v-list-item {
-  flex: 0
-}
 
 .card-title {
   background-color: #D1FD7A;

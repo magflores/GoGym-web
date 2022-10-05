@@ -81,22 +81,44 @@
                         {{ titleInTab }}
                       </h2>
                       <SearchBar/>
-                      <v-btn
-                          style="margin-right: 5px; margin-bottom: 35px"
-                          fab
-                          color="#F8C256"
-                          absolute
-                          right
-                          bottom
-                          v-if="addIcon === true"
-                      >
-                        <v-icon
-                            color="black"
+                      <router-link
+                          v-if="option.tab === 'Routines'"
+                          to="/newroutine">
+                        <v-btn
+                            style="margin-right: 5px; margin-bottom: 35px"
+                            fab
+                            color="#F8C256"
+                            absolute
+                            right
+                            bottom
+                            v-if="addIcon === true"
                         >
-                          mdi-plus
-                        </v-icon>
-                      </v-btn>
-
+                          <v-icon
+                              color="black"
+                          >
+                            mdi-plus
+                          </v-icon>
+                        </v-btn>
+                      </router-link>
+                      <router-link
+                          v-else
+                          to="/newexercise">
+                        <v-btn
+                            style="margin-right: 5px; margin-bottom: 35px"
+                            fab
+                            color="#F8C256"
+                            absolute
+                            right
+                            bottom
+                            v-if="addIcon === true"
+                        >
+                          <v-icon
+                              color="black"
+                          >
+                            mdi-plus
+                          </v-icon>
+                        </v-btn>
+                      </router-link>
                     </template>
                   </RoutineLayout>
                 </v-tab-item>
