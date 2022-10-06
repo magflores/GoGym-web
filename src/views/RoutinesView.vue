@@ -80,10 +80,61 @@
                       <h2 v-else>
                         {{ titleInTab }}
                       </h2>
-                      <SearchBar/>
+<!--                      <SearchBar/>-->
                       <router-link
                           v-if="option.tab === 'Routines'"
                           to="/newroutine">
+
+                                <v-row
+                                    style="margin-top: 20px;
+                                    margin-bottom: 20px;
+                                    margin-left: 350px"
+                                >
+                                  <v-col
+                                      cols="8" style="margin-left: 20px">
+                                  <SearchBar/>
+                                  </v-col>
+                                </v-row>
+                                <v-row  style="margin-top: 20px; margin-bottom: 20px; margin-left: 100px">
+
+                                  <v-col>
+                                    <a href="/routinedetailed">
+                                      <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
+                                    </a>
+                                  </v-col>
+
+                                  <v-col>
+                                    <a href="/routinedetailed">
+                                      <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
+                                    </a>
+                                  </v-col>
+
+                                  <v-col>
+                                    <a href="/routinedetailed">
+                                      <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>
+                                    </a>
+                                  </v-col>
+
+                                  <v-col>
+                                    <a href="/routinedetailed">
+                                      <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>
+                                    </a>
+                                  </v-col>
+
+                                  <v-col>
+                                    <a href="/routinedetailed">
+                                      <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>
+                                    </a>
+                                  </v-col>
+
+                                  <v-col>
+                                    <a href="/routinedetailed">
+                                      <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>
+                                    </a>
+                                  </v-col>
+
+                                </v-row>
+
                         <v-btn
                             style="margin-right: 5px; margin-bottom: 35px"
                             fab
@@ -127,75 +178,6 @@
 
       </v-row>
     </v-card>
-
-<!--    <v-row>-->
-<!--      <div disabled="!all">-->
-<!--      <v-col>-->
-<!--&lt;!&ndash;        COMENTARIO: ESTO ESTA HARDCODEADO, LO CAMBIAMOS CUANDO ESTE LA API&ndash;&gt;-->
-<!--        <v-row-->
-<!--            style="margin-top: 20px;-->
-<!--            margin-bottom: 20px;-->
-<!--            margin-left: 350px"-->
-<!--        >-->
-<!--          <v-col-->
-<!--              cols="8" style="margin-left: 100px">-->
-<!--          <SearchBar/>-->
-<!--          </v-col>-->
-<!--        </v-row>-->
-<!--        <v-row  style="margin-top: 20px; margin-bottom: 20px; margin-left: 270px">-->
-
-<!--          <v-col>-->
-<!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>-->
-<!--            </a>-->
-<!--          </v-col>-->
-
-<!--          <v-col>-->
-<!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>-->
-<!--            </a>-->
-<!--          </v-col>-->
-
-<!--          <v-col>-->
-<!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>-->
-<!--            </a>-->
-<!--          </v-col>-->
-
-<!--          <v-col>-->
-<!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>-->
-<!--            </a>-->
-<!--          </v-col>-->
-
-<!--          <v-col>-->
-<!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>-->
-<!--            </a>-->
-<!--          </v-col>-->
-
-<!--          <v-col>-->
-<!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>-->
-<!--            </a>-->
-<!--          </v-col>-->
-
-<!--          <v-col>-->
-<!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>-->
-<!--            </a>-->
-<!--          </v-col>-->
-
-<!--          <v-col>-->
-<!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>-->
-<!--            </a>-->
-<!--          </v-col>-->
-
-<!--        </v-row>-->
-<!--      </v-col>-->
-<!--      </div>-->
-<!--    </v-row>-->
 
   </div>
 </template>

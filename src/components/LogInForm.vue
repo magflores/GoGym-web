@@ -74,7 +74,7 @@ export default {
 
 <style scoped>
 
-.v-text-field--outlined >>> fieldset {
+.v-text-field--outlined::v-deep fieldset {
   border-color: black;
   border-width: 3px;
   border-radius: 10px;
