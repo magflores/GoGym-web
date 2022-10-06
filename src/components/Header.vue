@@ -16,6 +16,7 @@
     <v-spacer/>
 
     <v-btn
+        v-if="!isLoggedIn"
         text
         padless color="black"
         href="/register"
@@ -25,6 +26,7 @@
     </v-btn>
 
     <h2
+        v-if="!isLoggedIn"
         style="margin-right: 10px; margin-left: 10px"
 
     >
@@ -32,6 +34,7 @@
     </h2>
 
     <v-btn
+        v-if="!isLoggedIn"
         text
         padless color="black"
         href="/login"
@@ -40,62 +43,74 @@
       Log In
     </v-btn>
 
-<!--    <div-->
-<!--        v-if="this.$store.getters.isLoggedIn"-->
-<!--    >-->
-<!--      <h2-->
-<!--          v-if="this.$store.getters.isLoggedIn"-->
-<!--      >-->
-<!--        Bienvenido {{this.$getName }}-->
-<!--      </h2>-->
-<!--    </div>-->
-<!--    <h2-->
-<!--        v-if="this.$store.getters.isLoggedIn"-->
-<!--        style="margin-right: 10px; margin-left: 10px"-->
+    <div
+        v-if="isLoggedIn"
+    >
+      <h2
+          v-if="isLoggedIn"
+      >
+        Bienvenido {{this.user.name}}
+      </h2>
+    </div>
+    <h2
+        v-if="isLoggedIn"
+        style="margin-right: 10px; margin-left: 10px"
 
-<!--    >-->
-<!--      |-->
-<!--    </h2>-->
-<!--    <div>-->
-<!--      <v-btn-->
-<!--          v-if="this.$store.getters.isLoggedIn"-->
-<!--          text-->
-<!--          padless color="black"-->
-<!--          class="rambla-font"-->
-<!--          @click="logOut"-->
-<!--      >Cerrar Sesión</v-btn>-->
-<!--    </div>-->
+    >
+      |
+    </h2>
+    <div>
+      <v-btn
+          v-if="isLoggedIn"
+          text
+          padless color="black"
+          class="rambla-font"
+          @click="logOut"
+      >Cerrar Sesión</v-btn>
+    </div>
 
   </v-app-bar>
 </template>
 
 <script>
-import {mapActions, mapGetters} from "vuex";
+import{useStore} from "@/store/module/user";
+import {mapState, mapActions} from 'pinia';
 
 export default {
   name: 'AppHeader',
   data: () => ({
     user: {},
+    isLoggedIn: false,
   }),
   computed: {
-    ...mapGetters("user", {
-      $getName: "getName",
-      $isUserLoggedIn: "isUserLoggedIn",
+    ...mapState(useStore, {
+      isLoggedIn: state => state.isLoggedIn(true),
+      getName: state => state.getName,
     }),
+
   },
+  async updateLoggedIn() {
+    this.isLoggedIn = true;
+  },
+
+  async getName() {
+    this.user = await this.getName();
+  },
+
   methods: {
-    ...mapActions("user", {
-      $updateUser: "update",
-      $setUserIsLoggedIn: "setIsLoggedIn",
+    ...mapActions(useStore, {
+        setIsLoggedIn: state => state.setIsLoggedIn,
+        setName: state => state.setName,
     }),
-    logOut() {
+
+    logOut(){
       this.$store.commit("setIsLoggedIn", false);
-      if (this.$isUserLoggedIn) {
-        this.$setUserIsLoggedIn(false);
+      if (this.isLoggedIn) {
+        this.setIsLoggedIn(false);
       }
       setTimeout(() => this.$router.push('/'), 500);
     },
-  }
+  },
 }
 </script>
 
