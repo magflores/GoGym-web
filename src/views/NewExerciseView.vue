@@ -52,12 +52,12 @@
           <v-text-field/>
           <h2>s</h2>
         </v-list-item>
-        <v-list-item>
-          <v-btn class="form-font" text>
-            <v-icon>mdi-delete</v-icon>
-            <div>Delete</div>
-          </v-btn>
-        </v-list-item>
+<!--        <v-list-item>-->
+<!--          <v-btn class="form-font" text>-->
+<!--            <v-icon>mdi-delete</v-icon>-->
+<!--            <div>Delete</div>-->
+<!--          </v-btn>-->
+<!--        </v-list-item>-->
       </v-list>
     </template>
     <template v-slot:content>

@@ -85,7 +85,8 @@
                           v-if="option.tab === 'Routines'"
                           to="/newroutine">
                         <v-btn
-                            style="margin-right: 5px; margin-bottom: 35px"
+                            style="margin-right: 5px;
+                            margin-bottom: 35px"
                             fab
                             color="#F8C256"
                             absolute
@@ -119,6 +120,94 @@
                           </v-icon>
                         </v-btn>
                       </router-link>
+
+                      <div
+                          v-if="option.tab === 'Routines'"
+                      >
+                        <div v-if="titleInTab === 'All Routines' ||
+                                  titleInTab === null"
+                        >
+<!--                          <h2>-->
+<!--                            Ejercicio 1-->
+<!--                          </h2>-->
+                          <v-row
+                              style="margin-top: 20px; margin-bottom: 20px"
+                          >
+                            <v-col>
+                              <router-link to="/routinedetailed/0">
+                                <v-img :src="require('../assets/routines/routines1.png')"
+                                       max-width="250px"/>
+                              </router-link>
+                            </v-col>
+
+                            <v-col>
+                              <router-link to="/routinedetailed/2">
+                                <v-img :src="require('../assets/routines/routines2.png')"
+                                       max-width="250px"/>
+                              </router-link>
+                            </v-col>
+
+                            <v-col>
+                              <router-link to="/routinedetailed/1">
+                                <v-img :src="require('../assets/routines/routines3.png')"
+                                       max-width="250px"/>
+                              </router-link>
+                            </v-col>
+
+                            <v-col>
+                              <router-link to="/routinedetailed/2">
+                                <v-img :src="require('../assets/routines/routines4.png')"
+                                       max-width="250px"/>
+                              </router-link>
+                            </v-col>
+
+                            <v-col>
+                              <router-link to="/routinedetailed/1">
+                                <v-img :src="require('../assets/routines/routines5.png')"
+                                       max-width="250px"/>
+                              </router-link>
+                            </v-col>
+
+                            <v-col>
+                              <router-link to="/routinedetailed">
+                                <v-img :src="require('../assets/routines/routines6.png')"
+                                       max-width="250px"/>
+                              </router-link>
+                            </v-col>
+
+                          </v-row>
+                        </div>
+                        <div v-else-if="titleInTab === 'My Routines'">
+                          <h2>
+                            Ejercicio 2
+                          </h2>
+                        </div>
+                        <div v-else-if="titleInTab === 'Favorites'">
+                          <h2>
+                            Ejercicio 3
+                          </h2>
+                        </div>
+                      </div>
+                      <div v-else>
+                        <div v-if="titleInTab === 'All Exercises' ||
+                                  titleInTab === null"
+                        >
+                          <h2>
+                            Ejercicio 4
+                          </h2>
+                        </div>
+                        <div v-else-if="titleInTab === 'My Exercises'">
+                          <h2>
+                            Ejercicio 5
+                          </h2>
+                        </div>
+                        <div v-else-if="titleInTab === 'Favorites'">
+                          <h2>
+                            Ejercicio 6
+                          </h2>
+                        </div>
+                      </div>
+
                     </template>
                   </RoutineLayout>
                 </v-tab-item>
@@ -142,7 +231,8 @@
 <!--          <SearchBar/>-->
 <!--          </v-col>-->
 <!--        </v-row>-->
-<!--        <v-row  style="margin-top: 20px; margin-bottom: 20px; margin-left: 270px">-->
+<!--        <v-row  style="margin-top: 20px;-->
+<!--        margin-bottom: 20px; margin-left: 270px">-->
 
 <!--          <v-col>-->
 <!--            <a href="/routinedetailed">-->
@@ -152,43 +242,50 @@
 
 <!--          <v-col>-->
 <!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>-->
+<!--              <v-img :src="require('../assets/routines/routines2.png')"-->
+<!--                     max-width="250px"/>-->
 <!--            </a>-->
 <!--          </v-col>-->
 
 <!--          <v-col>-->
 <!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>-->
+<!--              <v-img :src="require('../assets/routines/routines3.png')"-->
+<!--                     max-width="250px"/>-->
 <!--            </a>-->
 <!--          </v-col>-->
 
 <!--          <v-col>-->
 <!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>-->
+<!--              <v-img :src="require('../assets/routines/routines4.png')"-->
+<!--                     max-width="250px"/>-->
 <!--            </a>-->
 <!--          </v-col>-->
 
 <!--          <v-col>-->
 <!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>-->
+<!--              <v-img :src="require('../assets/routines/routines5.png')"-->
+<!--                     max-width="250px"/>-->
 <!--            </a>-->
 <!--          </v-col>-->
 
 <!--          <v-col>-->
 <!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>-->
+<!--              <v-img :src="require('../assets/routines/routines6.png')"-->
+<!--                     max-width="250px"/>-->
 <!--            </a>-->
 <!--          </v-col>-->
 
 <!--          <v-col>-->
 <!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>-->
+<!--              <v-img :src="require('../assets/routines/routines1.png')"-->
+<!--                     max-width="250px"/>-->
 <!--            </a>-->
 <!--          </v-col>-->
 
 <!--          <v-col>-->
 <!--            <a href="/routinedetailed">-->
-<!--              <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>-->
+<!--              <v-img :src="require('../assets/routines/routines2.png')"-->
+<!--                     max-width="250px"/>-->
 <!--            </a>-->
 <!--          </v-col>-->
 
@@ -221,18 +318,6 @@ export default {
     tab: null,
     titleInTab: null,
     addIcon: null,
-    items: [
-      { tab: 'One', content: 'Tab 1 Content' },
-      { tab: 'Two', content: 'Tab 2 Content' },
-      { tab: 'Three', content: 'Tab 3 Content' },
-      { tab: 'Four', content: 'Tab 4 Content' },
-      { tab: 'Five', content: 'Tab 5 Content' },
-      { tab: 'Six', content: 'Tab 6 Content' },
-      { tab: 'Seven', content: 'Tab 7 Content' },
-      { tab: 'Eight', content: 'Tab 8 Content' },
-      { tab: 'Nine', content: 'Tab 9 Content' },
-      { tab: 'Ten', content: 'Tab 10 Content' },
-    ],
     tabOptions: [
       {tab: 'Routines', content: 'estamos en rou'},
       {tab: 'Exercises', content: 'estamos en exc'}

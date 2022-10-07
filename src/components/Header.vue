@@ -24,6 +24,7 @@
     <router-link to="/register">
       <v-btn
           text
+          elevation="1"
           padless color="black"
           class="rambla-font"
       >
@@ -41,6 +42,7 @@
     <router-link to="/login">
       <v-btn
           text
+          elevation="1"
           padless color="black"
           class="rambla-font"
       >
@@ -77,9 +79,14 @@
               v-for="(item, index) in items"
               :key="index"
           >
-            <v-list-item-title>
-              {{ item.title }}
-            </v-list-item-title>
+            <v-btn
+                text
+                @click="userAction(item.title)"
+            >
+              <v-list-item-title>
+                {{ item.title }}
+              </v-list-item-title>
+            </v-btn>
           </v-list-item>
         </v-list>
 
@@ -94,7 +101,7 @@
 export default {
   name: 'AppHeader',
   data: () => ({
-    displayLog: true,
+    displayLog: false,
     items: [
       { title: 'My account' },
       { title: 'Home' },
@@ -102,6 +109,18 @@ export default {
     ],
     user: {},
   }),
+  methods: {
+    userAction(action){
+      if (action === 'My account'){
+        this.$router.push('/profile');
+      }else if (action === 'Home'){
+        this.$router.push('/');
+      }else {
+        this.displayLog = true;
+        this.$router.push('/');
+      }
+    }
+  }
 }
 </script>
 
