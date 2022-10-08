@@ -36,6 +36,32 @@ class RoutineApi {
     static async deleteRoutine(id, controller) {
         return await Api.delete(RoutineApi.getUrl(id), true, controller);
     }
+
+    static getCycleUrl(routineId, slug) {
+        return `${RoutineApi.getUrl(routineId)}/cycles${slug ? `/${slug}` : ""}`;
+    }
+
+    static async getCycles(routineId, page, size, orderBy, direction, controller) {
+        let url = RoutineApi.getCycleUrl(routineId);
+        url = `${url}?page=${page}&size=${size}&orderBy=${orderBy}&direction=${direction || "asc"}`;
+        return await Api.get(url, true, controller);
+    }
+
+    static async addCycle(routineId, cycle, controller) {
+        return await Api.post(RoutineApi.getCycleUrl(routineId), true, cycle, controller);
+    }
+
+    static async getCycle(routineId, cycleId, controller) {
+        return await Api.get(RoutineApi.getCycleUrl(routineId, cycleId), true, controller);
+    }
+
+    static async modifyCycle(routineId, cycleId, cycle, controller) {
+        return await Api.put(RoutineApi.getCycleUrl(routineId, cycleId), true, cycle, controller);
+    }
+
+    static async deleteCycle(routineId, cycleId, controller) {
+        return await Api.delete(RoutineApi.getCycleUrl(routineId, cycleId), true, controller);
+    }
 }
 
 class Routine {
