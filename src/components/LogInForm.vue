@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-sheet width="40%">
-        <v-form class="form-font">
+        <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
           <v-text-field
               label="Email"
               placeholder="Enter your email"
@@ -19,8 +19,11 @@
               outlined
               dense
               :rules="passwordRules"
-              color="black"
+              :type="show ? 'text' : 'password'"
               required
+              :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="show = !show"
+              color="black"
           />
         </v-form>
         <v-item>
@@ -63,6 +66,9 @@
 export default {
   name: 'LogInForm',
   data: () => ({
+    valid: true,
+    show: false,
+
     emailRules: [
       v => !!v || "Enter your email",
       v => /.+@.+/.test(v) || "Invalid email"

@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-sheet width="40%">
-        <v-form class="form-font">
+        <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
           <v-text-field
               label="Name"
               placeholder="Enter your name"
@@ -67,7 +67,10 @@
               outlined
               dense
               :rules="passwordRules"
+              :type="show ? 'text' : 'password'"
               required
+              :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="show = !show"
               color="black"
           />
           <v-text-field
@@ -76,7 +79,10 @@
               outlined
               dense
               :rules="confirmPasswordRules"
+              :type="show1 ? 'text' : 'password'"
               required
+              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="show1 = !show1"
               color="black"
           />
           <div class="text-center">
@@ -101,6 +107,10 @@
 export default {
   name: 'RegisterForm',
   data: () => ({
+    valid: true,
+    show: false,
+    show1: false,
+
     nameRules: [
       v => !!v || "This field is required",
       v => (v && v.length <= 20) || "Limit of 20 caracters"
