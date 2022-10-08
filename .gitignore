@@ -3,7 +3,6 @@ node_modules
 /dist
 desktop.ini
 package-lock.json
-TP - API 3.0.2 Installer
 
 # local env files
 .env.local
