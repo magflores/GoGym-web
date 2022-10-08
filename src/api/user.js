@@ -25,14 +25,14 @@ class UserApi {
 
     static async verifyEmail(email, code, controller) {
         return await Api.post(UserApi.getUrl('verify_email'), false, {
-            email: JSON.stringify(email),
-            code: JSON.stringify(code)
+            email: email,
+            code: code
         }, controller);
     }
 
     static async resendVerificationEmail(email, controller) {
         return await Api.post(UserApi.getUrl('resend_verification'), false, {
-            email: JSON.stringify(email)
+            email: email
         }, controller);
     }
 
