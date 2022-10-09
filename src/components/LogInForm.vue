@@ -4,7 +4,7 @@
       <v-sheet width="40%">
         <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
           <v-text-field
-              label="Email"
+              label="Email*"
               placeholder="Enter your email"
               outlined
               dense
@@ -14,7 +14,7 @@
               required
           />
           <v-text-field
-              label="Password"
+              label="Password*"
               placeholder="Enter your password"
               outlined
               dense
@@ -48,7 +48,7 @@
                 class="forgot-font">
               You don't have an account yet?
             </h1>
-            <router-link to="/register">
+            <router-link to="/register" class="Link">
               <h1 style="text-align: center;
                 margin-top: 12px"
                   class="forgot-font">
@@ -104,5 +104,8 @@ export default {
   font-weight: bold;
   font-family: Rambla, sans-serif;
   margin-bottom: 5px;
+}
+.Link{
+  text-decoration: black underline;
 }
 </style>

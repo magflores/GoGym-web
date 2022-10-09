@@ -21,7 +21,7 @@
         class="d-flex align-center"
         v-if="displayLog === true"
     >
-    <router-link to="/register">
+    <router-link to="/register" class="routerLink">
       <v-btn
           text
           padless color="black"
@@ -38,7 +38,7 @@
       |
     </h2>
 
-    <router-link to="/login">
+    <router-link to="/login" class="routerLink">
       <v-btn
           text
           padless color="black"
@@ -111,5 +111,8 @@ export default {
   font-weight: bold;
   font-style: italic;
 
+}
+.routerLink{
+  text-decoration: none;
 }
 </style>

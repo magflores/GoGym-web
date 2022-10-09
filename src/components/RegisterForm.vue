@@ -4,7 +4,7 @@
       <v-sheet width="40%">
         <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
           <v-text-field
-              label="Name"
+              label="Name*"
               placeholder="Enter your name"
               outlined
               dense
@@ -13,7 +13,7 @@
               color="black"
           />
           <v-text-field
-              label="Surname"
+              label="Surname*"
               placeholder="Enter your surname"
               outlined
               dense
@@ -22,7 +22,7 @@
               color="black"
           />
           <v-text-field
-              label="Email"
+              label="Email*"
               placeholder="Enter your email"
               outlined
               dense
@@ -42,7 +42,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                   v-model="dateFormatted"
-                  label="Birthday"
+                  label="Birthday*"
                   placeholder="Enter your birthday with format dd/mm/yyyy"
                   persistent-hint
                   outlined
@@ -62,7 +62,7 @@
           </v-menu>
 
           <v-text-field
-              label="Password"
+              label="Password*"
               placeholder="Enter your password"
               outlined
               dense
@@ -74,7 +74,7 @@
               color="black"
           />
           <v-text-field
-              label="Confirm password"
+              label="Confirm password*"
               placeholder="Enter your password again"
               outlined
               dense

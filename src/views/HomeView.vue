@@ -25,6 +25,7 @@
         <v-col
             style="text-align: center"
             cols="4">
+          <router-link to="/login" class="routerLink">
           <v-btn icon
                  height="150px"
                  width="150"
@@ -34,8 +35,8 @@
                 color="#606367">
               mdi-checkbox-outline
             </v-icon>
-
           </v-btn>
+          </router-link>
           <v-col>
             <div class="text-container">
               choose from 700 routines for your training
@@ -45,6 +46,7 @@
         </v-col>
 
         <v-col style="text-align: center" cols="4">
+          <router-link to="/login" class="routerLink">
           <v-btn icon
                  height="150px"
                  width="150"
@@ -53,6 +55,8 @@
               mdi-plus-box-outline
             </v-icon>
           </v-btn>
+          </router-link>
+
           <v-col>
             <div class="text-container">
               create your own training routines
@@ -61,6 +65,7 @@
         </v-col>
 
         <v-col style="text-align: center" cols="4">
+          <router-link to="/login" class="routerLink">
           <v-btn icon
                  height="150px"
                  width="150"
@@ -69,6 +74,7 @@
               mdi-square-edit-outline
             </v-icon>
           </v-btn>
+          </router-link>
           <v-col>
             <div class="text-container">
               personalize your training!
@@ -120,6 +126,10 @@ h2 {
   font-size: 110%;
   /*font-weight: bold;*/
   font-family: Rambla, sans-serif;
+}
+
+.routerLink{
+  text-decoration: none;
 }
 
 
