@@ -31,11 +31,12 @@ class ExerciseApi {
 }
 
 class Exercise {
-    constructor(id, name, detail, type, metadata) {
+    constructor(id, name, detail, type, date, metadata) {
         this.id = id;
         this.name = name;
         this.detail = detail;
         this.type = type;
+        this.date = date;
         this.metadata = metadata;
     }
 }

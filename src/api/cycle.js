@@ -42,7 +42,8 @@ class Cycle {
 }
 
 class CycleExercise {
-    constructor(order, duration, repetitions) {
+    constructor(exercise, order, duration, repetitions) {
+        this.exercise = exercise;
         this.order = order;
         this.duration = duration;
         this.repetitions = repetitions;

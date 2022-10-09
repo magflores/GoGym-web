@@ -1,6 +1,6 @@
-import { defineStore } from "pinia";
-import { UserApi } from "@/api/user";
-import { Api } from "@/api/api";
+import {defineStore} from "pinia";
+import {UserApi} from "@/api/user";
+import {Api} from "@/api/api";
 
 export const useUserStore = defineStore("user", {
     state: () => ({
@@ -20,7 +20,7 @@ export const useUserStore = defineStore("user", {
             this.token = token;
             Api.token = token;
         },
-        removeToken(){
+        removeToken() {
             this.setToken(null);
         },
         async login(credentials) {
@@ -37,6 +37,15 @@ export const useUserStore = defineStore("user", {
 
             const result = await UserApi.get();
             this.setUser(result);
+        },
+        async register(credentials, userInfo) {
+            return await UserApi.register(credentials, userInfo);
+        },
+        async modifyUser(userInfo, controller) {
+            const result = await UserApi.modifyCurrentUser(userInfo, controller);
+            // TODO error handling
+            this.setUser(result);
+            return result;
         }
     }
 });

@@ -19,8 +19,18 @@ class UserApi {
         return await Api.get(UserApi.getUrl('current'), true, controller);
     }
 
-    static async register(credentials, controller) {
-        return await Api.post(UserApi.getUrl(), false, credentials, controller);
+    static async register(credentials, userInfo, controller) {
+        return await Api.post(UserApi.getUrl(), false, {
+            username: credentials.username,
+            password: credentials.password,
+            firstName: userInfo.firstName,
+            lastName: userInfo.lastName,
+            gender: userInfo.gender,
+            birthdate: userInfo.birthdate,
+            email: userInfo.email,
+            phone: userInfo.phone,
+            metadata: userInfo.metadata
+        }, controller);
     }
 
     static async verifyEmail(email, code, controller) {
