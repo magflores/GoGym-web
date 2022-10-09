@@ -330,7 +330,7 @@ export default {
 
 .font2 {
   font-family: 'Rambla', sans-serif;
-  font-size: 50px;
+  /*font-size: 50px;*/
   text-transform: none !important;
 }
 
