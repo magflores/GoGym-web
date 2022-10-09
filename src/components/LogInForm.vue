@@ -106,6 +106,6 @@ export default {
   margin-bottom: 5px;
 }
 .Link{
-  text-decoration: black underline;
+  text-decoration: #7A7A7A underline;
 }
 </style>

@@ -56,7 +56,7 @@ export default {
 }
 
 .Link{
-  text-decoration: black underline;
+  text-decoration: #7A7A7A  underline;
 }
 
 </style>
