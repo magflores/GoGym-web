@@ -88,7 +88,7 @@
         </v-card-title>
       </v-card>
       <v-layout justify-center>
-      <router-link to="/routines">
+      <router-link to="/routines" class="routerLink">
         <v-btn
             rounded
             style="margin-right: 30px"
@@ -149,4 +149,7 @@ export default {
   background-color: #F5F3F3;
 }
 
+.routerLink{
+  text-decoration: none;
+}
 </style>

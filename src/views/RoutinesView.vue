@@ -81,59 +81,55 @@
                         {{ titleInTab }}
                       </h2>
 <!--                      <SearchBar/>-->
+                      <v-row
+                          style="margin-top: 10px;
+                                    margin-bottom: 20px;
+                                    margin-left: 250px"
+                      >
+                        <v-col
+                            cols="8" style="margin-left: 20px">
+                          <SearchBar/>
+                        </v-col>
+                      </v-row>
+
                       <router-link
                           v-if="option.tab === 'Routines'"
-                          to="/newroutine">
-
-                                <v-row
-                                    style="margin-top: 20px;
-                                    margin-bottom: 20px;
-                                    margin-left: 350px"
-                                >
-                                  <v-col
-                                      cols="8" style="margin-left: 20px">
-                                  <SearchBar/>
-                                  </v-col>
-                                </v-row>
-                                <v-row  style="margin-top: 20px; margin-bottom: 20px; margin-left: 100px">
+                          to="/routinedetailed"
+                          class="routerLink"
+                      >
+                                <v-row  style="margin-top: 5px; margin-bottom: 20px; margin-left: 50px">
 
                                   <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
-                                    </a>
+                                      <v-img :src="require('../assets/routines/routines1.png')" max-width="300px"/>
                                   </v-col>
 
                                   <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
-                                    </a>
+                                      <v-img :src="require('../assets/routines/routines2.png')" max-width="300px"/>
                                   </v-col>
 
                                   <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>
-                                    </a>
+                                      <v-img :src="require('../assets/routines/routines3.png')" max-width="300px"/>
                                   </v-col>
 
                                   <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>
-                                    </a>
+                                      <v-img :src="require('../assets/routines/routines4.png')" max-width="300px"/>
                                   </v-col>
 
                                   <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>
-                                    </a>
+                                      <v-img :src="require('../assets/routines/routines5.png')" max-width="300px"/>
                                   </v-col>
 
                                   <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>
-                                    </a>
+                                      <v-img :src="require('../assets/routines/routines6.png')" max-width="300px"/>
                                   </v-col>
 
                                 </v-row>
+                      </router-link>
+
+                      <router-link to="/newRoutine"
+                                   class="routerLink"
+                                   v-if="option.tab === 'Routines'"
+                      >
 
                         <v-btn
                             style="margin-right: 5px; margin-bottom: 35px"
@@ -249,8 +245,15 @@ export default {
 <style>
 
 .font {
-  font-family: Rambla, sans-serif;
+  /*font-family: Rambla, sans-serif;*/
   font-size: 30px;
+  font-family: 'Rambla', sans-serif;
+  font-weight: bold;
+  font-style: italic;
 }
 
+
+.routerLink{
+  text-decoration: none;
+}
 </style>
