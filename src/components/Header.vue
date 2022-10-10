@@ -66,7 +66,7 @@
               color="#F8C256"
               fab
           >
-            <v-img :src="require($user.avatarUrl)"
+            <v-img :src="$user.avatarUrl"
                    max-width="35"
                    min-width="35"
             />
