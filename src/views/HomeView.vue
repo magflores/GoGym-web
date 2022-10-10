@@ -2,8 +2,39 @@
   <div>
     <v-container style="padding-top: 3px">
         <v-row class="text-center">
-          <v-col>
+          <v-col v-if="displayLog === false">
             <h1> Welcome to GoGym! </h1>
+          </v-col>
+
+          <v-col cols="5" class="text-right" v-if="displayLog === true">
+            <router-link to="/routines" class="routerLink">
+              <v-btn
+                  text
+                  padless color="black"
+                  class="font"
+              >
+                Routines
+              </v-btn>
+
+            </router-link>
+          </v-col>
+          <v-col cols="2" v-if="displayLog === true">
+            <h2
+            >
+              |
+            </h2>
+            </v-col>
+          <v-col cols="5" class="text-left" v-if="displayLog === true">
+
+            <router-link to="/routines" class="routerLink">
+              <v-btn
+                  text
+                  padless color="black"
+                  class="font"
+              >
+                Exercises
+              </v-btn>
+            </router-link>
           </v-col>
         </v-row>
       </v-container>
@@ -13,7 +44,7 @@
         style="padding-top: 2%">
       <v-row class="text-center" >
         <v-col>
-          <h2> Find workout routines made by others, edit them or make your own!</h2>
+          <h2 class="title"> Find workout routines made by others, edit them or make your own!</h2>
         </v-col>
       </v-row>
     </v-container>
@@ -98,7 +129,11 @@ export default {
   components: {
     // BottomFooter,
     // AppHeader
-  }
+  },
+  data: () => ({
+    displayLog: false,
+
+  }),
 
 }
 </script>
@@ -116,11 +151,15 @@ h1{
   /*font-family: 'Roboto', sans-serif;*/
   /*font-weight: bold;*/
 }
-h2 {
+/*h2 {*/
+/*  color: #FFFFFF;*/
+/*  font: normal normal normal 20px/30px Rambla;*/
+/*}*/
+
+.title {
   color: #FFFFFF;
   font: normal normal normal 20px/30px Rambla;
 }
-
 .text-container {
   justify-content: center;
   font-size: 110%;
@@ -130,6 +169,13 @@ h2 {
 
 .routerLink{
   text-decoration: none;
+}
+
+.font {
+  font-size: 35px;
+  font-family: 'Rambla', sans-serif;
+  font-weight: lighter;
+  text-transform: none !important;
 }
 
 
