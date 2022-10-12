@@ -4,14 +4,15 @@
       <v-sheet width="40%">
         <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
           <v-text-field
-              label="Email*"
-              placeholder="Enter your email"
+              label="Username*"
+              placeholder="Enter your username*"
               outlined
               dense
-              :rules="emailRules"
+              :rules="usernameRules"
               color="black"
               padding="10px"
               required
+              v-model="credentials.username"
           />
           <v-text-field
               label="Password*"
@@ -21,6 +22,7 @@
               :rules="passwordRules"
               :type="show ? 'text' : 'password'"
               required
+              v-model="credentials.password"
               :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
               @click:append="show = !show"
               color="black"
@@ -37,6 +39,7 @@
               rounded
               color="#F8C256"
               dark
+              @click="login()"
           >
             ENTER
           </v-btn>
@@ -63,18 +66,38 @@
 </template>
 
 <script>
+import {useUserStore} from "@/stores/UserStore";
+import {mapActions} from "pinia";
+
 export default {
   name: 'LogInForm',
   data: () => ({
     valid: true,
     show: false,
-
-    emailRules: [
-      v => !!v || "Enter your email",
-      v => /.+@.+/.test(v) || "Invalid email"
+    usernameRules: [
+      v => !!v || "Enter your username"
     ],
     passwordRules: [v => !!v || "Enter your password", v => v.length >= 6 || 'Must contain at least 6 characters'],
+    credentials: {
+      username: '',
+      password: ''
+    }
   }),
+  methods: {
+    ...mapActions(useUserStore, {
+      $login: 'login',
+      $getCurrentUser: 'getCurrentUser'
+    }),
+    async login(){
+      try {
+        await this.$login(this.credentials);
+        await this.$getCurrentUser();
+        this.$router.push('/');
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }
 }
 </script>
 

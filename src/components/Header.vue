@@ -20,7 +20,7 @@
     <v-spacer/>
     <div
         class="d-flex align-center"
-        v-if="displayLog === true"
+        v-if="!$isLoggedIn"
     >
     <router-link to="/register" class="routerLink">
       <v-btn
@@ -32,13 +32,13 @@
         Join Us
       </v-btn>
 
-    </router-link>
+      </router-link>
 
-    <h2
-        style="margin-right: 10px; margin-left: 10px"
-    >
-      |
-    </h2>
+      <h2
+          style="margin-right: 10px; margin-left: 10px"
+      >
+        |
+      </h2>
 
     <router-link to="/login" class="routerLink">
       <v-btn
@@ -59,7 +59,7 @@
           style="margin-right: 10px;
           margin-left: 10px; font-size: 200%"
       >
-        Welcome, John Doe
+        Welcome, {{ `${$user.firstName} ${$user.lastName}` }}
       </h2>
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
@@ -69,7 +69,7 @@
               color="#F8C256"
               fab
           >
-            <v-img :src="require('../assets/user-icon.png')"
+            <v-img :src="$user.avatarUrl"
                    max-width="35"
                    min-width="35"
             />
@@ -99,6 +99,9 @@
 </template>
 
 <script>
+import {mapActions, mapState} from 'pinia';
+import {useUserStore} from "@/stores/UserStore";
+
 export default {
   name: 'AppHeader',
   data: () => ({
@@ -110,6 +113,23 @@ export default {
     ],
     user: {},
   }),
+  computed: {
+    ...mapState(useUserStore, {$user: state => state.user}),
+    ...mapState(useUserStore, {$isLoggedIn: 'isLoggedIn'}),
+  },
+  methods: {
+    ...mapActions(useUserStore, {
+      $getCurrentUser: 'getCurrentUser',
+      $login: 'login',
+      $logout: 'logout',
+    }),
+    async logout() {
+      await this.$logout()
+    },
+    async getCurrentUser() {
+      await this.$getCurrentUser()
+    }
+  }
   methods: {
     userAction(action){
       if (action === 'My account'){
@@ -123,6 +143,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style>
@@ -132,7 +153,8 @@ export default {
   font-style: italic;
 
 }
-.routerLink{
+
+.routerLink {
   text-decoration: none;
 }
 </style>
