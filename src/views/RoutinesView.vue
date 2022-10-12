@@ -148,35 +148,35 @@
                               style="margin-top: 20px; margin-bottom: 20px"
                           >
                             <v-col>
-                              <router-link to="/routinedetailed/0">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines1.png')"
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/2">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines2.png')"
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/1">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines3.png')"
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/2">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines4.png')"
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/1">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines5.png')"
                                        max-width="250px"/>
                               </router-link>
@@ -199,35 +199,35 @@
                               style="margin-top: 20px; margin-bottom: 20px"
                           >
                             <v-col>
-                              <router-link to="/routinedetailed/0">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines1.png')"
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/2">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines2.png')"
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/1">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines3.png')"
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/2">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines4.png')"
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/1">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines5.png')"
                                        max-width="250px"/>
                               </router-link>
@@ -241,14 +241,14 @@
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/2">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines4.png')"
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
 
                             <v-col>
-                              <router-link to="/routinedetailed/1">
+                              <router-link to="/routinedetailed">
                                 <v-img :src="require('../assets/routines/routines5.png')"
                                        max-width="250px"/>
                               </router-link>
@@ -260,69 +260,6 @@
                                        max-width="250px"/>
                               </router-link>
                             </v-col>
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/2">-->
-<!--                                <v-img :src="require('../assets/routines/routines4.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/1">-->
-<!--                                <v-img :src="require('../assets/routines/routines5.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed">-->
-<!--                                <v-img :src="require('../assets/routines/routines6.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/2">-->
-<!--                                <v-img :src="require('../assets/routines/routines4.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/1">-->
-<!--                                <v-img :src="require('../assets/routines/routines5.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed">-->
-<!--                                <v-img :src="require('../assets/routines/routines6.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/2">-->
-<!--                                <v-img :src="require('../assets/routines/routines4.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/1">-->
-<!--                                <v-img :src="require('../assets/routines/routines5.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed">-->
-<!--                                <v-img :src="require('../assets/routines/routines6.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
 
                           </v-row>
                         </div>
@@ -351,85 +288,6 @@
                         </div>
                       </div>
 
-<!--                      <div v-if="All === true">
-
-                      <router-link
-                          v-if="option.tab === 'Routines'"
-                          to="/routinedetailed"
-                          class="routerLink"
-                      >
-                        <v-row  style="margin-top: 5px; margin-bottom: 20px; margin-left: 50px">
-
-                          <v-col>
-                              <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
-                          </v-col>
-
-                          <v-col>
-                              <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
-                          </v-col>
-
-                          <v-col>
-                              <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>
-                          </v-col>
-
-                          <v-col>
-                              <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>
-                          </v-col>
-
-                          <v-col>
-                              <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>
-                          </v-col>
-
-                          <v-col>
-                              <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>
-                          </v-col>
-
-                        </v-row>
-                      </router-link>
-                      </div>
-
-                      <div v-if="My === true">
-                        <router-link
-                            v-if="option.tab === 'Routines'"
-                            to="/routinedetailed"
-                            class="routerLink"
-                        >
-                          <v-row  style="margin-top: 5px; margin-bottom: 250px; margin-left: 50px">
-
-                            <v-col>
-                              <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
-                            </v-col>
-
-                            <v-col>
-                              <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
-                            </v-col>
-
-                            <v-col>
-                              <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>
-                            </v-col>
-
-                          </v-row>
-                        </router-link>
-                      </div>
-
-                      <div v-if="Fav === true">
-                        <router-link
-                            v-if="option.tab === 'Routines'"
-                            to="/routinedetailed"
-                            class="routerLink"
-                        >
-                          <v-row  style="margin-top: 5px; margin-bottom: 250px; margin-left: 50px">
-
-                            <v-col>
-                              <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
-                            </v-col>
-
-                            <v-col>
-                              <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
-                            </v-col>
-                          </v-row>
-                        </router-link>
-                      </div>-->
                     </template>
                   </RoutineLayout>
                 </v-tab-item>
