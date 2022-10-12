@@ -1,7 +1,7 @@
 <template>
   <d-layout>
     <template v-slot:title>
-      New exercise
+      Edit Routine
     </template>
     <template v-slot:sidebar>
       <v-list class="side-bar d-flex flex-column align-center"
@@ -52,50 +52,57 @@
           <v-text-field/>
           <h2>s</h2>
         </v-list-item>
-<!--        <v-list-item>-->
-<!--          <v-btn class="form-font" text>-->
-<!--            <v-icon>mdi-delete</v-icon>-->
-<!--            <div>Delete</div>-->
-<!--          </v-btn>-->
-<!--        </v-list-item>-->
+        <v-list-item>
+          <v-btn class="form-font" text>
+            <v-icon>mdi-delete</v-icon>
+            <div>Delete</div>
+          </v-btn>
+        </v-list-item>
       </v-list>
     </template>
     <template v-slot:content>
       <v-card elevation="1"
               class="justify-center rounded-xl my-5">
         <v-card-title class="justify-center card-title">
-          Exercise info
+          Warm up
+        </v-card-title>
+      </v-card>
+      <v-card elevation="1"
+              class="justify-center rounded-xl my-5">
+        <v-card-title class="justify-center card-title">
+          First round
         </v-card-title>
         <v-card-text class="card-content">
-          <h4>
-            Element/s:
-          </h4>
-          <v-text-field/>
-          <h4>
-            Description:
-          </h4>
-          <v-text-field/>
-          <h4>
-            Link:
-          </h4>
-          <v-text-field/>
+          <v-layout justify-center>
+            <v-icon
+                color="black"
+            >mdi-plus</v-icon>
+          </v-layout>
         </v-card-text>
+      </v-card>
+
+      <v-card elevation="1"
+              class="justify-center rounded-xl my-5">
+        <v-card-title class="justify-center card-title">
+          Cool down
+        </v-card-title>
       </v-card>
       <v-layout justify-center>
         <router-link to="/routines" class="routerLink">
           <v-btn
-            rounded
-            style="margin-right: 30px"
-            width="300"
-            color="#C8C8C8"
-        >
-          CANCEL
-        </v-btn>
+              rounded
+              style="margin-right: 30px"
+              width="300"
+              color="#C8C8C8"
+          >
+            CANCEL
+          </v-btn>
         </router-link>
         <v-btn
             width="300"
             rounded
             color="#F8C256"
+
         >
           SAVE</v-btn>
       </v-layout>
@@ -107,7 +114,7 @@
 import detailedLayout from "@/components/detailedLayout";
 
 export default {
-  name: "NewExerciseView",
+  name: "EditRoutineView",
   components: {
     DLayout: detailedLayout,
   },
@@ -118,10 +125,18 @@ export default {
     model2: null,
     search: null,
   }),
+  // watch: {
+  //   model (val) {
+  //     if (val.length > 5) {
+  //       this.$nextTick(() => this.model.pop())
+  //     }
+  //   },
+  // },
 }
 </script>
 
 <style scoped>
+
 .card-title {
   background-color: #F8C256;
 }

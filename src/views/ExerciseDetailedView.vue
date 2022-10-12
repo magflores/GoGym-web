@@ -37,10 +37,12 @@
           </v-btn>
         </v-list-item>
         <v-list-item>
-          <v-btn class="form-font" text>
-            <v-icon>mdi-pencil</v-icon>
-            <div>Edit</div>
-          </v-btn>
+          <router-link to="/editexercise" class="routerLink">
+            <v-btn class="form-font" text>
+              <v-icon>mdi-pencil</v-icon>
+              <div>Edit</div>
+            </v-btn>
+          </router-link>
         </v-list-item>
 <!--        <v-list-item>-->
 <!--          <v-btn class="form-font" text>-->

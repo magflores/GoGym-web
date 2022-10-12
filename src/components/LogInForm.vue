@@ -2,9 +2,9 @@
   <v-container>
     <v-row justify="center">
       <v-sheet width="40%">
-        <v-form class="form-font">
+        <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
           <v-text-field
-              label="Email"
+              label="Email*"
               placeholder="Enter your email"
               outlined
               dense
@@ -14,13 +14,16 @@
               required
           />
           <v-text-field
-              label="Password"
+              label="Password*"
               placeholder="Enter your password"
               outlined
               dense
               :rules="passwordRules"
-              color="black"
+              :type="show ? 'text' : 'password'"
               required
+              :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="show = !show"
+              color="black"
           />
         </v-form>
         <v-item>
@@ -45,7 +48,7 @@
                 class="forgot-font">
               You don't have an account yet?
             </h1>
-            <router-link to="/register">
+            <router-link to="/register" class="Link">
               <h1 style="text-align: center;
                 margin-top: 12px"
                   class="forgot-font">
@@ -63,6 +66,9 @@
 export default {
   name: 'LogInForm',
   data: () => ({
+    valid: true,
+    show: false,
+
     emailRules: [
       v => !!v || "Enter your email",
       v => /.+@.+/.test(v) || "Invalid email"
@@ -74,7 +80,7 @@ export default {
 
 <style scoped>
 
-.v-text-field--outlined >>> fieldset {
+.v-text-field--outlined::v-deep fieldset {
   border-color: black;
   border-width: 3px;
   border-radius: 10px;
@@ -98,5 +104,8 @@ export default {
   font-weight: bold;
   font-family: Rambla, sans-serif;
   margin-bottom: 5px;
+}
+.Link{
+  text-decoration: #7A7A7A underline;
 }
 </style>

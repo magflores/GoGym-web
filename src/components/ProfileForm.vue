@@ -9,7 +9,7 @@
             <v-row>
               <v-col cols="20" style="padding-top: 20px" class="box-style">
                 <v-text-field
-                    label="Name"
+                    label="Name*"
                     v-model="name"
                     placeholder="Enter your name"
                     outlined
@@ -23,7 +23,7 @@
             <v-row >
               <v-col class="box-style">
                 <v-text-field
-                    label="Surname"
+                    label="Surname*"
                     v-model="surname"
                     placeholder="Enter your surname"
                     outlined
@@ -37,7 +37,7 @@
             <v-row>
               <v-col class="box-style">
                 <v-text-field
-                    label="Email"
+                    label="Email*"
                     v-model="email"
                     placeholder="Enter your email"
                     outlined
@@ -63,7 +63,7 @@
                   <template v-slot:activator="{ on, attrs }">
                     <v-text-field
                         v-model="dateFormatted"
-                        label="Birthday"
+                        label="Birthday*"
                         placeholder="Enter your birthday with format dd/mm/yyyy"
                         persistent-hint
                         outlined
@@ -118,7 +118,7 @@
             <v-form class="form-profile-font" ref="form" v-model="valid" lazy-validation>
             <!--Password, Confirm password-->
               <v-text-field
-                  label="New Password"
+                  label="New Password*"
                   placeholder="Enter your password"
                   outlined
                   dense
@@ -131,7 +131,7 @@
 
               />
               <v-text-field
-                  label="Confirm password"
+                  label="Confirm password*"
                   placeholder="Enter your password again"
                   outlined
                   dense
@@ -235,7 +235,7 @@ export default {
 </script>
 
 <style scoped>
-.v-text-field--outlined >>> fieldset {
+.v-text-field--outlined::v-deep fieldset {
   border-color: black;
   border-width: 3px;
   border-radius: 10px;

@@ -7,7 +7,7 @@
       rounded
       background-color="#C8C8C8"
       dark
-      class="font"
+      class="searchBar-font"
   ></v-text-field>
 </template>
 
@@ -18,9 +18,9 @@ export default {
 </script>
 
 <style>
-.font {
+.searchBar-font {
   font-family: Rambla, sans-serif;
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 80px;
+  /*font-weight: bold;*/
 }
 </style>

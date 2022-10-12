@@ -16,7 +16,7 @@
           <h1 class="align-center to-log-in-font">
             Already have an account?
           </h1>
-          <router-link to="/login">
+          <router-link to="/login" class="Link">
             <h1 class="align-center to-log-in-font"> Log in
             </h1>
           </router-link>
@@ -54,4 +54,9 @@ export default {
   margin-top: 4px;
   text-align: center;
 }
+
+.Link{
+  text-decoration: #7A7A7A  underline;
+}
+
 </style>

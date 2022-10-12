@@ -2,9 +2,9 @@
   <v-container>
     <v-row justify="center">
       <v-sheet width="40%">
-        <v-form class="form-font">
+        <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
           <v-text-field
-              label="Name"
+              label="Name*"
               placeholder="Enter your name"
               outlined
               dense
@@ -13,7 +13,7 @@
               color="black"
           />
           <v-text-field
-              label="Surname"
+              label="Surname*"
               placeholder="Enter your surname"
               outlined
               dense
@@ -22,7 +22,7 @@
               color="black"
           />
           <v-text-field
-              label="Email"
+              label="Email*"
               placeholder="Enter your email"
               outlined
               dense
@@ -42,7 +42,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                   v-model="dateFormatted"
-                  label="Birthday"
+                  label="Birthday*"
                   placeholder="Enter your birthday with format dd/mm/yyyy"
                   persistent-hint
                   outlined
@@ -62,21 +62,27 @@
           </v-menu>
 
           <v-text-field
-              label="Password"
+              label="Password*"
               placeholder="Enter your password"
               outlined
               dense
               :rules="passwordRules"
+              :type="show ? 'text' : 'password'"
               required
+              :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="show = !show"
               color="black"
           />
           <v-text-field
-              label="Confirm password"
+              label="Confirm password*"
               placeholder="Enter your password again"
               outlined
               dense
               :rules="confirmPasswordRules"
+              :type="show1 ? 'text' : 'password'"
               required
+              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="show1 = !show1"
               color="black"
           />
           <div class="text-center">
@@ -101,6 +107,10 @@
 export default {
   name: 'RegisterForm',
   data: () => ({
+    valid: true,
+    show: false,
+    show1: false,
+
     nameRules: [
       v => !!v || "This field is required",
       v => (v && v.length <= 20) || "Limit of 20 caracters"
@@ -160,7 +170,7 @@ export default {
 
 <style scoped>
 
-.v-text-field--outlined >>> fieldset {
+.v-text-field--outlined::v-deep fieldset {
   border-color: black;
   border-width: 3px;
   border-radius: 10px;

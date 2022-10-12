@@ -1,7 +1,7 @@
 <template>
   <d-layout>
     <template v-slot:title>
-      New exercise
+      Edit exercise
     </template>
     <template v-slot:sidebar>
       <v-list class="side-bar d-flex flex-column align-center"
@@ -52,12 +52,12 @@
           <v-text-field/>
           <h2>s</h2>
         </v-list-item>
-<!--        <v-list-item>-->
-<!--          <v-btn class="form-font" text>-->
-<!--            <v-icon>mdi-delete</v-icon>-->
-<!--            <div>Delete</div>-->
-<!--          </v-btn>-->
-<!--        </v-list-item>-->
+        <v-list-item>
+          <v-btn class="form-font" text>
+            <v-icon>mdi-delete</v-icon>
+            <div>Delete</div>
+          </v-btn>
+        </v-list-item>
       </v-list>
     </template>
     <template v-slot:content>
@@ -84,13 +84,13 @@
       <v-layout justify-center>
         <router-link to="/routines" class="routerLink">
           <v-btn
-            rounded
-            style="margin-right: 30px"
-            width="300"
-            color="#C8C8C8"
-        >
-          CANCEL
-        </v-btn>
+              rounded
+              style="margin-right: 30px"
+              width="300"
+              color="#C8C8C8"
+          >
+            CANCEL
+          </v-btn>
         </router-link>
         <v-btn
             width="300"
@@ -107,7 +107,7 @@
 import detailedLayout from "@/components/detailedLayout";
 
 export default {
-  name: "NewExerciseView",
+  name: "EditExerciseView",
   components: {
     DLayout: detailedLayout,
   },
