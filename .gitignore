@@ -3,6 +3,7 @@ node_modules
 /dist
 desktop.ini
 package-lock.json
+api
 
 # local env files
 .env.local

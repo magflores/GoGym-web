@@ -64,6 +64,18 @@ const routes = [
 
     },
     {
+        path: '/editroutine',
+        name: 'editroutine',
+        component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/EditRoutineView')
+
+    },
+    {
+        path: '/editexercise',
+        name: 'editexercise',
+        component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/EditExerciseView')
+
+    },
+    {
         path: '/exercisedetailed/:id',
         name: 'exercisedetailed',
         component: () => import(/* webpackChunckName: "exerciseDetailed" */ '@/views/ExerciseDetailedView')

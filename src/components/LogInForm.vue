@@ -2,10 +2,10 @@
   <v-container>
     <v-row justify="center">
       <v-sheet width="40%">
-        <v-form class="form-font">
+        <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
           <v-text-field
-              label="Username"
-              placeholder="Enter your username"
+              label="Username*"
+              placeholder="Enter your username*"
               outlined
               dense
               :rules="usernameRules"
@@ -15,14 +15,17 @@
               v-model="credentials.username"
           />
           <v-text-field
-              label="Password"
+              label="Password*"
               placeholder="Enter your password"
               outlined
               dense
               :rules="passwordRules"
-              color="black"
+              :type="show ? 'text' : 'password'"
               required
               v-model="credentials.password"
+              :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+              @click:append="show = !show"
+              color="black"
           />
         </v-form>
         <v-item>
@@ -48,7 +51,7 @@
                 class="forgot-font">
               You don't have an account yet?
             </h1>
-            <router-link to="/register">
+            <router-link to="/register" class="Link">
               <h1 style="text-align: center;
                 margin-top: 12px"
                   class="forgot-font">
@@ -69,6 +72,8 @@ import {mapActions} from "pinia";
 export default {
   name: 'LogInForm',
   data: () => ({
+    valid: true,
+    show: false,
     usernameRules: [
       v => !!v || "Enter your username"
     ],
@@ -122,5 +127,8 @@ export default {
   font-weight: bold;
   font-family: Rambla, sans-serif;
   margin-bottom: 5px;
+}
+.Link{
+  text-decoration: #7A7A7A underline;
 }
 </style>

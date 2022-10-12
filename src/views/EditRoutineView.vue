@@ -1,7 +1,7 @@
 <template>
   <d-layout>
     <template v-slot:title>
-      New Routine
+      Edit Routine
     </template>
     <template v-slot:sidebar>
       <v-list class="side-bar d-flex flex-column align-center"
@@ -88,16 +88,16 @@
         </v-card-title>
       </v-card>
       <v-layout justify-center>
-      <router-link to="/routines" class="routerLink">
-        <v-btn
-            rounded
-            style="margin-right: 30px"
-            width="300"
-            color="#C8C8C8"
-        >
-          CANCEL
-        </v-btn>
-      </router-link>
+        <router-link to="/routines" class="routerLink">
+          <v-btn
+              rounded
+              style="margin-right: 30px"
+              width="300"
+              color="#C8C8C8"
+          >
+            CANCEL
+          </v-btn>
+        </router-link>
         <v-btn
             width="300"
             rounded
@@ -114,7 +114,7 @@
 import detailedLayout from "@/components/detailedLayout";
 
 export default {
-  name: "NewRoutineView",
+  name: "EditRoutineView",
   components: {
     DLayout: detailedLayout,
   },

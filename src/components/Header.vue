@@ -4,6 +4,7 @@
              elevation="0"
              clipped-left
              height="80px"
+             absolute
   >
     <div class="d-flex align-center">
       <router-link to="/" style="
@@ -21,7 +22,7 @@
         class="d-flex align-center"
         v-if="!$isLoggedIn"
     >
-      <router-link to="/register">
+      <router-link to="/register" class="routerLink">
         <v-btn
             text
             padless color="black"
@@ -38,7 +39,7 @@
         |
       </h2>
 
-      <router-link to="/login">
+      <router-link to="/login" class="routerLink">
         <v-btn
             text
             padless color="black"
@@ -132,5 +133,9 @@ export default {
   font-weight: bold;
   font-style: italic;
 
+}
+
+.routerLink {
+  text-decoration: none;
 }
 </style>

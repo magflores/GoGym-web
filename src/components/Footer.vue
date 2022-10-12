@@ -3,6 +3,7 @@
       app
       dark
       padless
+      class="footer"
   >
     <v-card
         class="flex white--text text-center"
@@ -35,6 +36,14 @@
     </v-card>
   </v-footer>
 </template>
+
+<style scoped>
+.footer {
+  bottom: 0;
+  position: absolute;
+  height: auto;
+}
+</style>
 
 <script>
 export default {

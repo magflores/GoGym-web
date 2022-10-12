@@ -39,7 +39,7 @@
                               depressed
                               left
                               x-large
-                              class="font"
+                              class="font2"
                               onclick="all = true"
                           >
                             All {{ option.tab }}
@@ -53,7 +53,7 @@
                               left
                               x-large
                               onclick="all = false"
-                              class="font"
+                              class="font2"
                           >
                             My {{ option.tab }}
                           </v-btn>
@@ -65,7 +65,7 @@
                               depressed
                               left
                               x-large
-                              class="font"
+                              class="font2"
                           >
                             Favourites
                           </v-btn>
@@ -74,74 +74,142 @@
                     </template>
 
                     <template v-slot:content>
-                      <h2 v-if="titleInTab === null">
+<!--                      <h2 v-if="titleInTab === null">
                         All {{ option.tab }}
                       </h2>
                       <h2 v-else>
                         {{ titleInTab }}
-                      </h2>
+                      </h2>-->
 <!--                      <SearchBar/>-->
+                      <div v-if="All === true">
+                      <v-row
+                          style="margin-top: 10px;
+                                    margin-bottom: 20px;
+                                    margin-left: 250px"
+                      >
+                        <v-col
+                            cols="8" style="margin-left: 20px">
+                          <SearchBar/>
+                        </v-col>
+                      </v-row>
+
                       <router-link
                           v-if="option.tab === 'Routines'"
-                          to="/newroutine">
+                          to="/routinedetailed"
+                          class="routerLink"
+                      >
+                                <v-row  style="margin-top: 5px; margin-bottom: 20px; margin-left: 50px">
 
-                                <v-row
-                                    style="margin-top: 20px;
+                                  <v-col>
+                                      <v-img :src="require('../assets/routines/routines1.png')" max-width="300px"/>
+                                  </v-col>
+
+                                  <v-col>
+                                      <v-img :src="require('../assets/routines/routines2.png')" max-width="300px"/>
+                                  </v-col>
+
+                                  <v-col>
+                                      <v-img :src="require('../assets/routines/routines3.png')" max-width="300px"/>
+                                  </v-col>
+
+                                  <v-col>
+                                      <v-img :src="require('../assets/routines/routines4.png')" max-width="300px"/>
+                                  </v-col>
+
+                                  <v-col>
+                                      <v-img :src="require('../assets/routines/routines5.png')" max-width="300px"/>
+                                  </v-col>
+
+                                  <v-col>
+                                      <v-img :src="require('../assets/routines/routines6.png')" max-width="300px"/>
+                                  </v-col>
+
+                                </v-row>
+                      </router-link>
+                      </div>
+
+                      <div v-if="My === true">
+
+                        <v-row
+                            style="margin-top: 10px;
                                     margin-bottom: 20px;
-                                    margin-left: 350px"
-                                >
-                                  <v-col
-                                      cols="8" style="margin-left: 20px">
-                                  <SearchBar/>
-                                  </v-col>
-                                </v-row>
-                                <v-row  style="margin-top: 20px; margin-bottom: 20px; margin-left: 100px">
+                                    margin-left: 250px"
+                        >
+                          <v-col
+                              cols="8" style="margin-left: 20px">
+                            <SearchBar/>
+                          </v-col>
+                        </v-row>
 
-                                  <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
-                                    </a>
-                                  </v-col>
+                        <router-link
+                            v-if="option.tab === 'Routines'"
+                            to="/routinedetailed"
+                            class="routerLink"
+                        >
+                          <v-row  style="margin-top: 5px; margin-bottom: 250px; margin-left: 50px">
 
-                                  <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
-                                    </a>
-                                  </v-col>
+                            <v-col>
+                              <v-img :src="require('../assets/routines/routines1.png')" max-width="300px"/>
+                            </v-col>
 
-                                  <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>
-                                    </a>
-                                  </v-col>
+                            <v-col>
+                              <v-img :src="require('../assets/routines/routines2.png')" max-width="300px"/>
+                            </v-col>
 
-                                  <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>
-                                    </a>
-                                  </v-col>
+                            <v-col>
+                              <v-img :src="require('../assets/routines/routines3.png')" max-width="300px"/>
+                            </v-col>
 
-                                  <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>
-                                    </a>
-                                  </v-col>
+                          </v-row>
+                        </router-link>
+                      </div>
 
-                                  <v-col>
-                                    <a href="/routinedetailed">
-                                      <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>
-                                    </a>
-                                  </v-col>
+                      <div v-if="Fav === true">
 
-                                </v-row>
+                        <v-row
+                            style="margin-top: 10px;
+                                    margin-bottom: 20px;
+                                    margin-left: 250px"
+                        >
+                          <v-col
+                              cols="8" style="margin-left: 20px">
+                            <SearchBar/>
+                          </v-col>
+                        </v-row>
+
+                        <router-link
+                            v-if="option.tab === 'Routines'"
+                            to="/routinedetailed"
+                            class="routerLink"
+                        >
+                          <v-row  style="margin-top: 5px; margin-bottom: 250px; margin-left: 50px">
+
+                            <v-col>
+                              <v-img :src="require('../assets/routines/routines1.png')" max-width="300px"/>
+                            </v-col>
+
+                            <v-col>
+                              <v-img :src="require('../assets/routines/routines2.png')" max-width="300px"/>
+                            </v-col>
+
+
+                          </v-row>
+                        </router-link>
+                      </div>
+
+                      <router-link to="/newRoutine"
+                                   class="routerLink"
+                                   v-if="option.tab === 'Routines'"
+                      >
 
                         <v-btn
-                            style="margin-right: 5px; margin-bottom: 35px"
+                            style="margin-right: 30px; margin-bottom: 100px"
                             fab
                             color="#F8C256"
                             absolute
                             right
                             bottom
+                            large
                             v-if="addIcon === true"
                         >
                           <v-icon
@@ -151,6 +219,7 @@
                           </v-icon>
                         </v-btn>
                       </router-link>
+
                       <router-link
                           v-else
                           to="/newexercise">
@@ -203,18 +272,10 @@ export default {
     tab: null,
     titleInTab: null,
     addIcon: null,
-    items: [
-      { tab: 'One', content: 'Tab 1 Content' },
-      { tab: 'Two', content: 'Tab 2 Content' },
-      { tab: 'Three', content: 'Tab 3 Content' },
-      { tab: 'Four', content: 'Tab 4 Content' },
-      { tab: 'Five', content: 'Tab 5 Content' },
-      { tab: 'Six', content: 'Tab 6 Content' },
-      { tab: 'Seven', content: 'Tab 7 Content' },
-      { tab: 'Eight', content: 'Tab 8 Content' },
-      { tab: 'Nine', content: 'Tab 9 Content' },
-      { tab: 'Ten', content: 'Tab 10 Content' },
-    ],
+    All: true,
+    My: false,
+    Fav: false,
+
     tabOptions: [
       {tab: 'Routines', content: 'estamos en rou'},
       {tab: 'Exercises', content: 'estamos en exc'}
@@ -229,14 +290,23 @@ export default {
     clickAll(tab){
       this.titleInTab = "All " + tab;
       this.addIcon = false;
+      this.All = true;
+      this.Fav = false;
+      this.My = false;
     },
     clickMy(tab){
       this.titleInTab = "My " + tab;
       this.addIcon = true;
+      this.My = true;
+      this.All = false;
+      this.Fav = false;
     },
     clickFavorites(){
       this.titleInTab = "Favorites";
       this.addIcon = false;
+      this.Fav = true;
+      this.My = false;
+      this.All = false;
     },
     resetTitleInTab(){
       this.titleInTab = null;
@@ -249,8 +319,23 @@ export default {
 <style>
 
 .font {
-  font-family: Rambla, sans-serif;
+  /*font-family: Rambla, sans-serif;*/
   font-size: 30px;
+  font-family: 'Rambla', sans-serif;
+  /*font-weight: bold;*/
+  font-weight: lighter;
+  /*font-style: italic;*/
+  text-transform: none !important;
+}
+
+.font2 {
+  font-family: 'Rambla', sans-serif;
+  /*font-size: 50px;*/
+  text-transform: none !important;
+}
+
+.routerLink{
+  text-decoration: none;
 }
 
 </style>
