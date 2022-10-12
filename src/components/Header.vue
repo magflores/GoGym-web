@@ -4,6 +4,7 @@
              elevation="0"
              clipped-left
              height="80px"
+             absolute
   >
     <div class="d-flex align-center">
       <router-link to="/" style="
