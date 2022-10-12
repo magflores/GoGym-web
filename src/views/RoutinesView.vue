@@ -447,6 +447,8 @@
 import SearchBar from "@/components/SearchBar";
 // import AppHeader from "@/components/Header";
 import RoutineLayout from "@/components/RoutineLayout";
+import {mapActions, mapState} from "pinia";
+import {useRoutineStore} from "@/stores/RoutineStore";
 // import Footer from "@/components/Footer";
 // import detailedLayout from "@/components/detailedLayout";
 
@@ -478,7 +480,21 @@ export default {
     expand: false,
     all:false,
   }),
+  computed: {
+    ...mapState(useRoutineStore, {
+      $routines: state => state.routines
+    })
+  },
   methods: {
+    ...mapActions(useRoutineStore, {
+      $getAll: 'getAll',
+
+    }),
+
+    async getAll(){
+      await this.$getAll(this.user)
+    },
+
     clickAll(tab){
       this.titleInTab = "All " + tab;
       this.addIcon = false;

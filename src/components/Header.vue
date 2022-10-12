@@ -128,9 +128,7 @@ export default {
     },
     async getCurrentUser() {
       await this.$getCurrentUser()
-    }
-  }
-  methods: {
+    },
     userAction(action){
       if (action === 'My account'){
         this.$router.push('/profile');

@@ -112,6 +112,7 @@
 
 <script>
 import detailedLayout from "@/components/detailedLayout";
+import {mapState} from "pinia";
 
 export default {
   name: "NewRoutineView",
@@ -125,6 +126,9 @@ export default {
     model2: null,
     search: null,
   }),
+  computed: {
+
+  },
   // watch: {
   //   model (val) {
   //     if (val.length > 5) {
