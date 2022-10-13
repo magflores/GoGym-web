@@ -8,7 +8,7 @@
   >
     <div class="d-flex align-center">
       <router-link to="/" style="
-      margin-right: 10px; margin-left: 10px">
+      margin-right: 10px; margin-left: 10px; color: #2E2D29">
         <v-img :src="require('../assets/GoGym-icon.png')"
                max-height="70"
                max-width="70"
@@ -16,7 +16,7 @@
       </router-link>
     </div>
     <h1 class="rambla-font"
-        style="font-size: 220%">GoGym!</h1>
+        style="font-size: 220%; color: #2E2D29;">GoGym!</h1>
     <v-spacer/>
     <div
         class="d-flex align-center"
@@ -25,7 +25,7 @@
     <router-link to="/register" class="routerLink">
       <v-btn
           text
-          padless color="black"
+          style="color: #2E2D29"
           class="rambla-font"
       >
         Join Us
@@ -34,7 +34,7 @@
     </router-link>
 
     <h2
-        style="margin-right: 10px; margin-left: 10px"
+        style="margin-right: 10px; margin-left: 10px; color: #2E2D29"
     >
       |
     </h2>
@@ -42,7 +42,7 @@
     <router-link to="/login" class="routerLink">
       <v-btn
           text
-          padless color="black"
+          style="color: #2E2D29"
           class="rambla-font"
       >
         Log In
@@ -55,7 +55,7 @@
     >
       <h2
           style="margin-right: 10px;
-          margin-left: 10px; font-size: 200%"
+          margin-left: 10px; font-size: 200%; color: #2E2D29"
       >
         Welcome, John Doe
       </h2>

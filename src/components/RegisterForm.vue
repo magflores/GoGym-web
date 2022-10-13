@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-sheet width="40%">
-        <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
+        <v-form class="form-font" ref="form" v-model="valid" lazy-validation style="height: 100%">
           <v-text-field
               label="Name*"
               placeholder="Enter your name"

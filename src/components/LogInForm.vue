@@ -2,7 +2,7 @@
   <v-container>
     <v-row justify="center">
       <v-sheet width="40%">
-        <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
+        <v-form class="form-font" ref="form" v-model="valid" lazy-validation style="height: 47%">
           <v-text-field
               label="Email*"
               placeholder="Enter your email"
@@ -27,12 +27,15 @@
           />
         </v-form>
         <v-item>
-          <v-col style="padding: 0">
-            <h1 style="text-align: left" class="forgot-font"> Forgot my password </h1>
+          <v-col style="padding: 0px">
+            <router-link to="/register" class="Link forgot-font" style="text-align: center; padding: 0px">
+              Forgot my password
+            </router-link>
           </v-col>
         </v-item>
         <div class="text-center">
           <v-btn class="enter-button-font"
+              style="margin-top: 10px"
               width="40%"
               rounded
               color="#F8C256"
@@ -44,17 +47,13 @@
         <v-item>
           <v-col style="padding: 0">
             <h1 style="text-align: center;
-                margin-top: 12px"
+                margin-top: 13px"
                 class="forgot-font">
               You don't have an account yet?
-            </h1>
-            <router-link to="/register" class="Link">
-              <h1 style="text-align: center;
-                margin-top: 12px"
-                  class="forgot-font">
+              <router-link to="/register" class="Link forgot-font" style="text-align: center; margin-top: 12px">
                 Join us now!
-              </h1>
-            </router-link>
+              </router-link>
+            </h1>
           </v-col>
         </v-item>
       </v-sheet>

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-container style="padding-top: 3px">
+    <v-container style="padding-top: 0; padding-bottom: 0.65%">
         <v-row class="text-center">
-          <v-col v-if="displayLog === false">
+          <v-col v-if="displayLog === false" style="padding-top: 0.5%">
             <h1> Welcome to GoGym! </h1>
           </v-col>
 
@@ -48,7 +48,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container>
+    <v-container style="margin-top: 0.5%; margin-bottom: 0.3%">
       <v-row
           class="align-center"
           style="margin-bottom: 3px">
@@ -146,10 +146,12 @@ export default {
 }
 
 h1{
-  font: normal normal bold 50px Rambla;
-  /*font-size: 50px;*/
-  /*font-family: 'Roboto', sans-serif;*/
-  /*font-weight: bold;*/
+  /*font: normal normal bold 50px Rambla;*/
+  font-size: 320%;
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'Rambla', sans-serif;
+  color: #2E2D29;
 }
 /*h2 {*/
 /*  color: #FFFFFF;*/

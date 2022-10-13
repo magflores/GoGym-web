@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-container>
+    <v-container style="padding: 0">
       <!--Title Log In-->
       <v-item>
-        <v-col>
+        <v-col style="padding-top: 0; padding-bottom: 1.5%">
           <h1 class="login-font"> Log In </h1>
         </v-col>
       </v-item>
@@ -29,7 +29,7 @@ export default {
 
 <style>
 .login-font {
-  font-size: 300%;
+  font-size: 320%;
   color: #F8C256;
   font-weight: bold;
   font-style: italic;

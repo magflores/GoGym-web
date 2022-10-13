@@ -1,9 +1,9 @@
 <template>
-  <v-container>
+  <v-container style="padding: 0">
     <div>
       <!--Title Join Us-->
       <v-item>
-        <v-col>
+        <v-col style="padding-top: 0; padding-bottom: 1.5%">
           <h1 class="register-font"> Join Us </h1>
         </v-col>
       </v-item>
@@ -15,11 +15,8 @@
         <v-col>
           <h1 class="align-center to-log-in-font">
             Already have an account?
+            <router-link to="/login" class="Link to-log-in-font align-center" style="color: #7A7A7A"> Log in here! </router-link>
           </h1>
-          <router-link to="/login" class="Link">
-            <h1 class="align-center to-log-in-font"> Log in
-            </h1>
-          </router-link>
         </v-col>
       </v-item>
     </div>
@@ -39,7 +36,7 @@ export default {
 
 <style>
 .register-font {
-  font-size: 300%;
+  font-size: 320%;
   color: #F8C256;
   font-weight: bold;
   font-style: italic;
