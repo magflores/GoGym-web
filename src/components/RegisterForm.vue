@@ -107,6 +107,7 @@
                    color="#F8C256"
                    dark
                    @click="register()"
+                   :loading="loadingButton"
             >
               REGISTER
             </v-btn>
@@ -127,19 +128,19 @@ export default {
     valid: true,
     show: false,
     show1: false,
-
+    loadingButton: false,
     usernameRules: [
-        v => !!v || 'Username is required',
-        v => (v && v.length <= 20) || 'Username must be less than 20 characters',
-        v => (v && v.length >= 3) || 'Username must be more than 3 characters',
+      v => !!v || 'Username is required',
+      v => (v || '').length <= 20 || 'Username must be less than 20 characters',
+      v => (v || '').length >= 3 || 'Username must be more than 3 characters',
     ],
     nameRules: [
       v => !!v || "This field is required",
-      v => (v && v.length <= 20) || "Limit of 20 caracters"
+      v => (v || '').length <= 20 || "Limit of 20 caracters"
     ],
     surnameRules: [
       v => !!v || "This field is required",
-      v => (v && v.length <= 20) || "Limit of 20 caracters"
+      v => (v || '').length <= 20 || "Limit of 20 caracters"
     ],
     emailRules: [
       v => !!v || "Enter your email",
@@ -147,15 +148,18 @@ export default {
     ],
     birthdayRules: [
       v => !!v || "Enter your birthday date",
-      v => (v && v.length <= 10) || "Limit of 10 caracters"
+      v => (v || '').length <= 10 || "Limit of 10 caracters"
     ],
-    passwordRules: [v => !!v || "Enter your password",
-      v => v.length >= 6 ||
-          'Must contain at least 6 characters'],
-    confirmPasswordRules: [v => !!v ||
-        "Passwords don't match",
-      v => v.length >= 6 || 'Passwords don\'t match'],
+    passwordRules: [
+      v => !!v || "Enter your password",
+      v => (v || '').length >= 6 || 'Must contain at least 6 characters'
+    ],
+    confirmPasswordRules: [
+      v => !!v || "Passwords don't match",
+      v => (v || '').length >= 6 || 'Passwords don\'t match'
+    ],
     date: '',
+    dateFormatted: '',
     // dateFormatted: vm.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
     menu: false,
     confirmPassword: '',
@@ -173,51 +177,54 @@ export default {
       return this.formatDate(this.date)
     },
   },
-
   watch: {
     date () {
       this.dateFormatted = this.formatDate(this.date)
     },
   },
-
   methods: {
-    ...mapActions(useUserStore, { $register: 'register' }),
-    formatDate (date) {
+    ...mapActions(useUserStore, {$register: 'register'}),
+    formatDate(date) {
       if (!date) return null
 
       const [year, month, day] = date.split('-')
       return `${month}/${day}/${year}`
     },
-    parseDate (date) {
+    parseDate(date) {
       if (!date) return null
 
       const [month, day, year] = date.split('/')
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
     },
-    async register () {
+    async register() {
       if (!this.$refs.form.validate()) {
-        // TODO error handling
+        return;
       }
-      if (this.user.password !== this.confirmPassword) {
-        // TODO error handling
-      }
-
+      this.loadingButton = true;
       this.user.birthday = this.dateFormatted
-      let ret = await this.$register({
-        username: this.user.username,
-        password: this.user.password
-      }, {
-        firstName: this.user.firstName,
-        lastName: this.user.lastName,
-        email: this.user.email,
-        birthday: this.user.birthday
-      });
-      if (ret) {
-        // TODO error handling
-        this.$router.push({ name: 'login' })
+      try {
+        await this.$register({
+          username: this.user.username,
+          password: this.user.password
+        }, {
+          firstName: this.user.firstName,
+          lastName: this.user.lastName,
+          email: this.user.email,
+          birthday: this.user.birthday
+        });
+        this.$router.push({name: 'login'});
+      } catch (error) {
+        // TODO actually inform user of error
+        if (error.details[0].includes("username")) {
+          console.log("username error");
+        } else if (error.details[0].includes("email")) {
+          console.log("email error");
+        }
+      } finally {
+        this.loadingButton = false;
       }
     }
-  },
+  }
 }
 
 </script>
