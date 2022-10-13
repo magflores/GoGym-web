@@ -35,11 +35,12 @@
         </v-item>
         <div class="text-center">
           <v-btn class="enter-button-font"
-              width="40%"
-              rounded
-              color="#F8C256"
-              dark
-              @click="login()"
+                 width="40%"
+                 rounded
+                 color="#F8C256"
+                 dark
+                 @click="login()"
+                 :loading="loading"
           >
             ENTER
           </v-btn>
@@ -74,6 +75,7 @@ export default {
   data: () => ({
     valid: true,
     show: false,
+    loading: false,
     usernameRules: [
       v => !!v || "Enter your username"
     ],
@@ -88,13 +90,17 @@ export default {
       $login: 'login',
       $getCurrentUser: 'getCurrentUser'
     }),
-    async login(){
+    async login() {
+      this.loading = true;
       try {
         await this.$login(this.credentials);
         await this.$getCurrentUser();
+        this.loading = false;
         this.$router.push('/');
       } catch (e) {
         console.log(e);
+        this.loading = false;
+        // TODO error handling with feedback to user
       }
     }
   }
@@ -115,6 +121,7 @@ export default {
   font-weight: bold;
   align-content: center;
 }
+
 .forgot-font {
   font-size: 100%;
   color: #7A7A7A;
@@ -122,13 +129,15 @@ export default {
   margin-top: 0;
   margin-bottom: 20px;
 }
+
 .enter-button-font {
   color: #FFFFFF;
   font-weight: bold;
   font-family: Rambla, sans-serif;
   margin-bottom: 5px;
 }
-.Link{
+
+.Link {
   text-decoration: #7A7A7A underline;
 }
 </style>
