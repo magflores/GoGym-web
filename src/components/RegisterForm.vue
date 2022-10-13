@@ -4,6 +4,16 @@
       <v-sheet width="40%">
         <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
           <v-text-field
+              label="Username*"
+              placeholder="Enter your username"
+              outlined
+              dense
+              :rules="usernameRules"
+              required
+              color="black"
+              v-model="user.username"
+          />
+          <v-text-field
               label="Name*"
               placeholder="Enter your name"
               outlined
@@ -11,6 +21,7 @@
               :rules="nameRules"
               required
               color="black"
+              v-model="user.firstName"
           />
           <v-text-field
               label="Surname*"
@@ -20,6 +31,7 @@
               :rules="surnameRules"
               required
               color="black"
+              v-model="user.lastName"
           />
           <v-text-field
               label="Email*"
@@ -29,6 +41,7 @@
               :rules="emailRules"
               required
               color="black"
+              v-model="user.email"
           />
           <v-menu
               ref="menu"
@@ -72,6 +85,7 @@
               :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
               @click:append="show = !show"
               color="black"
+              v-model="user.password"
           />
           <v-text-field
               label="Confirm password*"
@@ -84,6 +98,7 @@
               :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
               @click:append="show1 = !show1"
               color="black"
+              v-model="confirmPassword"
           />
           <div class="text-center">
             <v-btn class="register-button-font"
@@ -91,7 +106,7 @@
                    rounded
                    color="#F8C256"
                    dark
-
+                   @click="register()"
             >
               REGISTER
             </v-btn>
@@ -103,6 +118,8 @@
 </template>
 
 <script>
+import {useUserStore} from "@/stores/UserStore";
+import {mapActions} from "pinia";
 
 export default {
   name: 'RegisterForm',
@@ -111,6 +128,11 @@ export default {
     show: false,
     show1: false,
 
+    usernameRules: [
+        v => !!v || 'Username is required',
+        v => (v && v.length <= 20) || 'Username must be less than 20 characters',
+        v => (v && v.length >= 3) || 'Username must be more than 3 characters',
+    ],
     nameRules: [
       v => !!v || "This field is required",
       v => (v && v.length <= 20) || "Limit of 20 caracters"
@@ -136,7 +158,15 @@ export default {
     date: '',
     // dateFormatted: vm.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
     menu: false,
-
+    confirmPassword: '',
+    user: {
+      username: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      birthday: '',
+      password: ''
+    }
   }),
   computed: {
     computedDateFormatted () {
@@ -151,6 +181,7 @@ export default {
   },
 
   methods: {
+    ...mapActions(useUserStore, { $register: 'register' }),
     formatDate (date) {
       if (!date) return null
 
@@ -163,6 +194,29 @@ export default {
       const [month, day, year] = date.split('/')
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
     },
+    async register () {
+      if (!this.$refs.form.validate()) {
+        // TODO error handling
+      }
+      if (this.user.password !== this.confirmPassword) {
+        // TODO error handling
+      }
+
+      this.user.birthday = this.dateFormatted
+      let ret = await this.$register({
+        username: this.user.username,
+        password: this.user.password
+      }, {
+        firstName: this.user.firstName,
+        lastName: this.user.lastName,
+        email: this.user.email,
+        birthday: this.user.birthday
+      });
+      if (ret) {
+        // TODO error handling
+        this.$router.push({ name: 'login' })
+      }
+    }
   },
 }
 
