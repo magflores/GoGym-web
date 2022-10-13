@@ -112,7 +112,7 @@
 
 <script>
 import detailedLayout from "@/components/detailedLayout";
-import {mapState} from "pinia";
+// import {mapState} from "pinia";
 
 export default {
   name: "NewRoutineView",

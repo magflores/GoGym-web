@@ -262,69 +262,6 @@
                               </router-link>
                             </v-col>
 
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/2">-->
-<!--                                <v-img :src="require('../assets/routines/routines4.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/1">-->
-<!--                                <v-img :src="require('../assets/routines/routines5.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed">-->
-<!--                                <v-img :src="require('../assets/routines/routines6.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/2">-->
-<!--                                <v-img :src="require('../assets/routines/routines4.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/1">-->
-<!--                                <v-img :src="require('../assets/routines/routines5.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed">-->
-<!--                                <v-img :src="require('../assets/routines/routines6.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/2">-->
-<!--                                <v-img :src="require('../assets/routines/routines4.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed/1">-->
-<!--                                <v-img :src="require('../assets/routines/routines5.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
-<!--                            <v-col>-->
-<!--                              <router-link to="/routinedetailed">-->
-<!--                                <v-img :src="require('../assets/routines/routines6.png')"-->
-<!--                                       max-width="250px"/>-->
-<!--                              </router-link>-->
-<!--                            </v-col>-->
-
                           </v-row>
                         </div>
                         <div v-if="Fav === true">
@@ -445,21 +382,15 @@
 
 <script>
 import SearchBar from "@/components/SearchBar";
-// import AppHeader from "@/components/Header";
 import RoutineLayout from "@/components/RoutineLayout";
-import {mapActions, mapState} from "pinia";
 import {useRoutineStore} from "@/stores/RoutineStore";
-// import Footer from "@/components/Footer";
-// import detailedLayout from "@/components/detailedLayout";
+import {mapActions, mapState} from "pinia";
 
 export default {
   name: 'RoutinesView',
   components: {
-    // Footer,
     SearchBar,
-    // detailedLayout,
     RoutineLayout,
-    // AppHeader
   },
   data: () => ({
     user: {},
@@ -485,14 +416,24 @@ export default {
       $routines: state => state.routines
     })
   },
+  // created() {
+  // },
   methods: {
-    ...mapActions(useRoutineStore, {
-      $getAll: 'getAll',
+    // ...mapActions(useRoutineStore, {
+    //   $getAllRoutines: 'getAll',
+    //
+    // }),
 
-    }),
+    ...mapActions(useRoutineStore, ["getAll"]),
 
-    async getAll(){
-      await this.$getAll(this.user)
+    async getAllRoutines(){
+      try {
+        this.controller = new AbortController();
+        await this.getAll(this.controller);
+        this.controller = null;
+      } catch (e) {
+        console.error("Could not load rooms due to: ", e);
+      }
     },
 
     clickAll(tab){
@@ -519,7 +460,7 @@ export default {
     resetTitleInTab(){
       this.titleInTab = null;
       this.addIcon = false;
-    }
+    },
   }
 }
 </script>
