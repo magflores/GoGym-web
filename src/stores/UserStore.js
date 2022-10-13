@@ -37,6 +37,7 @@ export const useUserStore = defineStore("user", {
 
             const result = await UserApi.get();
             this.setUser(result);
+            return this.user;
         },
         async register(credentials, userInfo) {
             return await UserApi.register(credentials, userInfo);

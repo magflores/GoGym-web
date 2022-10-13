@@ -96,7 +96,7 @@ export default {
         await this.$login(this.credentials);
         await this.$getCurrentUser();
         this.loading = false;
-        this.$router.push('/');
+        this.$router.push({name: 'home'});
       } catch (e) {
         console.log(e);
         this.loading = false;

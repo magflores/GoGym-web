@@ -168,17 +168,17 @@ export default {
       firstName: '',
       lastName: '',
       email: '',
-      birthday: '',
+      birthdate: '',
       password: ''
     }
   }),
   computed: {
-    computedDateFormatted () {
+    computedDateFormatted() {
       return this.formatDate(this.date)
     },
   },
   watch: {
-    date () {
+    date() {
       this.dateFormatted = this.formatDate(this.date)
     },
   },
@@ -201,7 +201,7 @@ export default {
         return;
       }
       this.loadingButton = true;
-      this.user.birthday = this.dateFormatted
+      this.user.birthdate = this.dateFormatted
       try {
         await this.$register({
           username: this.user.username,
@@ -210,7 +210,7 @@ export default {
           firstName: this.user.firstName,
           lastName: this.user.lastName,
           email: this.user.email,
-          birthday: this.user.birthday
+          birthdate: new Date(this.user.birthdate).getTime()
         });
         this.$router.push({name: 'login'});
       } catch (error) {
