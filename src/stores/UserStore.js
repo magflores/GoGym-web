@@ -13,12 +13,20 @@ export const useUserStore = defineStore("user", {
         },
     },
     actions: {
+        async initialize() {
+            const token = sessionStorage.getItem("token");
+            if (token) {
+                this.setToken(token);
+                await this.getCurrentUser();
+            }
+        },
         setUser(user) {
             this.user = user;
         },
         setToken(token) {
             this.token = token;
             Api.token = token;
+            sessionStorage.setItem("token", token);
         },
         removeToken() {
             this.setToken(null);
@@ -26,13 +34,14 @@ export const useUserStore = defineStore("user", {
         async login(credentials) {
             const result = await UserApi.login(credentials);
             this.setToken(result.token);
+            await this.getCurrentUser();
         },
         async logout() {
             await UserApi.logout();
             this.removeToken();
         },
         async getCurrentUser() {
-            if (this.user)
+            if (this.user != null)
                 return this.user;
 
             const result = await UserApi.get();

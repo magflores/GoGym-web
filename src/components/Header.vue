@@ -1,93 +1,46 @@
 <template>
-  <v-app-bar app
-             color="white"
-             elevation="0"
-             clipped-left
-             height="80px"
-             absolute
-  >
+  <v-app-bar app color="white" elevation="0" clipped-left height="80px" absolute>
     <div class="d-flex align-center">
-      <router-link to="/" style="
-      margin-right: 10px; margin-left: 10px">
-        <v-img :src="require('../assets/GoGym-icon.png')"
-               max-height="70"
-               max-width="70"
-        />
+      <router-link to="/" style="margin-right: 10px; margin-left: 10px">
+        <v-img :src="require('../assets/GoGym-icon.png')" max-height="70" max-width="70"/>
       </router-link>
     </div>
-    <h1 class="rambla-font"
-        style="font-size: 220%">GoGym!</h1>
+    <h1 class="rambla-font" style="font-size: 220%">GoGym!</h1>
     <v-spacer/>
-    <div
-        class="d-flex align-center"
-        v-if="!$isLoggedIn"
-    >
+    <div class="d-flex align-center" v-if="!$isLoggedIn">
       <router-link to="/register" class="routerLink">
-        <v-btn
-            text
-            padless color="black"
-            class="rambla-font"
-        >
+        <v-btn text padless color="black" class="rambla-font">
           Join Us
         </v-btn>
-
       </router-link>
-
-      <h2
-          style="margin-right: 10px; margin-left: 10px"
-      >
+      <h2 style="margin-right: 10px; margin-left: 10px">
         |
       </h2>
-
       <router-link to="/login" class="routerLink">
-        <v-btn
-            text
-            padless color="black"
-            class="rambla-font"
-        >
+        <v-btn text padless color="black" class="rambla-font">
           Log In
         </v-btn>
       </router-link>
     </div>
-    <div
-        class="d-flex align-center"
-        v-else
-    >
-      <h2
-          style="margin-right: 10px;
-          margin-left: 10px; font-size: 200%"
-      >
-        Welcome, {{ `${$user.firstName} ${$user.lastName}` }}
+    <div class="d-flex align-center" v-else-if="$isLoggedIn && user != null">
+      <h2 style="margin-right: 10px; margin-left: 10px; font-size: 200%">
+        Welcome, {{ `${user.firstName} ${user.lastName}` }}
       </h2>
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn
-              v-bind="attrs"
-              v-on="on"
-              color="#F8C256"
-              fab
-          >
-            <v-img :src="$user.avatarUrl"
-                   max-width="35"
-                   min-width="35"
-            />
+          <v-btn v-bind="attrs" v-on="on" color="#F8C256" fab>
+            <v-img :src="user.avatarUrl" max-width="35" min-width="35"/>
           </v-btn>
         </template>
         <v-list>
-          <v-list-item
-              v-for="(item, index) in items"
-              :key="index"
-          >
+          <v-list-item v-for="(item, index) in items" :key="index">
             <v-list-item-title>
               {{ item.title }}
             </v-list-item-title>
           </v-list-item>
         </v-list>
-
       </v-menu>
     </div>
-
-
   </v-app-bar>
 </template>
 
@@ -104,10 +57,9 @@ export default {
       {title: 'Home'},
       {title: 'Log out'}
     ],
-    user: {},
   }),
   computed: {
-    ...mapState(useUserStore, {$user: state => state.user}),
+    ...mapState(useUserStore, ['user']),
     ...mapState(useUserStore, {$isLoggedIn: 'isLoggedIn'}),
   },
   methods: {
