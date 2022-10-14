@@ -222,7 +222,7 @@ export default {
           email: this.user.email,
           birthdate: new Date(this.user.birthdate).getTime()
         });
-        this.$router.push({name: 'login'});
+        this.$router.push({name: 'verifyEmail', params: {email: this.user.email}});
       } catch (error) {
         for (const detailsKey in error.details) {
           if (error.details[detailsKey].toLowerCase().includes('username')) {
