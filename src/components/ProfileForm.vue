@@ -244,7 +244,6 @@ export default {
     },
     save() {
       this.loadingSave = true;
-      console.log(Date.parse(this.date));
       try {
         this.$modifyUser({
           firstName: this.user.firstName,

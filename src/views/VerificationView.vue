@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1 class="title-font text-center">Verify Email</h1>
+    <p class="text-center">You will receive an email shortly with a verification code</p>
     <div class="d-flex flex-column align-center justify-center fill-height mt-5">
       <v-sheet width="40%">
         <v-form class="form-font" ref="form" v-model="valid" lazy-validation>
@@ -29,11 +30,17 @@
               :error-messages="codeErrorMessage"/>
         </v-form>
         <div class="d-flex justify-center">
-          <v-btn class="enter-button-font" width="40%" rounded color="#F8C256" dark @click="verify()" :loading="loading" >
+          <v-btn class="enter-button-font mx-2" width="40%" rounded color="#F8C256" dark @click="verify()"
+                 :loading="loading">
             Verify
           </v-btn>
+          <v-btn class="resend-button-class mx-2" width="40%" rounded @click="resendVerification" :disabled="disableVerification" :loading="loadingResend">
+            <template v-slot:loader>
+              Sending...
+            </template>
+            Resend
+          </v-btn>
         </div>
-        <p class="resend-font">Resend verification email</p>
       </v-sheet>
     </div>
   </div>
@@ -54,6 +61,8 @@ export default {
       codeError: false,
       emailErrorMessage: '',
       codeErrorMessage: '',
+      disableVerification: false,
+      loadingResend: false,
       emailRules: [
         v => !!v || "Enter your email",
         v => /.+@.+/.test(v) || "Invalid email"
@@ -76,7 +85,7 @@ export default {
       try {
         await UserApi.verifyEmail(this.email, this.code);
         this.loading = false;
-        await this.$router.push({name: 'LogIn'});
+        await this.$router.push({name: 'login'});
       } catch (error) {
         for (const detailsKey in error.details) {
           console.log(error.details[detailsKey]);
@@ -91,6 +100,32 @@ export default {
         }
       } finally {
         this.loading = false;
+      }
+    },
+    async resendVerification() {
+      this.emailError = false;
+      this.emailErrorMessage = '';
+      if (this.email === '') {
+        this.emailError = true;
+        this.emailErrorMessage = "Enter your email";
+        return;
+      }
+      this.loadingResend = true;
+      try {
+        await UserApi.resendVerificationEmail(this.email);
+        this.disableVerification = true;
+        setTimeout(() => {
+          this.disableVerification = false;
+        }, 60000);
+      } catch (error) {
+        for (const detailsKey in error.details) {
+          if (error.details[detailsKey].toLowerCase().includes("email")) {
+            this.emailError = true;
+            this.emailErrorMessage = error.details[detailsKey];
+          }
+        }
+      } finally {
+        this.loadingResend = false;
       }
     }
   },
@@ -107,7 +142,7 @@ export default {
       flag = false;
 
     if (flag) {
-      //TODO error handling
+      await this.verify();
     }
   }
 }
@@ -144,20 +179,10 @@ export default {
   margin-bottom: 5px;
 }
 
-.resend-font {
-  font-size: 100%;
-  color: #7A7A7A;
-  font-family: Rambla, sans-serif;
-  margin-top: 0;
-  margin-bottom: 20px;
+.resend-button-class {
+  font-weight: bold;
+  width: 100%;
 }
-
-/*.enter-button-font {*/
-/*  color: #FFFFFF;*/
-/*  font-weight: bold;*/
-/*  font-family: Rambla, sans-serif;*/
-/*  margin-bottom: 5px;*/
-/*}*/
 
 /*.Link {*/
 /*  text-decoration: #7A7A7A underline;*/
