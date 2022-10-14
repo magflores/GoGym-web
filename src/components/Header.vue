@@ -8,19 +8,15 @@
     <h1 class="rambla-font" style="font-size: 220%">GoGym!</h1>
     <v-spacer/>
     <div class="d-flex align-center" v-if="!$isLoggedIn">
-      <router-link to="/register" class="routerLink">
-        <v-btn text padless color="black" class="rambla-font">
-          Join Us
-        </v-btn>
-      </router-link>
+      <v-btn text padless color="black" class="rambla-font" :to="{name: 'register'}">
+        Join Us
+      </v-btn>
       <h2 style="margin-right: 10px; margin-left: 10px">
         |
       </h2>
-      <router-link to="/login" class="routerLink">
-        <v-btn text padless color="black" class="rambla-font">
-          Log In
-        </v-btn>
-      </router-link>
+      <v-btn text padless color="black" class="rambla-font" :to="{name: 'login'}">
+        Log In
+      </v-btn>
     </div>
     <div class="d-flex align-center" v-else-if="$isLoggedIn && user != null">
       <h2 style="margin-right: 10px; margin-left: 10px; font-size: 200%">
@@ -33,9 +29,14 @@
           </v-btn>
         </template>
         <v-list>
-          <v-list-item v-for="(item, index) in items" :key="index">
+          <v-list-item :to="{name: 'profile'}">
             <v-list-item-title>
-              {{ item.title }}
+              My Account
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="logout">
+            <v-list-item-title>
+              Log Out
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -52,11 +53,6 @@ export default {
   name: 'AppHeader',
   data: () => ({
     displayLog: true,
-    items: [
-      {title: 'My account'},
-      {title: 'Home'},
-      {title: 'Log out'}
-    ],
   }),
   computed: {
     ...mapState(useUserStore, ['user']),
@@ -85,9 +81,5 @@ export default {
   font-weight: bold;
   font-style: italic;
 
-}
-
-.routerLink {
-  text-decoration: none;
 }
 </style>

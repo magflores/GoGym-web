@@ -39,6 +39,8 @@ export const useUserStore = defineStore("user", {
         async logout() {
             await UserApi.logout();
             this.removeToken();
+            this.user = null;
+            sessionStorage.removeItem("token");
         },
         async getCurrentUser() {
             if (this.user != null)
