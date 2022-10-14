@@ -13,7 +13,8 @@
               padding="10px"
               required
               v-model="credentials.username"
-          />
+              :error="usernameError"
+              :error-messages="usernameErrorMessage"/>
           <v-text-field
               label="Password*"
               placeholder="Enter your password"
@@ -26,7 +27,8 @@
               :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
               @click:append="show = !show"
               color="black"
-          />
+              :error="passwordError"
+              :error-messages="passwordErrorMessage"/>
         </v-form>
         <v-item>
           <v-col style="padding: 0">
@@ -76,6 +78,10 @@ export default {
     valid: true,
     show: false,
     loading: false,
+    usernameError: false,
+    passwordError: false,
+    usernameErrorMessage: '',
+    passwordErrorMessage: '',
     usernameRules: [
       v => !!v || "Enter your username"
     ],
@@ -91,16 +97,31 @@ export default {
       $getCurrentUser: 'getCurrentUser'
     }),
     async login() {
+      this.usernameError = false;
+      this.passwordError = false;
+      this.usernameErrorMessage = '';
+      this.passwordErrorMessage = '';
+      if (!this.$refs.form.validate())
+        return;
       this.loading = true;
       try {
         await this.$login(this.credentials);
         await this.$getCurrentUser();
         this.loading = false;
         this.$router.push({name: 'home'});
-      } catch (e) {
-        console.log(e);
+      } catch (error) {
+        for (const detailsKey in error.details) {
+          if (error.details[detailsKey].toLowerCase().includes('username')) {
+            this.usernameError = true;
+            this.usernameErrorMessage = error.details[detailsKey];
+          }
+          if (error.details[detailsKey].toLowerCase().includes('password')) {
+            this.passwordError = true;
+            this.passwordErrorMessage = error.details[detailsKey];
+          }
+        }
+      } finally {
         this.loading = false;
-        // TODO error handling with feedback to user
       }
     }
   }

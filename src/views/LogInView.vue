@@ -4,7 +4,7 @@
       <!--Title Log In-->
       <v-item>
         <v-col>
-          <h1 class="login-font"> Log In </h1>
+          <h1 class="title-font"> Log In </h1>
         </v-col>
       </v-item>
       <!--Form-->
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style>
-.login-font {
+.title-font {
   font-size: 300%;
   color: #F8C256;
   font-weight: bold;

@@ -12,7 +12,8 @@
               required
               color="black"
               v-model="user.username"
-          />
+              :error="usernameError"
+              :error-messages="usernameErrorMessage"/>
           <v-text-field
               label="Name*"
               placeholder="Enter your name"
@@ -42,7 +43,8 @@
               required
               color="black"
               v-model="user.email"
-          />
+              :error="emailError"
+              :error-messages="emailErrorMessage"/>
           <v-menu
               ref="menu"
               v-model="menu"
@@ -170,7 +172,11 @@ export default {
       email: '',
       birthdate: '',
       password: ''
-    }
+    },
+    usernameError: false,
+    emailError: false,
+    usernameErrorMessage: '',
+    emailErrorMessage: '',
   }),
   computed: {
     computedDateFormatted() {
@@ -197,6 +203,10 @@ export default {
       return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
     },
     async register() {
+      this.usernameError = false;
+      this.emailError = false;
+      this.usernameErrorMessage = '';
+      this.emailErrorMessage = '';
       if (!this.$refs.form.validate()) {
         return;
       }
@@ -214,11 +224,15 @@ export default {
         });
         this.$router.push({name: 'login'});
       } catch (error) {
-        // TODO actually inform user of error
-        if (error.details[0].includes("username")) {
-          console.log("username error");
-        } else if (error.details[0].includes("email")) {
-          console.log("email error");
+        for (const detailsKey in error.details) {
+          if (error.details[detailsKey].toLowerCase().includes('username')) {
+            this.usernameError = true;
+            this.usernameErrorMessage = "Username already exists";
+          }
+          if (error.details[detailsKey].toLowerCase().includes('email')) {
+            this.emailError = true;
+            this.emailErrorMessage = "Email already in use";
+          }
         }
       } finally {
         this.loadingButton = false;
