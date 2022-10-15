@@ -30,13 +30,6 @@
               :error="passwordError"
               :error-messages="passwordErrorMessage"/>
         </v-form>
-        <v-item>
-          <v-col style="padding: 0">
-            <router-link to="/forgotpassword" class="Link forgot-font" style="text-align: center; padding: 0px">
-              Forgot my password
-            </router-link>
-          </v-col>
-        </v-item>
         <div class="text-center">
           <v-btn class="enter-button-font" width="40%" rounded color="#F8C256" dark @click="login()" :loading="loading" style="margin-top: 10px">
             ENTER

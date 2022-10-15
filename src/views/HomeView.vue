@@ -187,7 +187,7 @@ h1{
   font-weight: bold;
   font-style: italic;
   font-family: 'Rambla', sans-serif;
-  color: #2E2D29;
+  color: #1C1C1C;
 }
 /*h2 {*/
 /*  color: #FFFFFF;*/

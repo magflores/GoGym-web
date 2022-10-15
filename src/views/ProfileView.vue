@@ -40,11 +40,12 @@ export default {
 
 <style>
 .profile-font {
-  font-size: 200%;
-  color: #000000;
+  text-align: center;
+  font-size: 250%;
+  color: #1C1C1C;
   font-weight: bold;
+  font-style: italic;
   font-family: Rambla, sans-serif;
   margin-left: 36px;
-  margin-top: 50px;
 }
 </style>
