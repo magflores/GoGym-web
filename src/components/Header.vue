@@ -10,8 +10,8 @@
       <router-link to="/" style="
       margin-right: 10px; margin-left: 10px; color: #2E2D29">
         <v-img :src="require('../assets/GoGym-icon.png')"
-               max-height="70"
-               max-width="70"
+               max-height="65"
+               max-width="65"
         />
       </router-link>
     </div>
@@ -25,7 +25,7 @@
     <router-link to="/register" class="routerLink">
       <v-btn
           text
-          style="color: #2E2D29"
+          style="color: #2E2D29; font-size: 105%"
           class="rambla-font"
       >
         Join Us
@@ -42,7 +42,7 @@
     <router-link to="/login" class="routerLink">
       <v-btn
           text
-          style="color: #2E2D29"
+          style="color: #2E2D29; font-size: 105%"
           class="rambla-font"
       >
         Log In

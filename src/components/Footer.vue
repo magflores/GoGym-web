@@ -14,20 +14,21 @@
         <strong class="subheading">About Us!</strong>
 
         <v-spacer></v-spacer>
-
-        <v-btn
-            v-for="icon in icons"
-            :key="icon"
-            class="mx-4 white--text"
-            color="white"
-            dark
-            icon
-            height="30px"
-        >
-          <v-icon size="24px">
-            {{ icon }}
-          </v-icon>
-        </v-btn>
+        <router-link to="/comingsoon" class="routerLink">
+          <v-btn
+              v-for="icon in icons"
+              :key="icon"
+              class="mx-4 white--text"
+              color="white"
+              dark
+              icon
+              height="30px"
+          >
+            <v-icon size="24px">
+              {{ icon }}
+            </v-icon>
+          </v-btn>
+          </router-link>
       </v-card-title>
 
       <v-card-text class="py-2 white--text text-center">

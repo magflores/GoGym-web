@@ -27,8 +27,8 @@
           />
         </v-form>
         <v-item>
-          <v-col style="padding: 0px">
-            <router-link to="/register" class="Link forgot-font" style="text-align: center; padding: 0px">
+          <v-col style="padding: 0">
+            <router-link to="/forgotpassword" class="Link forgot-font" style="text-align: center; padding: 0px">
               Forgot my password
             </router-link>
           </v-col>
