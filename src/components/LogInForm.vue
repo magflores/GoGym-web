@@ -70,6 +70,7 @@
 
 <script>
 import {useUserStore} from "@/stores/UserStore";
+import {useRouterStore} from "@/stores/RouterStore";
 import {mapActions} from "pinia";
 
 export default {
@@ -96,6 +97,7 @@ export default {
       $login: 'login',
       $getCurrentUser: 'getCurrentUser'
     }),
+    ...mapActions(useRouterStore, ['getFinalRoute']),
     async login() {
       this.usernameError = false;
       this.passwordError = false;
@@ -108,7 +110,10 @@ export default {
         await this.$login(this.credentials);
         await this.$getCurrentUser();
         this.loading = false;
-        this.$router.push({name: 'home'});
+        if (this.getFinalRoute())
+          this.$router.push(this.getFinalRoute());
+        else
+          this.$router.go(-1);
       } catch (error) {
         for (const detailsKey in error.details) {
           if (error.details[detailsKey].toLowerCase().includes('username')) {
