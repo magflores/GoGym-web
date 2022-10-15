@@ -4,8 +4,7 @@
       Exercise
     </template>
     <template v-slot:sidebar>
-      <v-list class="d-flex flex-column align-center"
-              height="100%">
+      <v-list class="d-flex flex-column align-center">
         <v-list-item>
           <h2>{{ exercise.name }}</h2>
         </v-list-item>
@@ -15,21 +14,11 @@
         <v-list-item>
           <diff-sign :diff="exercise.difficulty"></diff-sign>
         </v-list-item>
+      </v-list>
+      <div class="fill-height"></div>
+      <v-list class="d-flex flex-column align-center">
         <v-list-item>
-          <v-btn
-              class="form-font"
-              text
-          >
-            <v-icon>mdi-arrow-left-top</v-icon>
-            <div>Back</div>
-          </v-btn>
-        </v-list-item>
-        <v-list-item class="mt-auto">
-          <v-btn
-              class="form-font"
-              text
-              @click="favButton(exercise.favourite)"
-          >
+          <v-btn class="form-font" text @click="favButton(exercise.favourite)">
             <v-icon>
               {{ !exercise.favourite ? 'mdi-heart-outline' : 'mdi-heart' }}
             </v-icon>
@@ -53,14 +42,12 @@
       </v-list>
     </template>
     <template v-slot:content>
-      <v-card elevation="1"
-              class="justify-center rounded-xl my-5">
+      <v-card elevation="1" class="justify-center rounded-xl my-5">
         <v-card-title class="justify-center card-title">
           Description
         </v-card-title>
         <v-card-text class="card-content">
-          <p v-for="line in exercise.description"
-             :key="line.number">
+          <p v-for="line in exercise.description" :key="line.number">
             {{ line.line }}
           </p>
         </v-card-text>

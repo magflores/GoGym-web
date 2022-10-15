@@ -33,8 +33,4 @@ export default {
   background-color: white !important;
 }
 
-.side-bar {
-  height: 75vh;
-}
-
 </style>
