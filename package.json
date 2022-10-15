@@ -10,8 +10,10 @@
   "dependencies": {
     "@mdi/font": "^7.0.96",
     "@mdi/js": "^7.0.96",
+    "@vue/composition-api": "^1.7.0",
     "core-js": "^3.8.3",
     "material-design-icons-iconfont": "^6.7.0",
+    "pinia": "^2.0.21",
     "vue": "^2.6.14",
     "vue-low-code": "^1.0.35",
     "vue-resource": "^1.5.3",
@@ -30,6 +32,7 @@
     "eslint-plugin-vue": "^8.0.3",
     "sass": "~1.32.0",
     "sass-loader": "^10.0.0",
+    "vue-cli-plugin-pinia": "~0.1.5",
     "vue-cli-plugin-vuetify": "^2.4.8",
     "vue-template-compiler": "^2.6.14",
     "vuetify-loader": "^1.7.0"

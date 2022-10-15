@@ -71,7 +71,7 @@
 
 <script>
 import detailedLayout from "@/components/detailedLayout";
-import exerciseStore from "@/store/exercises";
+import exerciseStore from "@/stores/exercises";
 import difficultySign from "@/components/difficultySign";
 
 export default {

@@ -12,6 +12,7 @@
 <script>
 import AppHeader from "@/components/Header";
 import Footer from "@/components/Footer";
+import {useUserStore} from "@/stores/UserStore";
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
@@ -19,6 +20,9 @@ export default {
   components: {
     Footer,
     AppHeader
+  },
+  setup() {
+    useUserStore().initialize();
   }
 }
 </script>

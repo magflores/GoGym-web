@@ -12,12 +12,29 @@
 
 <script>
 import ProfileForm from "@/components/ProfileForm";
+import {useUserStore} from "@/stores/UserStore";
+import {mapState} from "pinia";
 
 export default {
   name: "ProfileView",
   components: {
     CProfileForm: ProfileForm
-  }
+  },
+  watch: {
+    isLoggedIn() {
+      if (!this.isLoggedIn) {
+        this.$router.push({name: 'login'})
+      }
+    }
+  },
+  computed: {
+    ...mapState(useUserStore, ['isLoggedIn']),
+  },
+  beforeCreate() {
+    if (!useUserStore().isLoggedIn){
+      this.$router.push({name: 'login'})
+    }
+  },
 }
 </script>
 

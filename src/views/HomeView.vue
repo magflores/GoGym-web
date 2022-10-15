@@ -56,7 +56,7 @@
         <v-col
             style="text-align: center"
             cols="4">
-          <router-link to="/login" class="routerLink">
+          <router-link to="/login" class="routerLink" v-if="displayLog === false">
           <v-btn icon
                  height="150px"
                  width="150"
@@ -68,6 +68,19 @@
             </v-icon>
           </v-btn>
           </router-link>
+
+          <router-link to="/routines" class="routerLink" v-else>
+            <v-btn icon
+                   height="150px"
+                   width="150"
+            >
+              <v-icon
+                  size="1000%"
+                  color="#606367">
+                mdi-checkbox-outline
+              </v-icon>
+            </v-btn>
+          </router-link>
           <v-col>
             <div class="text-container">
               choose from 700 routines for your training
@@ -77,7 +90,7 @@
         </v-col>
 
         <v-col style="text-align: center" cols="4">
-          <router-link to="/login" class="routerLink">
+          <router-link to="/login" class="routerLink" v-if="displayLog === false">
           <v-btn icon
                  height="150px"
                  width="150"
@@ -88,6 +101,17 @@
           </v-btn>
           </router-link>
 
+          <router-link to="/newroutine" class="routerLink" v-else>
+            <v-btn icon
+                   height="150px"
+                   width="150"
+            >
+              <v-icon size="1000%" color="#606367">
+                mdi-plus-box-outline
+              </v-icon>
+            </v-btn>
+          </router-link>
+
           <v-col>
             <div class="text-container">
               create your own training routines
@@ -96,7 +120,7 @@
         </v-col>
 
         <v-col style="text-align: center" cols="4">
-          <router-link to="/login" class="routerLink">
+          <router-link to="/login" class="routerLink" v-if="displayLog === false">
           <v-btn icon
                  height="150px"
                  width="150"
@@ -106,6 +130,18 @@
             </v-icon>
           </v-btn>
           </router-link>
+
+          <router-link to="/editroutine" class="routerLink" v-else>
+            <v-btn icon
+                   height="150px"
+                   width="150"
+            >
+              <v-icon size="1000%" color="#606367">
+                mdi-square-edit-outline
+              </v-icon>
+            </v-btn>
+          </router-link>
+
           <v-col>
             <div class="text-container">
               personalize your training!

@@ -90,6 +90,15 @@ const routes = [
         name: 'exercisedetailed',
         component: () => import(/* webpackChunckName: "exerciseDetailed" */ '@/views/ExerciseDetailedView')
 
+    },
+    {
+        path: '/verify/:email/:code',
+        component: () => import(/* webpackChunckName: "verifyEmail" */ '@/views/VerificationView')
+    },
+    {
+        path: '/verify',
+        name: 'verifyEmail',
+        component: () => import(/* webpackChunckName: "verifyEmail" */ '@/views/VerificationView')
     }
 ]
 
