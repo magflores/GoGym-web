@@ -110,10 +110,7 @@ export default {
         await this.$login(this.credentials);
         await this.$getCurrentUser();
         this.loading = false;
-        if (this.getFinalRoute())
-          this.$router.push(this.getFinalRoute());
-        else
-          this.$router.go(-1);
+        this.$router.go(-1);
       } catch (error) {
         for (const detailsKey in error.details) {
           if (error.details[detailsKey].toLowerCase().includes('username')) {
