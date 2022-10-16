@@ -6,8 +6,10 @@ export const useExerciseStore = defineStore("exercise", {
         exercises: [],
     }),
     getters: {
-        findIndex(exercise) {
-            return this.exercises.findIndex(item => item.id === exercise.id);
+        findIndex() {
+            return (exercise) => {
+                return this.exercises.findIndex(item => item.id === exercise.id)
+            }
         }
     },
     actions: {
@@ -44,6 +46,7 @@ export const useExerciseStore = defineStore("exercise", {
             if (index >= 0)
                 return this.exercises[index];
 
+            console.log(`Loading exercise ${exercise.id}`);
             const result = await ExerciseApi.getExercise(exercise.id);
             this.push(result);
             return result;
@@ -52,7 +55,7 @@ export const useExerciseStore = defineStore("exercise", {
             return await ExerciseApi.getExercises(search, page, size, orderBy, direction, controller);
         },
         async getAll(controller) {
-            return await ExerciseApi.getExercises(null, null, null, null, null, null, null, null, null, controller);
+            return await ExerciseApi.getExercises(null, 1, 1000, "id", null, null, null, null, null, controller);
         }
     }
 });

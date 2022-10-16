@@ -80,7 +80,7 @@ const routes = [
 
     },
     {
-        path: '/editexercise',
+        path: '/editexercise/:id',
         name: 'editexercise',
         component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/EditExerciseView')
 
