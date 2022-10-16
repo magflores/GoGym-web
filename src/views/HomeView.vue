@@ -2,11 +2,11 @@
   <div>
     <v-container style="padding-top: 0; padding-bottom: 0.65%">
         <v-row class="text-center">
-          <v-col v-if="displayLog === false" style="padding-top: 0.5%">
+          <v-col v-if="!$isLoggedIn" style="padding-top: 0.5%">
             <h1> Welcome to GoGym! </h1>
           </v-col>
 
-          <v-col cols="5" class="text-right" v-if="displayLog === true">
+          <v-col cols="5" class="text-right" v-if="$isLoggedIn">
             <router-link to="/routines" class="routerLink">
               <v-btn
                   text
@@ -18,13 +18,13 @@
 
             </router-link>
           </v-col>
-          <v-col cols="2" v-if="displayLog === true">
+          <v-col cols="2" v-if="$isLoggedIn">
             <h2
             >
               |
             </h2>
             </v-col>
-          <v-col cols="5" class="text-left" v-if="displayLog === true">
+          <v-col cols="5" class="text-left" v-if="$isLoggedIn">
 
             <router-link to="/routines" class="routerLink">
               <v-btn
@@ -56,7 +56,7 @@
         <v-col
             style="text-align: center"
             cols="4">
-          <router-link to="/login" class="routerLink" v-if="displayLog === false">
+          <router-link to="/login" class="routerLink" v-if="!$isLoggedIn">
           <v-btn icon
                  height="150px"
                  width="150"
@@ -90,7 +90,7 @@
         </v-col>
 
         <v-col style="text-align: center" cols="4">
-          <router-link to="/login" class="routerLink" v-if="displayLog === false">
+          <router-link to="/login" class="routerLink" v-if="!$isLoggedIn">
           <v-btn icon
                  height="150px"
                  width="150"
@@ -120,7 +120,7 @@
         </v-col>
 
         <v-col style="text-align: center" cols="4">
-          <router-link to="/login" class="routerLink" v-if="displayLog === false">
+          <router-link to="/login" class="routerLink" v-if="!$isLoggedIn">
           <v-btn icon
                  height="150px"
                  width="150"
@@ -159,17 +159,28 @@
 // import BottomFooter from "@/components/BottomFooter";
 // import AppHeader from "@/components/Header";
 
+import {mapState, mapActions} from "pinia";
+import {useUserStore} from "@/stores/UserStore";
+
 export default {
   name: "HomeView",
-  // components: {}
-  components: {
-    // BottomFooter,
-    // AppHeader
-  },
-  data: () => ({
+  data(){
+    return{
     displayLog: false,
+    }
+  },
+  computed: {
+    ...mapState(useUserStore, ['user']),
+    ...mapState(useUserStore, {$isLoggedIn: 'isLoggedIn'}),
+  },
+  methods: {
+    ...mapActions(useUserStore, {
+      $getCurrentUser: 'getCurrentUser'}),
 
-  }),
+    async getCurrentUser() {
+      await this.$getCurrentUser()
+    },
+  }
 
 }
 </script>

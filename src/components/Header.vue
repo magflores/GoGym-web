@@ -51,9 +51,12 @@ import {useUserStore} from "@/stores/UserStore";
 
 export default {
   name: 'AppHeader',
-  data: () => ({
-    displayLog: true,
-  }),
+  data(){
+    return {
+      displayLog: true,
+    }
+  },
+
   computed: {
     ...mapState(useUserStore, ['user']),
     ...mapState(useUserStore, {$isLoggedIn: 'isLoggedIn'}),
