@@ -61,11 +61,21 @@
                       <SearchBar/>
                     </v-col>
                   </v-row>
-                  <div v-if="option.tab === 'Routines' && loadingRoutines" class="d-flex flex-wrap flex-grow-1">
+                  <div v-if="option.tab === 'Routines' && Fav && loadingFavorites" class="d-flex flex-wrap flex-grow-1">
+                    <!--                    LOADING FAV ROUTINES-->
+                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
+                  </div>
+                  <div v-if="option.tab === 'Routines' && Fav && !loadingFavorites" class="d-flex flex-wrap flex-grow-1">
+                    <!--                    FAV ROUTINES-->
+                    <v-card v-for="routine in favorites" :key="routine.id" class="ma-2"
+                            :to="{name: 'routinedetailed', params: {id: routine.id}}">
+                      <v-card-title>{{ routine.name }}</v-card-title>
+                    </v-card>                  </div>
+                  <div v-if="option.tab === 'Routines' && My && loadingRoutines" class="d-flex flex-wrap flex-grow-1">
                     <!--                    LOADING ROUTINES-->
                     <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
                   </div>
-                  <div v-if="option.tab === 'Routines' && !loadingRoutines" class="d-flex flex-wrap flex-grow-1">
+                  <div v-if="option.tab === 'Routines' && My && !loadingRoutines" class="d-flex flex-wrap flex-grow-1">
                     <!--                    ROUTINES-->
                     <v-card v-for="routine in routines" :key="routine.id" class="ma-2"
                             :to="{name: 'routinedetailed', params: {id: routine.id}}">
@@ -117,6 +127,7 @@ export default {
       Fav: false,
       routines: [],
       exercises: [],
+      favorites: [],
       tabOptions: [
         {tab: 'Routines', content: 'estamos en rou'},
         {tab: 'Exercises', content: 'estamos en exc'}
@@ -128,6 +139,7 @@ export default {
       all: false,
       loadingExercises: false,
       loadingRoutines: false,
+      loadingFavorites: false,
       routineLoaders: [
         {key: 1},
         {key: 2},
@@ -157,6 +169,7 @@ export default {
   methods: {
     ...mapActions(useRoutineStore, {
       $getAllRoutines: 'getAll',
+      $getFavoriteRoutines: 'getAllFavorites',
     }),
     ...mapActions(useExerciseStore, {
       $getAllExercises: 'getAll',
@@ -189,6 +202,20 @@ export default {
         this.loadingExercises = false;
       }
     },
+    async getAllFavorites(){
+      this.loadingFavorites = true;
+      try {
+        const res = await this.$getFavoriteRoutines();
+        for (const contentKey in res.content) {
+          this.favorites.push(res.content[contentKey]);
+        }
+      } catch (error) {
+        console.log(error);
+        //TODO error handling
+      } finally {
+        this.loadingFavorites = false;
+      }
+    },
     clickAll(tab) {
       this.titleInTab = "All " + tab;
       this.addIcon = false;
@@ -219,6 +246,7 @@ export default {
   async created() {
     await this.getAllRoutines();
     await this.getAllExercises();
+    await this.getAllFavorites();
   }
 }
 </script>

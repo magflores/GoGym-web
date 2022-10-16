@@ -66,6 +66,26 @@ class RoutineApi {
     static async getAll(controller) {
         return await Api.get(RoutineApi.getUrl(), true, controller);
     }
+
+    static getFavoriteUrl(slug) {
+        return `${Api.baseUrl}/favourites${ slug ? `/${slug}` : ""}`;
+    }
+
+    static async getFavorites(page, size, controller){
+        return await Api.get(`${RoutineApi.getFavoriteUrl()}?page=${page}&size=${size}`, true, controller)
+    }
+
+    static async getAllFavorites(controller){
+        return await Api.get(RoutineApi.getFavoriteUrl(), true, controller);
+    }
+
+    static async addFavorite(routineId, controller){
+        return await Api.post(RoutineApi.getFavoriteUrl(routineId), true, {}, controller);
+    }
+
+    static async deleteFavorite(routineId, controller){
+        return await Api.delete(RoutineApi.getFavoriteUrl(routineId), true, controller);
+    }
 }
 
 class Routine {

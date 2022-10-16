@@ -53,7 +53,15 @@ export const useRoutineStore = defineStore("routine", {
         },
         async getAll(controller) {
             return await RoutineApi.getAll( controller);
+        },
+        async getAllFavorites(controller) {
+            return await RoutineApi.getAllFavorites(controller);
+        },
+        async addFavorite(routine) {
+            await RoutineApi.addFavorite(routine.id);
+        },
+        async removeFavorite(routine) {
+            await RoutineApi.removeFavorite(routine.id);
         }
-
     }
 });
