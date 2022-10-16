@@ -56,11 +56,6 @@
                       </v-icon>
                     </v-btn>
                   </router-link>
-                  <v-row style="margin-top: 10px; margin-bottom: 20px; margin-left: 250px">
-                    <v-col cols="8" style="margin-left: 20px">
-                      <SearchBar/>
-                    </v-col>
-                  </v-row>
                   <div v-if="option.tab === 'Routines' && My && loadingMyRoutines" class="d-flex flex-wrap flex-grow-1">
                     <!--                    LOADING MY ROUTINES-->
                     <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%"
@@ -120,7 +115,6 @@
 </template>
 
 <script>
-import SearchBar from "@/components/SearchBar";
 import RoutineLayout from "@/components/RoutineLayout";
 import {useRoutineStore} from "@/stores/RoutineStore";
 import {useExerciseStore} from "@/stores/ExerciseStore";
@@ -130,7 +124,6 @@ import {useUserStore} from "@/stores/UserStore";
 export default {
   name: 'RoutinesView',
   components: {
-    SearchBar,
     RoutineLayout,
   },
   data() {
