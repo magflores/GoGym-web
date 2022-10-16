@@ -4,10 +4,10 @@
       <h1> About GoGym! </h1>
       <h2 style="margin-top: 3%"> GoGym! is a platform where you can explore, create and save gym routines and exercises. </h2>
       <h2 style="margin-top: 4%; margin-bottom: 1%"> Developing team </h2>
-      <h3> Santiago Andrés Larroudé (https://github.com/SSanti32)  </h3>
-      <h3> Camila Sierra Pérez (https://github.com/camisie)  </h3>
-      <h3> Juan Castro (https://github.com/JR-Castro)  </h3>
-      <h3> Magdalena Flores Levalle (https://github.com/magflores) </h3>
+      <h3> Santiago Andrés Larroudé -  <a href="https://github.com/SSanti32" style="color: #F8C256">https://github.com/SSanti32</a>  </h3>
+      <h3> Camila Sierra Pérez - <a href="https://github.com/camisie" style="color: #F8C256">https://github.com/camisie</a>  </h3>
+      <h3> Juan Castro - <a href="https://github.com/JR-Castro" style="color: #F8C256">https://github.com/JR-Castro</a>  </h3>
+      <h3> Magdalena Flores Levalle - <a href="https://github.com/magflores" style="color: #F8C256">https://github.com/magflores</a> </h3>
     </v-col>
     <v-col></v-col>
   </v-row>

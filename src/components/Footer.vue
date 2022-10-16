@@ -11,7 +11,9 @@
         tile
     >
       <v-card-title class=" white--text">
-        <v-btn color="#1C1C1C" x-large elevation="0" class="subheading">About Us!</v-btn>
+        <router-link to="/aboutus" class="routerLink" style="text-decoration: none">
+          <v-btn color="#1C1C1C" x-large elevation="0" class="subheading">About Us!</v-btn>
+        </router-link>
 
         <v-spacer></v-spacer>
         <router-link to="/comingsoon" class="routerLink" style="text-decoration: none">
