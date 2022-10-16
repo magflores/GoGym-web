@@ -1,10 +1,12 @@
 <template>
   <div>
-    <v-banner app class="banner">
+    <v-app-bar class="banner">
+      <v-spacer/>
       <h2 class="text-center">
         <slot name="title"></slot>
       </h2>
-    </v-banner>
+      <v-spacer/>
+    </v-app-bar>
     <v-row justify="center">
       <v-col cols="2" class="side-bar">
         <slot name="sidebar"></slot>
