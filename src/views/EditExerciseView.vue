@@ -147,7 +147,6 @@ export default {
           name: this.name,
           type: this.type,
           detail: this.detail,
-          date: this.date,
           metadata: this.metadata
         });
       } catch (error) {

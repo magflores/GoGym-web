@@ -6,35 +6,25 @@
     <template v-slot:sidebar>
       <v-list class="d-flex flex-column align-center">
         <v-list-item>
-          <h2>{{ exercise.name }}</h2>
+          <h2>{{ name }}</h2>
         </v-list-item>
-        <v-list-item>
-          <p>{{ exercise.creator }}</p>
-        </v-list-item>
-        <v-list-item>
-          <diff-sign :diff="exercise.difficulty"></diff-sign>
-        </v-list-item>
+<!--        <v-list-item>-->
+<!--          <p>{{ creator }}</p>-->
+<!--        </v-list-item>-->
+<!--        <v-list-item>-->
+<!--          <diff-sign :diff="exercise.difficulty"></diff-sign>-->
+<!--        </v-list-item>-->
       </v-list>
       <div class="fill-height"></div>
       <v-list class="d-flex flex-column align-center">
         <v-list-item>
-          <v-btn class="form-font" text @click="favButton(exercise.favourite)">
-            <v-icon>
-              {{ !exercise.favourite ? 'mdi-heart-outline' : 'mdi-heart' }}
-            </v-icon>
-            <div>Favourite</div>
-          </v-btn>
-        </v-list-item>
-        <v-list-item>
-          <router-link to="/editexercise" class="routerLink">
-            <v-btn class="form-font" text>
+            <v-btn class="form-font" text @click="editExercise()">
               <v-icon>mdi-pencil</v-icon>
               <div>Edit</div>
             </v-btn>
-          </router-link>
         </v-list-item>
         <v-list-item>
-          <v-btn class="form-font" text>
+          <v-btn class="form-font" text :loading="deleteLoading" @click="deleteExercise()">
             <v-icon>mdi-delete</v-icon>
             <div>Delete</div>
           </v-btn>
@@ -47,9 +37,7 @@
           Description
         </v-card-title>
         <v-card-text class="card-content">
-          <p v-for="line in exercise.description" :key="line.number">
-            {{ line.line }}
-          </p>
+          {{ detail }}
         </v-card-text>
       </v-card>
     </template>
@@ -58,33 +46,70 @@
 
 <script>
 import detailedLayout from "@/components/detailedLayout";
-import exerciseStore from "@/stores/exercises";
-import difficultySign from "@/components/difficultySign";
+// import difficultySign from "@/components/difficultySign";
+import {useExerciseStore} from "@/stores/ExerciseStore";
+import {mapActions} from "pinia";
 
 export default {
   name: "ExerciseDetailedView",
   components: {
     DLayout: detailedLayout,
-    diffSign: difficultySign
+    // diffSign: difficultySign
   },
   data() {
     return {
       show: false,
-      exerciseId: this.$route.params.id,
-      favButtonState: null,
+      id: this.$route.params.id,
+      name: '',
+      type: '',
+      detail: '',
+      date: '',
+      metadata: '',
+      loading: false,
+      deleteLoading: false,
     }
   },
   methods: {
-    favButton(state){
-      this.favButtonState = !state;
+    ...mapActions(useExerciseStore, {
+      $getExercise: 'get',
+      $deleteExercise: 'delete',
+    }),
+    async getExercise() {
+      this.loading = true;
+      try {
+        const res = await this.$getExercise({id: this.id});
+        this.id = res.id;
+        this.name = res.name;
+        this.type = res.type;
+        this.detail = res.detail;
+        this.date = res.date;
+        this.metadata = res.metadata;
+      } catch (error) {
+        console.log(error);
+        // TODO error handling
+      } finally {
+        this.loading = false;
+      }
+    },
+    async deleteExercise() {
+      this.deleteLoading = true;
+      try {
+        await this.$deleteExercise({id: this.id});
+        this.$router.go(-1);
+      } catch (error) {
+        console.log(error);
+        // TODO error handling
+      } finally {
+        this.deleteLoading = false;
+      }
+    },
+    editExercise(){
+      this.$router.push({name: 'editexercise', params: {id: this.id}})
     }
   },
-  computed: {
-    exercise() {
-      return exerciseStore.exercises.find(exercise => exercise.id == this.exerciseId);
-    },
-
-  }
+  async created() {
+    await this.getExercise();
+  },
 }
 </script>
 
