@@ -24,7 +24,7 @@
             </v-btn>
         </v-list-item>
         <v-list-item>
-          <v-btn class="form-font" text :loading="deleteLoading" @click="deleteExercise()">
+          <v-btn class="form-font" text :loading="deleteLoading" :disabled="deleteLoading" @click="deleteExercise()">
             <v-icon>mdi-delete</v-icon>
             <div>Delete</div>
           </v-btn>
