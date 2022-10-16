@@ -62,6 +62,10 @@ class RoutineApi {
     static async deleteCycle(routineId, cycleId, controller) {
         return await Api.delete(RoutineApi.getCycleUrl(routineId, cycleId), true, controller);
     }
+
+    static async getAll(controller) {
+        return await Api.get(RoutineApi.getUrl(), true, controller);
+    }
 }
 
 class Routine {

@@ -13,6 +13,10 @@ class ExerciseApi {
         return await Api.get(url, true, controller);
     }
 
+    static async getAll(controller){
+        return await Api.get(ExerciseApi.getUrl(), true, controller);
+    }
+
     static async addExercise(exercise, controller) {
         return await Api.post(ExerciseApi.getUrl(), true, exercise, controller);
     }

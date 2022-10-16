@@ -56,121 +56,32 @@
                       </v-icon>
                     </v-btn>
                   </router-link>
-
-                  <v-row style="margin-top: 10px;
-                                    margin-bottom: 20px;
-                                    margin-left: 250px">
+                  <v-row style="margin-top: 10px; margin-bottom: 20px; margin-left: 250px">
                     <v-col cols="8" style="margin-left: 20px">
                       <SearchBar/>
                     </v-col>
                   </v-row>
-
-                  <div v-if="option.tab === 'Routines'">
-                    <div v-if="All === true">
-                      <v-row style="margin-top: 20px; margin-bottom: 20px">
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                      </v-row>
-                    </div>
-                    <div v-if="My === true">
-                      <v-row style="margin-top: 20px; margin-bottom: 20px">
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines1.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines2.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines3.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines4.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines5.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                        <v-col>
-                          <router-link to="/routinedetailed">
-                            <v-img :src="require('../assets/routines/routines6.png')" max-width="250px"/>
-                          </router-link>
-                        </v-col>
-                      </v-row>
-                    </div>
-                    <div v-if="Fav === true">
-                      <h2>
-                        Ejercicio 3
-                      </h2>
-                    </div>
+                  <div v-if="option.tab === 'Routines' && loadingRoutines" class="d-flex flex-wrap flex-grow-1">
+                    <!--                    LOADING ROUTINES-->
+                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
                   </div>
-                  <div v-else>
-                    <div v-if="All === true">
-                      <h2>
-                        Ejercicio 4
-                      </h2>
-                    </div>
-                    <div v-if="My === true">
-                      <h2>
-                        Ejercicio 5
-                      </h2>
-                    </div>
-                    <div v-if="Fav === true">
-                      <h2>
-                        Ejercicio 6
-                      </h2>
-                    </div>
+                  <div v-if="option.tab === 'Routines' && !loadingRoutines" class="d-flex flex-wrap flex-grow-1">
+                    <!--                    ROUTINES-->
+                    <v-card v-for="routine in routines" :key="routine.id" class="ma-2"
+                            :to="{name: 'routinedetailed', params: {id: routine.id}}">
+                      <v-card-title>{{ routine.name }}</v-card-title>
+                    </v-card>
+                  </div>
+                  <div v-if="option.tab === 'Exercises' && loadingExercises" class="d-flex flex-wrap flex-grow-1">
+                    <!--                    LOADING EXERCISES-->
+                    <v-skeleton-loader v-for="loader in exerciseLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
+                  </div>
+                  <div v-if="option.tab === 'Exercises' && !loadingExercises">
+                    <!--                    EJERCICIOS-->
+                    <v-card v-for="exercise in exercises" :key="exercise.id" class="ma-2"
+                            :to="{name: 'exercisedetailed', params: {id: exercise.id}}">
+                      <v-card-title>{{ exercise.name }}</v-card-title>
+                    </v-card>
                   </div>
                 </template>
               </RoutineLayout>
@@ -185,6 +96,9 @@
 <script>
 import SearchBar from "@/components/SearchBar";
 import RoutineLayout from "@/components/RoutineLayout";
+import {useRoutineStore} from "@/stores/RoutineStore";
+import {useExerciseStore} from "@/stores/ExerciseStore";
+import {mapActions} from "pinia";
 
 export default {
   name: 'RoutinesView',
@@ -192,26 +106,89 @@ export default {
     SearchBar,
     RoutineLayout,
   },
-  data: () => ({
-    user: {},
-    tab: null,
-    titleInTab: null,
-    addIcon: null,
-    All: true,
-    My: false,
-    Fav: false,
-
-    tabOptions: [
-      {tab: 'Routines', content: 'estamos en rou'},
-      {tab: 'Exercises', content: 'estamos en exc'}
-    ],
-    variant: {
-      color: '#D1FD7A',
-    },
-    expand: false,
-    all: false,
-  }),
+  data() {
+    return {
+      user: {},
+      tab: null,
+      titleInTab: null,
+      addIcon: null,
+      All: true,
+      My: false,
+      Fav: false,
+      routines: [],
+      exercises: [],
+      tabOptions: [
+        {tab: 'Routines', content: 'estamos en rou'},
+        {tab: 'Exercises', content: 'estamos en exc'}
+      ],
+      variant: {
+        color: '#D1FD7A',
+      },
+      expand: false,
+      all: false,
+      loadingExercises: false,
+      loadingRoutines: false,
+      routineLoaders: [
+        {key: 1},
+        {key: 2},
+        {key: 3},
+        {key: 4},
+        {key: 5},
+        {key: 6},
+        {key: 7},
+        {key: 8},
+        {key: 9},
+        {key: 10},
+      ],
+      exerciseLoaders: [
+        {key: 1},
+        {key: 2},
+        {key: 3},
+        {key: 4},
+        {key: 5},
+        {key: 6},
+        {key: 7},
+        {key: 8},
+        {key: 9},
+        {key: 10},
+      ],
+    }
+  },
   methods: {
+    ...mapActions(useRoutineStore, {
+      $getAllRoutines: 'getAll',
+    }),
+    ...mapActions(useExerciseStore, {
+      $getAllExercises: 'getAll',
+    }),
+    async getAllRoutines() {
+      this.loadingRoutines = true;
+      try {
+        const res = await this.$getAllRoutines();
+        for (const contentKey in res.content) {
+          this.routines.push(res.content[contentKey]);
+        }
+      } catch (error) {
+        console.log(error);
+        //TODO error handling
+      } finally {
+        this.loadingRoutines = false;
+      }
+    },
+    async getAllExercises() {
+      this.loadingExercises = true;
+      try {
+        const res = await this.$getAllExercises();
+        for (const contentKey in res.content) {
+          this.exercises.push(res.content[contentKey]);
+        }
+      } catch (error) {
+        console.log(error);
+        //TODO error handling
+      } finally {
+        this.loadingExercises = false;
+      }
+    },
     clickAll(tab) {
       this.titleInTab = "All " + tab;
       this.addIcon = false;
@@ -237,6 +214,11 @@ export default {
       this.titleInTab = null;
       this.addIcon = false;
     }
+  }
+  ,
+  async created() {
+    await this.getAllRoutines();
+    await this.getAllExercises();
   }
 }
 </script>

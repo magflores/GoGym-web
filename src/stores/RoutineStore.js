@@ -52,7 +52,7 @@ export const useRoutineStore = defineStore("routine", {
             return await RoutineApi.getRoutines(categoryId, userId, difficulty, score, search, page, size, orderBy, direction, controller);
         },
         async getAll(controller) {
-            return await RoutineApi.getRoutines(null, null, null, null, null, null, null, null, null, controller);
+            return await RoutineApi.getAll( controller);
         }
 
     }
