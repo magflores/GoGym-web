@@ -34,7 +34,7 @@
                  :loading="loading">
             Verify
           </v-btn>
-          <v-btn class="resend-button-class mx-2" width="40%" rounded @click="resendVerification" :disabled="disableVerification" :loading="loadingResend">
+          <v-btn class="resend-button-class mx-2" width="40%" style="color: #C8C8C8" rounded @click="resendVerification" :disabled="disableVerification" :loading="loadingResend">
             <template v-slot:loader>
               Sending...
             </template>

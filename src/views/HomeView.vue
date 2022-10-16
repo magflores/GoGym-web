@@ -6,13 +6,13 @@
             <h1> Welcome to GoGym! </h1>
           </v-col>
 
-          <v-col cols="5" class="text-right" v-if="$isLoggedIn">
+          <v-col cols="5" class="text-right" v-if="$isLoggedIn" style="margin-bottom: 2%">
             <router-link to="/routines" class="routerLink">
               <v-btn
                   text
                   padless color="black"
                   class="font"
-                  style="padding-top: 0.5%"
+                  style="margin-top: 2.3%"
               >
                 Routines
               </v-btn>
@@ -21,7 +21,7 @@
           </v-col>
           <v-col cols="2" v-if="$isLoggedIn">
             <h2
-                style="padding-top: 0.5%"
+                style="margin-top: 2.3%"
             >
               |
             </h2>
@@ -33,7 +33,7 @@
                   text
                   padless color="black"
                   class="font"
-                  style="padding-top: 0.5%"
+                  style="margin-top: 2.3%"
               >
                 Exercises
               </v-btn>
