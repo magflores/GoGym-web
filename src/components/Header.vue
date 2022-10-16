@@ -8,13 +8,13 @@
     <h1 class="rambla-font" style="font-size: 220%; color: #2E2D29;">GoGym!</h1>
     <v-spacer/>
     <div class="d-flex align-center" v-if="!$isLoggedIn">
-      <v-btn text syle="color: #2E2D29; font-size: 105%" class="rambla-font" :to="{name: 'register'}">
+      <v-btn elevation="1" text syle="color: #2E2D29; font-size: 105%" class="rambla-font" :to="{name: 'register'}">
         Join Us
       </v-btn>
       <h2 style="margin-right: 10px; margin-left: 10px; color: #2E2D29">
         |
       </h2>
-      <v-btn text syle="color: #2E2D29; font-size: 105%" class="rambla-font" :to="{name: 'login'}">
+      <v-btn elevation="1" text syle="color: #2E2D29; font-size: 105%" class="rambla-font" :to="{name: 'login'}">
         Log In
       </v-btn>
     </div>

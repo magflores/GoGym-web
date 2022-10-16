@@ -10,6 +10,7 @@
             <router-link to="/routines" class="routerLink">
               <v-btn
                   text
+                  elevation="3"
                   padless color="black"
                   class="font"
                   style="margin-top: 2.3%"
@@ -30,8 +31,10 @@
 
             <router-link to="/routines" class="routerLink">
               <v-btn
+                  padless
+                  elevation="3"
                   text
-                  padless color="black"
+                  color="black"
                   class="font"
                   style="margin-top: 2.3%"
               >
