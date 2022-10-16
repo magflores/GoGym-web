@@ -9,7 +9,7 @@
           <v-tabs-items v-model="tab">
             <v-tab-item v-for="option in tabOptions" :key="option.tab">
               <RoutineLayout>
-                <template v-slot:sidebar>
+                <template v-slot:sidebar v-if="option.tab === 'Routines'">
                   <div class="d-flex flex-column align-center mb-6">
                     <v-row style="margin-top: 100px">
                       <v-btn @click="clickAll(option.tab)" text depressed left x-large class="font2"
