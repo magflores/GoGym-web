@@ -61,21 +61,36 @@
                       <SearchBar/>
                     </v-col>
                   </v-row>
+                  <div v-if="option.tab === 'Routines' && My && loadingMyRoutines" class="d-flex flex-wrap flex-grow-1">
+                    <!--                    LOADING MY ROUTINES-->
+                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%"
+                                       type="card"></v-skeleton-loader>
+                  </div>
+                  <div v-if="option.tab === 'Routines' && My && !loadingMyRoutines" class="d-flex flex-wrap flex-grow-1">
+                    <!--                    MY ROUTINES-->
+                    <v-card v-for="routine in myroutines" :key="routine.id" class="ma-2" :to="{name: 'routinedetailed', params: {id: routine.id}}">
+                      <v-card-title>{{ routine.name }}</v-card-title>
+                    </v-card>
+                  </div>
                   <div v-if="option.tab === 'Routines' && Fav && loadingFavorites" class="d-flex flex-wrap flex-grow-1">
                     <!--                    LOADING FAV ROUTINES-->
-                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
+                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%"
+                                       type="card"></v-skeleton-loader>
                   </div>
-                  <div v-if="option.tab === 'Routines' && Fav && !loadingFavorites" class="d-flex flex-wrap flex-grow-1">
+                  <div v-if="option.tab === 'Routines' && Fav && !loadingFavorites"
+                       class="d-flex flex-wrap flex-grow-1">
                     <!--                    FAV ROUTINES-->
                     <v-card v-for="routine in favorites" :key="routine.id" class="ma-2"
                             :to="{name: 'routinedetailed', params: {id: routine.id}}">
                       <v-card-title>{{ routine.name }}</v-card-title>
-                    </v-card>                  </div>
-                  <div v-if="option.tab === 'Routines' && My && loadingRoutines" class="d-flex flex-wrap flex-grow-1">
-                    <!--                    LOADING ROUTINES-->
-                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
+                    </v-card>
                   </div>
-                  <div v-if="option.tab === 'Routines' && My && !loadingRoutines" class="d-flex flex-wrap flex-grow-1">
+                  <div v-if="option.tab === 'Routines' && All && loadingRoutines" class="d-flex flex-wrap flex-grow-1">
+                    <!--                    LOADING ROUTINES-->
+                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%"
+                                       type="card"></v-skeleton-loader>
+                  </div>
+                  <div v-if="option.tab === 'Routines' && All && !loadingRoutines" class="d-flex flex-wrap flex-grow-1">
                     <!--                    ROUTINES-->
                     <v-card v-for="routine in routines" :key="routine.id" class="ma-2"
                             :to="{name: 'routinedetailed', params: {id: routine.id}}">
@@ -84,7 +99,8 @@
                   </div>
                   <div v-if="option.tab === 'Exercises' && loadingExercises" class="d-flex flex-wrap flex-grow-1">
                     <!--                    LOADING EXERCISES-->
-                    <v-skeleton-loader v-for="loader in exerciseLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
+                    <v-skeleton-loader v-for="loader in exerciseLoaders" :key="loader.key" class="ma-2" min-width="30%"
+                                       type="card"></v-skeleton-loader>
                   </div>
                   <div v-if="option.tab === 'Exercises' && !loadingExercises">
                     <!--                    EJERCICIOS-->
@@ -109,6 +125,7 @@ import RoutineLayout from "@/components/RoutineLayout";
 import {useRoutineStore} from "@/stores/RoutineStore";
 import {useExerciseStore} from "@/stores/ExerciseStore";
 import {mapActions} from "pinia";
+import {useUserStore} from "@/stores/UserStore";
 
 export default {
   name: 'RoutinesView',
@@ -126,6 +143,7 @@ export default {
       My: false,
       Fav: false,
       routines: [],
+      myroutines: [],
       exercises: [],
       favorites: [],
       tabOptions: [
@@ -140,6 +158,7 @@ export default {
       loadingExercises: false,
       loadingRoutines: false,
       loadingFavorites: false,
+      loadingMyRoutines: false,
       routineLoaders: [
         {key: 1},
         {key: 2},
@@ -174,12 +193,18 @@ export default {
     ...mapActions(useExerciseStore, {
       $getAllExercises: 'getAll',
     }),
+    ...mapActions(useUserStore, {
+      $getUser: 'getCurrentUser',
+    }),
     async getAllRoutines() {
       this.loadingRoutines = true;
       try {
         const res = await this.$getAllRoutines();
         for (const contentKey in res.content) {
           this.routines.push(res.content[contentKey]);
+          if (res.content[contentKey].user.id === useUserStore().user.id) {
+            this.myroutines.push(res.content[contentKey]);
+          }
         }
       } catch (error) {
         console.log(error);
@@ -202,7 +227,7 @@ export default {
         this.loadingExercises = false;
       }
     },
-    async getAllFavorites(){
+    async getAllFavorites() {
       this.loadingFavorites = true;
       try {
         const res = await this.$getFavoriteRoutines();
