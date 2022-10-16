@@ -55,6 +55,10 @@ class RoutineApi {
         return await Api.get(RoutineApi.getCycleUrl(routineId, cycleId), true, controller);
     }
 
+    static async getAllCycles(routineId, controller) {
+        return await Api.get(RoutineApi.getCycleUrl(routineId), true, controller);
+    }
+
     static async modifyCycle(routineId, cycleId, cycle, controller) {
         return await Api.put(RoutineApi.getCycleUrl(routineId, cycleId), true, cycle, controller);
     }

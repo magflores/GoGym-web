@@ -6,8 +6,10 @@ export const useRoutineStore = defineStore("routine", {
         routines: [],
     }),
     getters: {
-        findIndex(routine) {
-            return this.exercises.findIndex(item => item.id === routine.id);
+        findIndex() {
+            return (routine) => {
+                return this.routines.findIndex(item => item.id === routine.id);
+            }
         }
     },
     actions: {
@@ -52,7 +54,7 @@ export const useRoutineStore = defineStore("routine", {
             return await RoutineApi.getRoutines(categoryId, userId, difficulty, score, search, page, size, orderBy, direction, controller);
         },
         async getAll(controller) {
-            return await RoutineApi.getAll( controller);
+            return await RoutineApi.getAll(controller);
         },
         async getAllFavorites(controller) {
             return await RoutineApi.getAllFavorites(controller);

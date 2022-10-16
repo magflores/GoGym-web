@@ -7,8 +7,10 @@ export const useCycleStore = defineStore("cycle", {
         cycles: [],
     }),
     getters: {
-        findIndex(cycle) {
-            return this.cycles.findIndex(c => c.id === cycle.id);
+        findIndex() {
+            return (cycle) => {
+                return this.cycles.findIndex(item => item.id === cycle.id);
+            }
         }
     },
     actions: {
@@ -62,7 +64,7 @@ export const useCycleStore = defineStore("cycle", {
                 this.splice(index);
         },
         async getAll(routineId) {
-            return await RoutineApi.getCycles(routineId);
+            return await RoutineApi.getAllCycles(routineId);
         },
     }
 });
