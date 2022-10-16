@@ -14,7 +14,7 @@
         <v-btn color="#1C1C1C" x-large elevation="0" class="subheading">About Us!</v-btn>
 
         <v-spacer></v-spacer>
-        <router-link to="/comingsoon" class="routerLink">
+        <router-link to="/comingsoon" class="routerLink" style="text-decoration: none">
           <v-btn
               v-for="icon in icons"
               :key="icon"

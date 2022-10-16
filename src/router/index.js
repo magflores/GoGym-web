@@ -57,6 +57,11 @@ const routes = [
         component: () => import(/* webpackChunckName: "forgotPassword" */ '@/views/ComingSoonView')
     },
     {
+    path: "/aboutus",
+    name: "AboutUs",
+    component: () => import(/* webpackChunckName: "forgotPassword" */ '@/views/AboutUsView')
+    },
+    {
         path: '/newroutine',
         name: 'newroutine',
         component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/NewRoutineView')

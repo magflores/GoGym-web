@@ -3,7 +3,7 @@
     <!--Title My Account-->
     <v-item style="padding-top: 3px">
       <v-col>
-        <h1 class="profile-font"> My Account </h1>
+        <h1 justify="center" class="profile-font"> My Account </h1>
       </v-col>
     </v-item>
     <c-profile-form> </c-profile-form>

@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="6">
-        <v-card round outlined class="rounded-xl container-font">
+      <v-col>
+        <v-card style="margin-left: 20%; margin-right: 20%" round outlined class="rounded-xl container-font">
           <v-card-actions>
             <v-form class="form-profile-font" ref="form" v-model="valid" lazy-validation>
               <!--Name, Surname, Email, Birthday-->
@@ -108,53 +108,6 @@
                          :loading="loadingSave"
                   >
                     Save
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </v-form>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-      <v-col cols="6">
-        <v-card round outlined class="rounded-xl container-font">
-          <v-card-actions>
-            <v-form class="form-profile-font" ref="form" v-model="valid" lazy-validation>
-              <!--Password, Confirm password-->
-              <v-text-field
-                  label="New Password*"
-                  placeholder="Enter your password"
-                  outlined
-                  dense
-                  :rules="passwordRules"
-                  :type="show ? 'text' : 'password'"
-                  required
-                  :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
-                  @click:append="show = !show"
-                  color="black"
-
-              />
-              <v-text-field
-                  label="Confirm password*"
-                  placeholder="Enter your password again"
-                  outlined
-                  dense
-                  :rules="confirmPasswordRules"
-                  :type="show1 ? 'text' : 'password'"
-                  required
-                  :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                  @click:append="show1 = !show1"
-                  color="black"
-              />
-              <v-row>
-                <v-col>
-                  <v-btn class="button-font"
-                         rounded
-                         color="#F8C256"
-                         dark
-                         large
-
-                  >
-                    Change
                   </v-btn>
                 </v-col>
               </v-row>
@@ -283,13 +236,15 @@ export default {
 
 .container-font {
   font-family: 'Roboto', sans-serif;
+  align-content: center;
+  padding: 1.5%;
+  max-width: 60%;
   /*outline-style: solid;*/
   /*outline-color: #F8C256;*/
   border-width: 5px;
   border-color: #F8C256;
   width: 100%;
   justify-content: center;
-  padding: 15px;
 }
 
 .box-style {
