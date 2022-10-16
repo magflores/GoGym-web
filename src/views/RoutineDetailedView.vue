@@ -43,11 +43,21 @@
     </template>
     <template v-slot:content>
       <div class="d-flex flex-column">
-        <v-card v-for="cycle in cycles" :key="cycle.id" elevation="1" class="justify-center rounded-xl my-5" @click="cycle.show = ! cycle.show">
-          <v-card-title class="justify-center card-title" :class="(cycle.show) ? '' : 'rounded-xl'">
-            Warm Up
+        <v-card v-for="cycle in cycles" :key="cycle.id" elevation="1" class="justify-center rounded-xl my-5" @click="showCycle[cycle.id] = ! showCycle[cycle.id]">
+          <v-card-title class="justify-center card-title" :class="(showCycle[cycle.id]) ? '' : 'rounded-xl'">
+            {{ cycle.name }}
           </v-card-title>
-          <v-card-text class="card-content" v-show="cycle.show">hello</v-card-text>
+          <v-card-text class="card-content" v-show="showCycle[cycle.id]">
+            <div class="d-flex flex-column" v-for="exercise in exercises[cycle.id]" :key="exercise.order">
+              <div class="d-flex justify-space-between">
+                <p class="align-self-center">{{ exercise.exercise.name }}</p>
+                <div class="d-flex">
+                  <p class="mx-2">{{ exercise.duration }}s</p>
+                  <p class="mx-2">{{ exercise.repetitions }} repeats</p>
+                </div>
+              </div>
+            </div>
+          </v-card-text>
         </v-card>
       </div>
     </template>
@@ -88,6 +98,8 @@ export default {
       loading: false,
       deleteLoading: false,
       cycles: [],
+      exercises: {},
+      showCycle: {},
     }
   },
   computed: {
@@ -97,10 +109,11 @@ export default {
     ...mapActions(useRoutineStore, {
       $modifyRoutine: 'modify',
       $deleteRoutine: 'delete',
-      $getRoutine: 'get'
+      $getRoutine: 'get',
     }),
     ...mapActions(useCycleStore, {
-      $getCycles: 'getAll'
+      $getCycles: 'getAll',
+      $getCycleExercises: 'getAllCycleExercises',
     }),
     async modify() {
       await this.$modifyRoutine();
@@ -136,11 +149,25 @@ export default {
         const res = await this.$getCycles(this.id);
         for (const contentKey in res.content) {
           this.cycles.push(res.content[contentKey]);
-          this.cycles.indexOf(res.content[contentKey]).show = false;
-          // TODO get exercises
+          this.showCycle[res.content[contentKey].id] = false;
+          await this.getExercises(res.content[contentKey].id);
+          this.exercises[res.content[contentKey].id].sort((a, b) => a.order - b.order);
         }
       } catch (error) {
         console.log(error);
+      }
+    },
+    async getExercises(cycleId) {
+      try {
+        const res = await this.$getCycleExercises(cycleId);
+        const aux = [];
+        for (const contentKey in res.content) {
+          aux.push(res.content[contentKey]);
+        }
+        this.exercises[cycleId] = aux;
+      } catch (error) {
+        console.log(error);
+        //TODO error handling
       }
     }
   },

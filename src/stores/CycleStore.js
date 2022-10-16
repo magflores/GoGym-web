@@ -32,6 +32,9 @@ export const useCycleStore = defineStore("cycle", {
         async deleteCycleExercise(cycleId, exerciseId) {
             return await CycleApi.deleteExercise(cycleId, exerciseId);
         },
+        async getAllCycleExercises(cycleId) {
+            return await CycleApi.getAllExercises(cycleId);
+        },
         async create(routineId, cycle, cycleExercises) {
             const result = await RoutineApi.addCycle(routineId, cycle);
             for (const exercise in cycleExercises) {
