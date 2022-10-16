@@ -12,6 +12,7 @@
                   text
                   padless color="black"
                   class="font"
+                  style="padding-top: 0.5%"
               >
                 Routines
               </v-btn>
@@ -20,6 +21,7 @@
           </v-col>
           <v-col cols="2" v-if="$isLoggedIn">
             <h2
+                style="padding-top: 0.5%"
             >
               |
             </h2>
@@ -31,6 +33,7 @@
                   text
                   padless color="black"
                   class="font"
+                  style="padding-top: 0.5%"
               >
                 Exercises
               </v-btn>

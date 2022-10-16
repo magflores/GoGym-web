@@ -116,6 +116,9 @@ export default {
     SearchBar,
     RoutineLayout,
   },
+  props: {
+    my_prop: String
+  },
   data() {
     return {
       user: {},
