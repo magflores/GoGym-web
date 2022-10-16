@@ -149,15 +149,7 @@ export default {
       await this.$delete(routine)
     }
 
-
   }
-  // watch: {
-  //   model (val) {
-  //     if (val.length > 5) {
-  //       this.$nextTick(() => this.model.pop())
-  //     }
-  //   },
-  // },
 }
 </script>
 

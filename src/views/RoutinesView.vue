@@ -63,17 +63,18 @@
                   </v-row>
                   <div v-if="option.tab === 'Routines' && Fav && loadingFavorites" class="d-flex flex-wrap flex-grow-1">
                     <!--                    LOADING FAV ROUTINES-->
-                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
+                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"/>
                   </div>
                   <div v-if="option.tab === 'Routines' && Fav && !loadingFavorites" class="d-flex flex-wrap flex-grow-1">
                     <!--                    FAV ROUTINES-->
                     <v-card v-for="routine in favorites" :key="routine.id" class="ma-2"
                             :to="{name: 'routinedetailed', params: {id: routine.id}}">
                       <v-card-title>{{ routine.name }}</v-card-title>
-                    </v-card>                  </div>
+                    </v-card>
+                  </div>
                   <div v-if="option.tab === 'Routines' && My && loadingRoutines" class="d-flex flex-wrap flex-grow-1">
                     <!--                    LOADING ROUTINES-->
-                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
+                    <v-skeleton-loader v-for="loader in routineLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"/>
                   </div>
                   <div v-if="option.tab === 'Routines' && My && !loadingRoutines" class="d-flex flex-wrap flex-grow-1">
                     <!--                    ROUTINES-->
@@ -84,7 +85,7 @@
                   </div>
                   <div v-if="option.tab === 'Exercises' && loadingExercises" class="d-flex flex-wrap flex-grow-1">
                     <!--                    LOADING EXERCISES-->
-                    <v-skeleton-loader v-for="loader in exerciseLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"></v-skeleton-loader>
+                    <v-skeleton-loader v-for="loader in exerciseLoaders" :key="loader.key" class="ma-2" min-width="30%" type="card"/>
                   </div>
                   <div v-if="option.tab === 'Exercises' && !loadingExercises">
                     <!--                    EJERCICIOS-->

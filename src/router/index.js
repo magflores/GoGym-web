@@ -40,7 +40,7 @@ const routes = [
 
     },
     {
-        path: '/routinedetailed',
+        path: '/routinedetailed/:id',
         name: 'routinedetailed',
         component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/RoutineDetailedView')
 

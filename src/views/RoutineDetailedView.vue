@@ -6,23 +6,15 @@
     <template v-slot:sidebar>
       <v-list class="d-flex flex-column align-center" height="100%">
         <v-list-item>
-          <h2>Abs routine</h2>
+          <h2>{{ name }}</h2>
         </v-list-item>
         <v-list-item>
-          <p>@juancito</p>
+<!--          <p>@juancito</p>-->
+          <p>@{{ user.username }}</p>
         </v-list-item>
         <v-list-item>
           <diff-sign diff="0"></diff-sign>
         </v-list-item>
-<!--        <v-list-item>-->
-<!--          <v-btn-->
-<!--              class="form-font"-->
-<!--              text-->
-<!--          >-->
-<!--            <v-icon>mdi-arrow-left-top</v-icon>-->
-<!--            <div>Back</div>-->
-<!--          </v-btn>-->
-<!--        </v-list-item>-->
         <v-list-item class="mt-auto">
           <v-btn
               class="form-font"
@@ -85,6 +77,8 @@
 <script>
 import detailedLayout from "@/components/detailedLayout";
 import difficultySign from "@/components/difficultySign";
+import {mapActions, mapState} from "pinia";
+import {useRoutineStore} from "@/stores/RoutineStore";
 
 export default {
   name: "RoutineDetailedView",
@@ -92,12 +86,58 @@ export default {
     DLayout: detailedLayout,
     diffSign: difficultySign
   },
+  computed: {
+    ...mapState(useRoutineStore, 'routines')
+  },
+  methods: {
+    ...mapActions(useRoutineStore, {
+      $modify: 'modify',
+      $delete: 'delete',
+      $getRoutine: 'get'
+    }),
+    async modify(){
+      await this.$modify();
+    },
+    async delete(){
+      await this.$delete();
+    },
+    async getRoutine(){
+      this.loading = true;
+      try {
+        const res = await this.$getRoutine({id: this.id});
+        this.id = res.id;
+        this.name = res.name;
+        this.type = res.type;
+        this.detail = res.detail;
+        this.date = res.date;
+        this.metadata = res.metadata;
+        this.user.username = res.user.username;
+      } catch (error) {
+        console.log(error);
+        // TODO erro handling
+      } finally {
+        this.loading = false;
+      }
+    }
+  },
+  async created(){
+    await this.getRoutine();
+  },
   data() {
     return {
       warmup: false,
       firstround: true,
       cooldown: false,
       show: false,
+      id: this.$route.params.id,
+      name: '',
+      type: '',
+      detail: '',
+      date: '',
+      metadata: '',
+      loading: false,
+      deleteLoading: false,
+      user: {},
     }
   }
 }
