@@ -6,34 +6,36 @@
             <h1> Welcome to GoGym! </h1>
           </v-col>
 
-          <v-col style="margin-top: 20px; margin-bottom: 15px" cols="5" class="text-right" v-if="$isLoggedIn">
+          <v-col cols="5" class="text-right" v-if="$isLoggedIn" style="margin-bottom: 2%; padding-right: 0; padding-left:0;">
             <router-link to="/routines" class="routerLink">
               <v-btn
                   text
                   padless color="black"
                   class="font"
-                  style="margin-top: 2.3%"
+                  rounded
+                  outlined
               >
                 Routines
               </v-btn>
 
             </router-link>
           </v-col>
-          <v-col cols="2" v-if="$isLoggedIn">
+          <v-col cols="1" style="padding-right: 0; padding-left:0; padding-bottom: 0" v-if="$isLoggedIn">
             <h2
-                style="margin-top: 8%; font-size: 30px; font-style: normal; font-weight: 400; line-height: 50px; letter-spacing: 0em; text-align: center; color: #1C1C1C;"
+                style="margin-top: 2.5%; margin-right: 0; margin-left: 0;"
             >
               |
             </h2>
             </v-col>
-          <v-col cols="5" style="margin-top: 20px; margin-bottom: 15px" class="text-left" v-if="$isLoggedIn">
+          <v-col cols="5" class="text-left" v-if="$isLoggedIn" style="margin-bottom: 2%; padding-right: 0; padding-left:0;">
 
             <router-link to="/routines" class="routerLink">
               <v-btn
                   text
                   padless color="black"
                   class="font"
-                  style="margin-top: 2.3%"
+                  rounded
+                  outlined
               >
                 Exercises
               </v-btn>
