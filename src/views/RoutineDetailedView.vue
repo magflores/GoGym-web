@@ -43,11 +43,11 @@
     </template>
     <template v-slot:content>
       <div class="d-flex flex-column">
-        <v-card v-for="cycle in cycles" :key="cycle.id" elevation="1" class="justify-center rounded-xl my-5" @click="showCycle[cycle.id] = ! showCycle[cycle.id]">
-          <v-card-title class="justify-center card-title" :class="(showCycle[cycle.id]) ? '' : 'rounded-xl'">
+        <v-card v-for="cycle in cycles" :key="cycle.id" elevation="1" class="justify-center rounded-xl my-5">
+          <v-card-title class="justify-center card-title">
             {{ cycle.name }}
           </v-card-title>
-          <v-card-text class="card-content" v-show="showCycle[cycle.id]">
+          <v-card-text class="card-content">
             <div class="d-flex flex-column" v-for="exercise in exercises[cycle.id]" :key="exercise.order">
               <div class="d-flex justify-space-between">
                 <p class="align-self-center">{{ exercise.exercise.name }}</p>
@@ -99,7 +99,6 @@ export default {
       deleteLoading: false,
       cycles: [],
       exercises: {},
-      showCycle: {},
     }
   },
   computed: {
@@ -149,7 +148,6 @@ export default {
         const res = await this.$getCycles(this.id);
         for (const contentKey in res.content) {
           this.cycles.push(res.content[contentKey]);
-          this.showCycle[res.content[contentKey].id] = false;
           await this.getExercises(res.content[contentKey].id);
           this.exercises[res.content[contentKey].id].sort((a, b) => a.order - b.order);
         }
