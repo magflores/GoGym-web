@@ -34,7 +34,7 @@
           </router-link>
         </v-list-item>
         <v-list-item>
-          <v-btn class="form-font" text>
+          <v-btn class="form-font" text @click="deleteRoutine()" :disabled="deleteLoading" :loading="deleteLoading">
             <v-icon>mdi-delete</v-icon>
             <div>Delete</div>
           </v-btn>
@@ -168,6 +168,18 @@ export default {
       } catch (error) {
         console.log(error);
         //TODO error handling
+      }
+    },
+    async deleteRoutine() {
+      this.deleteLoading = true;
+      try {
+        await this.$deleteRoutine({id: this.id});
+        this.$router.push({name: 'routines'});
+      } catch (error) {
+        console.log(error);
+        //TODO error handling
+      } finally {
+        this.deleteLoading = false;
       }
     }
   },
