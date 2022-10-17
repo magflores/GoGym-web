@@ -88,7 +88,7 @@
         <v-btn rounded class="mx-auto" width="40%" color="#C8C8C8" to="/routines">
           CANCEL
         </v-btn>
-        <v-btn width="40%" class="mx-auto" rounded color="#F8C256">SAVE</v-btn>
+        <v-btn width="40%" class="mx-auto" rounded color="#F8C256" @click="saveChanges()" :loading="loadingSave" :disabled="loadingSave">SAVE</v-btn>
       </div>
     </template>
   </d-layout>
@@ -122,16 +122,18 @@ export default {
       },
       cycles: [],
       originalCycles: [],
-      originalExercises: [],
+      originalExercises: {},
       exercises: {},
       allUserExercises: [],
       newCycles: [],
       deleted: [],
+      loadingSave: false,
     }
   },
   methods: {
     ...mapActions(useRoutineStore, {
       $getRoutine: 'get',
+      $updateRoutine: 'modify',
     }),
     ...mapActions(useCycleStore, {
       $getCycles: 'getAll',
@@ -272,6 +274,29 @@ export default {
         order: exOrder,
       });
     },
+    async saveChanges() {
+      this.loadingSave = true;
+      try {
+        await this.updateRoutine({
+          id: this.id,
+          name: this.name,
+          detail: this.detail,
+          isPublic: this.isPublic,
+          difficulty: this.difficulty,
+          metadata: this.metadata,
+          category: this.category,
+        });
+        await this.updateCycles();
+      } catch (error) {
+        console.log(error);
+        // TODO error handling
+      } finally {
+        this.loadingSave = false;
+      }
+    },
+    async updateCycles() {
+      // Do something
+    }
   },
   async created() {
     await this.getRoutine(this.$route.params.id)
