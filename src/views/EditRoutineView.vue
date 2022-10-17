@@ -11,45 +11,61 @@
         <v-list-item>
           <v-text-field v-model="name"/>
         </v-list-item>
-        <!--        <v-list-item>-->
-        <!--          <h2>Difficulty:</h2>-->
-        <!--        </v-list-item>-->
-        <!--        <v-list-item>-->
-        <!--          <v-container fluid>-->
-        <!--            <v-combobox v-model="model" :items="items" :search-input.sync="search" hide-selected hint="Select one" persistent-hint small-chips>-->
-        <!--            </v-combobox>-->
-        <!--          </v-container>-->
-        <!--        </v-list-item>-->
-        <!--        <v-list-item>-->
-        <!--          <h2>Category:</h2>-->
-        <!--        </v-list-item>-->
-        <!--        <v-list-item>-->
-        <!--          <v-container fluid>-->
-        <!--            <v-combobox v-model="model2" :items="items2" :search-input.sync="search" hide-selected hint="Select one" persistent-hint>-->
-        <!--            </v-combobox>-->
-        <!--          </v-container>-->
-        <!--        </v-list-item>-->
       </v-list>
     </template>
     <template v-slot:content>
-      <v-card v-for="cycle in cycles" :key="cycle.order" elevation="1" class="justify-center rounded-xl my-5">
+      <v-card v-for="cycle in cycles"
+              :key="cycle.order" elevation="1"
+              class="justify-center rounded-xl my-5">
         <v-card-title class="justify-center card-title">
           <v-text-field v-model="cycle.name"></v-text-field>
         </v-card-title>
         <v-card-text class="card-content">
-          <div class="d-flex flex-column" v-for="exercise in exercises[cycle.id]" :key="exercise.order">
+
+          <!--<div class="d-flex flex-column"
+               v-for="exercise in exercises[cycle.id]"
+               :key="exercise.order">
             <div class="d-flex justify-space-between">
-              <v-select class="align-self-center" dense label="Exercise" outlined :items="getPossibleExercises(cycle.id)" v-model="exercise.exercise.id"></v-select>
+              <v-select class="align-self-center" dense
+                        label="Exercise" outlined
+                        :items="getPossibleExercises(cycle.id)"
+                        v-model="exercise.exercise.id"/>
               <div class="d-flex justify-space-between" style="width: 20%">
-                <v-text-field type="number" class="mx-2" v-model="exercise.duration" label="Seconds"></v-text-field>
-<!--                <p class="mx-2">{{ exercise.duration }}s</p>-->
-                <v-text-field type="number" class="mx-2" v-model="exercise.repetitions" label="Repetitions"></v-text-field>
-<!--                <p class="mx-2">{{ exercise.repetitions }} repeats</p>-->
+                <v-text-field type="number" class="mx-2"
+                              v-model="exercise.duration"
+                              label="Seconds"/>
+                <v-text-field type="number" class="mx-2"
+                              v-model="exercise.repetitions"
+                              label="Repetitions"/>
               </div>
             </div>
+          </div>-->
+
+          <div class="d-flex flex-column"
+               v-for="exercise in cycle.exercises"
+               :key="exercise.order">
+            <v-card-title class="justify-center card-title">
+              <v-text-field v-model="cycle.name"></v-text-field>
+            </v-card-title>
+            <v-select class="align-self-center" dense
+                      label="Exercise" outlined
+                      :items="getPossibleExercises(cycle.id)"
+                      v-model="exercise.exercise.id"/>
+            <div class="d-flex justify-space-between" style="width: 20%">
+              <v-text-field type="number" class="mx-2"
+                            v-model="exercise.duration"
+                            label="Seconds"/>
+              <!--                <p class="mx-2">{{ exercise.duration }}s</p>-->
+              <v-text-field type="number" class="mx-2"
+                            v-model="exercise.repetitions"
+                            label="Repetitions"/>
+              <!--                <p class="mx-2">{{ exercise.repetitions }} repeats</p>-->
+            </div>
           </div>
+
           <v-layout justify-center>
-            <v-btn text @click="addNewExerciseToCycle(cycle.id)">
+            <v-btn text
+                   @click="addNewExerciseToCycle(cycle)">
               <h3>Add New Exercise</h3>
             </v-btn>
           </v-layout>
@@ -208,12 +224,6 @@ export default {
       const possibleExercises = [];
       for (const exercise of this.allUserExercises) {
         let isPossible = true;
-        // for (const cycleExercise of this.exercises[cycleId]) {
-        //   if (cycleExercise.exercise.id === exercise.id) {
-        //     isPossible = false;
-        //     break;
-        //   }
-        // }
         if (isPossible) {
           possibleExercises.push({
             text: exercise.name,
@@ -227,12 +237,6 @@ export default {
       const possibleExercises = [];
       for (const exercise of this.allUserExercises) {
         let isPossible = true;
-        // for (const cycleExercise of this.exercises[cycleId]) {
-        //   if (cycleExercise.exercise.id === exercise.id) {
-        //     isPossible = false;
-        //     break;
-        //   }
-        // }
         if (isPossible) {
           possibleExercises.push({
             text: exercise.name,
@@ -244,22 +248,34 @@ export default {
     },
     addNewCycle() {
       let order = this.cycles.length + this.newCycles.length + 1;
-      this.newCycles.push({
-        name: '',
+      this.cycles.push({
+        name: 'nuevo ciclo',
         order: order,
         exercises: []
       });
     },
-    addNewExerciseToCycle(cycleId) {
-      this.exercises[cycleId].push({
+    addNewExerciseToCycle(myCycle) {
+      let order = this.cycles.length + this.newCycles.length + 1;
+      myCycle.exercises.push({
         exercise: {
           id: 0,
-          name: '',
+          name: 'nueva',
         },
-        duration: 0,
-        repetitions: 0,
-        order: this.exercises[cycleId].length,
+          duration: 0,
+          order: order,
+          repetitions: 0,
       });
+
+
+      // this.exercises[myCycle.id].push({
+      //   exercise: {
+      //     id: 0,
+      //     name: '',
+      //   },
+      //   duration: 0,
+      //   repetitions: 0,
+      //   order: this.exercises[myCycle.id].length + 1,
+      // });
     },
     addNewExerciseToNewCycle(order) {
       let cycle = this.newCycles.find(cycle => cycle.order === order);
@@ -277,7 +293,7 @@ export default {
     async saveChanges() {
       this.loadingSave = true;
       try {
-        await this.updateRoutine({
+        await this.$updateRoutine({
           id: this.id,
           name: this.name,
           detail: this.detail,
