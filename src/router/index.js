@@ -86,6 +86,10 @@ const routes = [
 
     },
     {
+        path: '/editexercise',
+        component: () => import(/* webpackChunckName: "editexercise" */ '@/views/EditExerciseView')
+    },
+    {
         path: '/exercisedetailed/:id',
         name: 'exercisedetailed',
         component: () => import(/* webpackChunckName: "exerciseDetailed" */ '@/views/ExerciseDetailedView')
