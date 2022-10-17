@@ -12,6 +12,7 @@
                   text
                   padless color="black"
                   class="font"
+                  style="margin-top: 2.3%"
               >
                 Routines
               </v-btn>
@@ -32,6 +33,7 @@
                   text
                   padless color="black"
                   class="font"
+                  style="margin-top: 2.3%"
               >
                 Exercises
               </v-btn>

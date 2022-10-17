@@ -2,8 +2,7 @@
   <v-chip
       class="difficulty-sign"
       color="transparent"
-      elevation="0"
-      :class="difficultyClass">
+      elevation="0">
     <v-icon :color="color[diff]">mdi-circle</v-icon>
     {{ message[diff] }}
   </v-chip>

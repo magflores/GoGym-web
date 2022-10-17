@@ -112,11 +112,17 @@
 
 <script>
 import detailedLayout from "@/components/detailedLayout";
+import {mapActions, mapState} from "pinia";
+import {useRoutineStore} from "@/stores/RoutineStore";
 
 export default {
   name: "NewRoutineView",
   components: {
     DLayout: detailedLayout,
+  },
+  computed: {
+    ...mapState(useRoutineStore, ['routines']),
+
   },
   data: () => ({
     items: ['Easy', 'Intermediate', 'Hard'],
@@ -125,13 +131,25 @@ export default {
     model2: null,
     search: null,
   }),
-  // watch: {
-  //   model (val) {
-  //     if (val.length > 5) {
-  //       this.$nextTick(() => this.model.pop())
-  //     }
-  //   },
-  // },
+  methods: {
+    ...mapActions(useRoutineStore, {
+      $modify: 'modify',
+      $delete: 'delete',
+      $create: "create"
+    }),
+    async create(routine){
+      await this.$create(routine)
+    },
+
+    async modify(routine){
+      await this.$modify(routine)
+    },
+
+    async delete(routine){
+      await this.$delete(routine)
+    }
+
+  }
 }
 </script>
 

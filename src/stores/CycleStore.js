@@ -7,8 +7,10 @@ export const useCycleStore = defineStore("cycle", {
         cycles: [],
     }),
     getters: {
-        findIndex(cycle) {
-            return this.cycles.findIndex(c => c.id === cycle.id);
+        findIndex() {
+            return (cycle) => {
+                return this.cycles.findIndex(item => item.id === cycle.id);
+            }
         }
     },
     actions: {
@@ -29,6 +31,9 @@ export const useCycleStore = defineStore("cycle", {
         },
         async deleteCycleExercise(cycleId, exerciseId) {
             return await CycleApi.deleteExercise(cycleId, exerciseId);
+        },
+        async getAllCycleExercises(cycleId) {
+            return await CycleApi.getAllExercises(cycleId);
         },
         async create(routineId, cycle, cycleExercises) {
             const result = await RoutineApi.addCycle(routineId, cycle);
@@ -62,7 +67,7 @@ export const useCycleStore = defineStore("cycle", {
                 this.splice(index);
         },
         async getAll(routineId) {
-            return await RoutineApi.getCycles(routineId);
+            return await RoutineApi.getAllCycles(routineId);
         },
     }
 });
