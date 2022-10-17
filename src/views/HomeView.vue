@@ -20,6 +20,7 @@
           </v-col>
           <v-col cols="2" v-if="$isLoggedIn">
             <h2
+                style="margin-top: 4%; font-size: 30px"
             >
               |
             </h2>

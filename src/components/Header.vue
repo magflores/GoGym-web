@@ -5,16 +5,16 @@
         <v-img :src="require('../assets/GoGym-icon.png')" max-height="65" max-width="65"/>
       </router-link>
     </div>
-    <h1 class="rambla-font" style="font-size: 220%; color: #2E2D29;">GoGym!</h1>
+    <h1 class="rambla-font" style="font-size: 220%; color: #1C1C1C;">GoGym!</h1>
     <v-spacer/>
     <div class="d-flex align-center" v-if="!$isLoggedIn">
-      <v-btn text syle="color: #2E2D29; font-size: 105%" class="rambla-font" :to="{name: 'register'}">
+      <v-btn text style="color: #2E2D29; font-size: 105%" class="rambla-font" :to="{name: 'register'}">
         Join Us
       </v-btn>
-      <h2 style="margin-right: 10px; margin-left: 10px; color: #2E2D29">
+      <h2 style="margin-right: 10px; margin-left: 10px; color: #2E2D29; font-size: 105%">
         |
       </h2>
-      <v-btn text syle="color: #2E2D29; font-size: 105%" class="rambla-font" :to="{name: 'login'}">
+      <v-btn text style="color: #2E2D29; font-size: 105%" class="rambla-font" :to="{name: 'login'}">
         Log In
       </v-btn>
     </div>
