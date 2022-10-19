@@ -75,7 +75,7 @@
         <v-card-title class="justify-center card-title">
           <v-text-field v-model="newCycle.name"></v-text-field>
         </v-card-title>
-<!--        NEW CYCLES-->
+        <!--        NEW CYCLES-->
         <v-card-text class="card-content">
           <div class="d-flex flex-column" v-for="exercise in newCycle.exercises" :key="exercise.order">
             <div class="d-flex justify-space-between">
@@ -261,9 +261,9 @@ export default {
           id: 0,
           name: 'nueva',
         },
-          duration: 0,
-          order: order,
-          repetitions: 0,
+        duration: 0,
+        order: order,
+        repetitions: 0,
       });
 
 

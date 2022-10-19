@@ -74,7 +74,7 @@ const routes = [
 
     },
     {
-        path: '/editroutine/:id',
+        path: '/editroutine',
         name: 'editroutine',
         component: () => import(/* webpackChunckName: "routineDetailed" */ '@/views/EditRoutineView')
 

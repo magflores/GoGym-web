@@ -106,7 +106,7 @@
           </v-btn>
           </router-link>
 
-          <router-link to="/newroutine" class="routerLink" v-else>
+          <router-link to="/editroutine" class="routerLink" v-else>
             <v-btn icon
                    height="150px"
                    width="150"
@@ -136,7 +136,7 @@
           </v-btn>
           </router-link>
 
-          <router-link to="/editroutine" class="routerLink" v-else>
+          <router-link to="/editexercise" class="routerLink" v-else>
             <v-btn icon
                    height="150px"
                    width="150"
