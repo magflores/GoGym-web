@@ -48,7 +48,7 @@
                   </v-icon>
                 </v-btn>
                 <v-btn fab color="#F8C256" style="margin-right: 10px; margin-bottom: 55px" absolute right bottom
-                       v-if="My === true && option.tab === 'Exercises'"
+                       v-if="option.tab === 'Exercises'"
                        to="/editexercise">
                   <v-icon color="black">
                     mdi-plus
